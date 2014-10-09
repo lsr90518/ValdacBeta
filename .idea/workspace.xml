@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ValdacBeta.iml" afterPath="$PROJECT_DIR$/ValdacBeta.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ValdacBeta.iws" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.63211846" vertical-offset="0" max-vertical-offset="1755">
+              <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -477,6 +474,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="" />
@@ -487,12 +487,17 @@
       <workItem from="1412838166693" duration="768000" />
       <workItem from="1412840515214" duration="8000" />
       <workItem from="1412840551554" duration="49000" />
-      <workItem from="1412842119582" duration="43000" />
+      <workItem from="1412842119582" duration="126000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1412842189805</created>
+      <updated>1412842189805</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8972000" />
+    <option name="totallyTimeSpent" value="9055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="22" width="2560" height="1418" extended-state="6" />
@@ -544,6 +549,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -564,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.63211846" vertical-offset="0" max-vertical-offset="1755">
+          <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
           <folding />
         </state>
       </provider>
