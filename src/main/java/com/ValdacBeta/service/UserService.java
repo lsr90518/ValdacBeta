@@ -18,10 +18,7 @@ public class UserService {
     @Resource
     UserMapper userMapper;
 
-    @Transactional
     public void getUserById(String UserId) {
-        System.out.println("aaaaaa");
-        System.out.println(userMapper.findByUserName("a"));
-        System.out.println("cccccc");
+        System.out.println(userMapper.findByUserName(UserId).getPassword());
     }
 }

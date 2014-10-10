@@ -7,41 +7,43 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    public String getUserId() {
-        return UserId;
+
+
+    public int userid;
+
+    public int getUserid() {
+        return userid;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getUsername() {
+        return username;
     }
 
     public String getKengen() {
-        return Kengen;
+        return kengen;
     }
 
-    public String UserId;
-
-    public void setUserId(String userId) {
-        UserId = userId;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
-    public void setUserName(String userName) {
-        UserName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setKengen(String kengen) {
-        Kengen = kengen;
+        this.kengen = kengen;
     }
 
-    public String Password;
-    public String UserName;
-    public String Kengen;
+    public String password;
+    public String username;
+    public String kengen;
 }
