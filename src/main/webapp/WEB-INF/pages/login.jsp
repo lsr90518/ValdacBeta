@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html class="bg-black">
+<html class="lockscreen">
 <head>
     <meta charset="UTF-8">
     <title>Valdac</title>
@@ -8,12 +8,18 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="css/main.css" rel="stylesheet" type="text/css" />
-    <script src="https:http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:http://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body class="bg-black">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
+</head>
+
+<style type="text/css">
+    .footer{
+        background-color: #D3EBD7;
+    }
+</style>
+
+<body class="">
 <div class="form-box" id="login-box">
     <div class="header">Welcome to Valdac</div>
     <form action="/login" method="post">
