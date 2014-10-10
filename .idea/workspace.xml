@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/entity/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/dao/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/dao/UserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ValdacBeta.iws" />
@@ -127,6 +123,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="lsr" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -703,7 +704,7 @@
       <workItem from="1412838166693" duration="768000" />
       <workItem from="1412840515214" duration="8000" />
       <workItem from="1412840551554" duration="49000" />
-      <workItem from="1412842119582" duration="4099000" />
+      <workItem from="1412842119582" duration="4131000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1412842189805</created>
@@ -713,11 +714,15 @@
       <created>1412842267110</created>
       <updated>1412842267110</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="UserTable">
+      <created>1412902384139</created>
+      <updated>1412902384139</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13028000" />
+    <option name="totallyTimeSpent" value="13060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="22" width="2560" height="1414" extended-state="6" />
@@ -770,7 +775,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="UserTable" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserTable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
