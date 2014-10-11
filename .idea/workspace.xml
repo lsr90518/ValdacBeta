@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ValdacBeta.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +38,8 @@
       <file leaf-file-name="addvalve.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4388489" vertical-offset="3475" max-vertical-offset="5535">
-              <caret line="252" column="41" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.58992803" vertical-offset="3490" max-vertical-offset="5400">
+              <caret line="260" column="126" selection-start-line="260" selection-start-column="126" selection-end-line="260" selection-end-column="126" />
               <folding />
             </state>
           </provider>
@@ -633,7 +632,7 @@
       <workItem from="1412838166693" duration="768000" />
       <workItem from="1412840515214" duration="8000" />
       <workItem from="1412840551554" duration="49000" />
-      <workItem from="1412842119582" duration="23339000" />
+      <workItem from="1412842119582" duration="24163000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1412842189805</created>
@@ -663,7 +662,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32268000" />
+    <option name="totallyTimeSpent" value="33092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="22" width="1920" height="1058" extended-state="6" />
@@ -897,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4388489" vertical-offset="3475" max-vertical-offset="5535">
-          <caret line="252" column="41" selection-start-line="252" selection-start-column="41" selection-end-line="252" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.58992803" vertical-offset="3490" max-vertical-offset="5400">
+          <caret line="260" column="126" selection-start-line="260" selection-start-column="126" selection-end-line="260" selection-end-column="126" />
           <folding />
         </state>
       </provider>

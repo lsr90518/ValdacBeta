@@ -157,7 +157,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="KikiSysMei">機器システム名</label>
+                                        <input type="button" class="btn btn-default" value="機器システム"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="KikiSysMei" name="KikiSysMei" class="form-control">
@@ -181,13 +181,13 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="SetSetubi">設置設備</label>
+                                        <input type="button" class="btn btn-default" value="設置設備"/>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" id="SetSetubi" name="SetSetubi" class="form-control">
                                     </div>
                                     <div class="col-md-2">
-                                        <label for="SetKiki">設置装備</label>
+                                        <input type="button" class="btn btn-default" value="設置装備"/>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" id="SetKiki" name="SetKiki" class="form-control">
@@ -198,7 +198,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="SetBasyo">設置場所</label>
+                                        <input type="button" class="btn btn-default" value="設置場所"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="SetBasyo" name="SetBasyo" class="form-control">
@@ -209,7 +209,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="Keitou">系統</label>
+                                        <input type="button" class="btn btn-default" value="系統"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="Keitou" name="Keitou" class="form-control">
@@ -220,7 +220,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="ICS">ICS番号</label>
+                                        <input type="button" class="btn btn-default" value="ICS番号"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="ICS" name="ICS" class="form-control">
@@ -231,7 +231,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <label for="Tool">工具</label>
+                                        <input type="button" class="btn btn-default" value="工具"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="Tool" name="Tool" class="form-control">
@@ -250,28 +250,19 @@
                     <form role="form" class="box-body-form">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail2">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword2">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile2">File input</label>
-                                <input type="file" id="exampleInputFile2">
-                                <p class="help-block">Example block-level help text here.</p>
-                            </div>
-                            <div class="checkbox">
-                                <label class="">
-                                    <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Check me out
-                                </label>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input type="text" id="AturyokuMax" name="AturyokuMax" class="form-control" placeholder="圧力">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" id="Tani" name="Tani" class="form-control" placeholder="単位">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" id="OndoMax" name="OndoMax" class="form-control" placeholder="温度℃">
+                                    </div>
+                                </div>
                             </div>
                         </div><!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
                     </form>
 
 
