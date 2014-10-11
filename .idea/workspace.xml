@@ -280,7 +280,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="" />
+    <list default="true" id="613c84e1-fb7f-4bed-9318-6b20d6741a4e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ValdacBeta.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -302,6 +307,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="UserMapper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ValdacBeta/dao/UserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -347,16 +353,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="65" />
+=======
+      <file leaf-file-name="hello.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.875" vertical-offset="1695" max-vertical-offset="2925">
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <file leaf-file-name="addvalve.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="630">
               <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
+=======
+            <state vertical-scroll-proportion="0.6309696" vertical-offset="2534" max-vertical-offset="3585">
+              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
               <folding />
             </state>
           </provider>
@@ -390,11 +408,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/dao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/HelloController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp" />
       </list>
     </option>
   </component>
@@ -947,8 +966,12 @@
       <workItem from="1412838166693" duration="768000" />
       <workItem from="1412840515214" duration="8000" />
       <workItem from="1412840551554" duration="49000" />
+<<<<<<< HEAD
       <workItem from="1412842119582" duration="16760000" />
       <workItem from="1413006014083" duration="14000" />
+=======
+      <workItem from="1412842119582" duration="19075000" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1412842189805</created>
@@ -978,11 +1001,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="25703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="804" extended-state="6" />
     <editor active="false" />
+=======
+    <option name="totallyTimeSpent" value="28004000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1680" y="22" width="1920" height="1054" extended-state="6" />
+    <editor active="true" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1139,6 +1170,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
@@ -1147,6 +1179,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/img/blur-background08.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1177,24 +1211,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="630">
           <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
+=======
+        <state vertical-scroll-proportion="0.6882591" vertical-offset="0" max-vertical-offset="741">
+          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+        <state vertical-scroll-proportion="0.397878" vertical-offset="0" max-vertical-offset="754">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ValdacBeta/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49734747" vertical-offset="0" max-vertical-offset="754">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.40958267" vertical-offset="4565" max-vertical-offset="5235">
           <caret line="322" column="26" selection-start-line="322" selection-start-column="26" selection-end-line="322" selection-end-column="26" />
+=======
+        <state vertical-scroll-proportion="-21.875" vertical-offset="1695" max-vertical-offset="2925">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/addvalve.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6309696" vertical-offset="2534" max-vertical-offset="3585">
+          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+>>>>>>> 176fec79329e83033433ab1d04a7b36771a6e3dc
           <folding />
         </state>
       </provider>
