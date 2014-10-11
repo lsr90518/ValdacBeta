@@ -148,23 +148,153 @@
 
             <div class="col-lg-12">
                 <div class="box box-primary">
-                    <div class="box-header kikisystem-panel">
-                        <h3 class="box-title">弁情報登録</h3>
+                    <div class="box-header box-panel">
+                        <h3 class="box-title">弁情報</h3>
                     </div>
 
                     <form role="form" class="box-body-form">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="KikiSysMei">機器システム名</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="KikiSysMei" name="KikiSysMei" class="form-control">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="text" id="VNo" name="VNo" class="form-control" placeholder="弁番号">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" id="VNoSub" name="VNoSub" class="form-control" placeholder="職番">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" id="BenMeisyo" name="BenMeisyo" class="form-control" placeholder="弁名称">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="SetSetubi">設置設備</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" id="SetSetubi" name="SetSetubi" class="form-control">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="SetKiki">設置装備</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" id="SetKiki" name="SetKiki" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="SetBasyo">設置場所</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="SetBasyo" name="SetBasyo" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="Keitou">系統</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="Keitou" name="Keitou" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="ICS">ICS番号</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="ICS" name="ICS" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="Tool">工具</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" id="Tool" name="Tool" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </form>
+                </div>
+
+                <div class="box box-danger">
+                    <div class="box-header box-panel">
+                        <h3 class="box-title">弁仕様</h3>
+                    </div>
+
+                    <form role="form" class="box-body-form">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
+                                <label for="exampleInputPassword2">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile2">File input</label>
+                                <input type="file" id="exampleInputFile2">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
+                            <div class="checkbox">
+                                <label class="">
+                                    <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Check me out
+                                </label>
+                            </div>
+                        </div><!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="box box-warning">
+                    <div class="box-header box-panel">
+                        <h3 class="box-title">付帯情報</h3>
+                    </div>
+
+                    <form role="form" class="box-body-form">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile3">File input</label>
+                                <input type="file" id="exampleInputFile3">
                                 <p class="help-block">Example block-level help text here.</p>
                             </div>
                             <div class="checkbox">
@@ -195,7 +325,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".kikisystem-panel").click(function(){
+        $(".box-panel").click(function(){
             $(this).next().toggle();
         });
     });
