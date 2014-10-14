@@ -5,7 +5,7 @@ package com.ValdacBeta.dto;
  */
 public class ValveForm {
 
-    public String KikiSysId;
+    public int KikiSysId;
     public String kCode;
     public String KikiSysSeq;
     public String VNo;
@@ -40,11 +40,11 @@ public class ValveForm {
     public String TrkDate;
     public String UpdDate;
 
-    public String getKikiSysId() {
+    public int getKikiSysId() {
         return KikiSysId;
     }
 
-    public void setKikiSysId(String kikiSysId) {
+    public void setKikiSysId(int kikiSysId) {
         KikiSysId = kikiSysId;
     }
 

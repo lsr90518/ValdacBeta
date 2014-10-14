@@ -6,7 +6,7 @@ import com.ValdacBeta.dto.ValveForm;
  * Created by Lsr on 10/14/14.
  */
 public class Valve {
-    public String KikiSysId;
+    public int KikiSysId;
     public String kCode;
     public String KikiSysSeq;
     public String VNo;
@@ -41,7 +41,7 @@ public class Valve {
     public String TrkDate;
     public String UpdDate;
 
-    public Valve(ValveForm valveForm){
+    public void makeupValveByForm(ValveForm valveForm){
         setVNo(valveForm.getVNo());
         setVNoSub(valveForm.getVNoSub());
         setBenMeisyo(valveForm.getBenMeisyo());
@@ -73,11 +73,11 @@ public class Valve {
         setFutai(valveForm.getFutai());
     }
 
-    public String getKikiSysId() {
+    public int getKikiSysId() {
         return KikiSysId;
     }
 
-    public void setKikiSysId(String kikiSysId) {
+    public void setKikiSysId(int kikiSysId) {
         KikiSysId = kikiSysId;
     }
 

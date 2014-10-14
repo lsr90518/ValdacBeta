@@ -24,6 +24,7 @@
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.26" />
           <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.3" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="ValdacBeta/web/Web" />

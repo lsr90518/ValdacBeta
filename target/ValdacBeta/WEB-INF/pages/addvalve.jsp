@@ -157,7 +157,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="機器システム"/>
+                                        <input type="button" class="btn btn-primary" onclick="getAllValve()" value="機器システム"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="KikiSysMei" name="KikiSysMei" class="form-control">
@@ -403,6 +403,12 @@
             $(this).next().toggle();
         });
     });
+
+    function getAllValve(){
+        alert("1");
+        $.get("/valve/getAllValveJson",function(data){
+        });
+    }
 </script>
 
 <!-- Morris.js charts -->
