@@ -26,12 +26,22 @@
         <property name="basePackage" value="com.ValdacBeta.dao" />
     </bean>
 
+<<<<<<< HEAD
+    <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--<property name="mapperInterface" value="com.ValdacBeta.dao.UserMapper" />-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+    <!--</bean>-->
+
+
+
+=======
+>>>>>>> 107ae1184d386ccf361b0940b48c578e37b95aef
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    <mvc:resources mapping="/css/**" location="/WEB-INF/pages/css/"/>
-    <mvc:resources mapping="/js/**" location="/WEB-INF/pages/js/" />
-    <mvc:resources mapping="/img/**" location="/WEB-INF/pages/img/" />
+    <mvc:resources mapping="css/**" location="/WEB-INF/pages/css/"/>
+    <mvc:resources mapping="js/**" location="/WEB-INF/pages/js/" />
+    <mvc:resources mapping="img/**" location="/WEB-INF/pages/img/" />
     <mvc:annotation-driven />
 </beans>

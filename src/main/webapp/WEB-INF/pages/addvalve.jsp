@@ -10,13 +10,13 @@
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Date Picker -->
-    <link href="/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Daterange picker -->
-    <link href="/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:http:// -->
@@ -52,7 +52,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
                                 ${user.username} - ${user.department}
                             </p>
@@ -80,7 +80,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+                <img src="img/avatar3.png" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
                 <p>お疲れ様, ${user.username}</p>
@@ -106,7 +106,7 @@
                 </a>
             </li>
             <li>
-                <a href="/pages/widgets.html">
+                <a href="pages/widgets.html">
                     <i class="fa fa-edit"></i> <span>アイテム編集</span>
                 </a>
             </li>
@@ -143,249 +143,45 @@
     <section class="content">
 
         <div class="row">
-        <form role="form" class="box-body-form" method="post" action="/valve/add">
+
             <!-- collection -->
 
             <div class="col-lg-12">
                 <div class="box box-primary">
-                    <div class="box-header box-panel">
-                        <h3 class="box-title">弁情報</h3>
+                    <div class="box-header kikisystem-panel">
+                        <h3 class="box-title">弁情報登録</h3>
                     </div>
 
-
+                    <form role="form" class="box-body-form">
                         <div class="box-body">
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="機器システム"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="KikiSysMei" name="KikiSysMei" class="form-control">
-                                    </div>
-                                </div>
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input type="text" id="VNo" name="VNo" class="form-control" placeholder="弁番号">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="VNoSub" name="VNoSub" class="form-control" placeholder="職番">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" id="BenMeisyo" name="BenMeisyo" class="form-control" placeholder="弁名称">
-                                    </div>
-                                </div>
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                             </div>
-
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置設備"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" id="SetSetubi" name="SetSetubi" class="form-control">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置装備"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" id="SetKiki" name="SetKiki" class="form-control">
-                                    </div>
-                                </div>
+                                <label for="exampleInputFile">File input</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置場所"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="SetBasyo" name="SetBasyo" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="系統"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="Keitou" name="Keitou" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="ICS番号"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="ICS" name="ICS" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="工具"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="Tool" name="Tool" class="form-control">
-                                    </div>
-                                </div>
+                            <div class="checkbox">
+                                <label class="">
+                                    <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Check me out
+                                </label>
                             </div>
                         </div><!-- /.box-body -->
 
-                </div>
-
-                <div class="box box-danger">
-                    <div class="box-header box-panel">
-                        <h3 class="box-title">弁仕様</h3>
-                    </div>
-
-                        <div class="box-body">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <input type="text" id="AturyokuMax" name="AturyokuMax" class="form-control" placeholder="圧力">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Tani" name="Tani" class="form-control" placeholder="単位">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="OndoMax" name="OndoMax" class="form-control" placeholder="温度℃">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="流体" />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="RyutaiRyaku" name="RyutaiRyaku" class="form-control" placeholder="略称">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Ryutai" name="Ryutai" class="form-control">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="形式" />
-
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="KeisikiRyaku" name="KeisikiRyaku" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Keisiki" name="Keisiki" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="駆動方式" />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="SousaRyaku" name="SousaRyaku" class="form-control" placeholder="略称">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Sousa" name="Sousa" class="form-control">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="クラス" />
-
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="ClassRyaku" name="ClassRyaku" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="ClassType" name="ClassType" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="呼び径" />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="YobikeiRyaku" name="YobikeiRyaku" class="form-control" placeholder="略称">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Yobikei" name="Yobikei" class="form-control">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="接続入口" />
-
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="SzHouRyaku" name="SzHouRyaku" class="form-control" placeholder="">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="SzHou" name="SzHou" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="接続規格" />
-                                    </div>
-                                    <div class="col-md-5">
-                                        <input type="text" id="SzKikaku" name="SzKikaku" class="form-control">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="本体材質" />
-
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="text" id="ZaisituRyaku" name="ZaisituRyaku" class="form-control" placeholder="略称">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="Zaisitu" name="Zaisitu" class="form-control" placeholder="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.box-body -->
-
-
-                </div>
-
-                <div class="box box-warning">
-                    <div class="box-header box-panel">
-                        <h3 class="box-title">付帯情報</h3>
-                    </div>
-
-                        <div class="box-body">
-                            <div class="form-group">
-                                <textarea class="form-control" id="Futai" name="Futai" rows="3"></textarea>
-                            </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
+                    </form>
+
+
                 </div>
-
-                <div class="box box-solid">
-
-                    <div class="box-body clearfix">
-                        <div class="form-group">
-                            <a class="btn btn-default">
-                                <i class="fa fa-refresh"></i> リセット
-                            </a>
-                            <button class="btn btn-success pull-right">
-                                <i class="fa fa-save"></i> 保存
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </form>
         </div>
 
     </section><!-- /.content -->
@@ -399,7 +195,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".box-panel").click(function(){
+        $(".kikisystem-panel").click(function(){
             $(this).next().toggle();
         });
     });
@@ -407,31 +203,31 @@
 
 <!-- Morris.js charts -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="js/plugins/morris/morris.min.js" type="text/javascript"></script>
 <!-- Sparkline -->
-<script src="/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
 <!-- jvectormap -->
-<script src="/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-<script src="/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+<script src="js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+<script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
 <!-- jQuery Knob Chart -->
-<script src="/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+<script src="js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
 <!-- daterangepicker -->
-<script src="/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 <!-- datepicker -->
-<script src="/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+<script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
 <!-- iCheck -->
-<script src="/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
 <!-- AdminLTE App -->
-<script src="/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="js/AdminLTE/app.js" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="/js/AdminLTE/demo.js" type="text/javascript"></script>
+<script src="js/AdminLTE/demo.js" type="text/javascript"></script>
 
 
 </body>
