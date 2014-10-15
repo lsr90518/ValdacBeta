@@ -181,7 +181,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置設備"/>
+                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="2" value="設置設備"/>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" id="SetSetubi" name="SetSetubi" class="form-control">
@@ -404,9 +404,25 @@
         });
     });
 
+
     function getAllValve(){
-        alert("1");
         $.get("/valve/getAllValveJson",function(data){
+                alert(data[0]);
+        });
+    }
+
+    function getMasterByType(obj){
+        var id=obj.id;
+        var typeName=null;
+//        alert(id);
+        $.getJSON("/master/getMasterByTypeJson?id="+id,function(data){
+
+            for(var nIndex=0;nIndex<data.length;nIndex++){
+//                alert(data[nIndex].Name);
+                typeName=typeName+data[nIndex].Name+'¥n';
+            };
+
+            alert(typeName);
         });
     }
 </script>
