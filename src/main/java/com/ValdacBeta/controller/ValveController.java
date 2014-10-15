@@ -1,7 +1,9 @@
 package com.ValdacBeta.controller;
 
 import com.ValdacBeta.dto.ValveForm;
+import com.ValdacBeta.entity.Kiki;
 import com.ValdacBeta.entity.Valve;
+import com.ValdacBeta.service.KikiService;
 import com.ValdacBeta.service.ValveService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class ValveController {
 
     @Autowired
     ValveService valveService;
+    @Autowired
+    KikiService kikiService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap){
@@ -33,7 +37,11 @@ public class ValveController {
         Valve valve = new Valve();
         valve.makeupValveByForm(valveForm);
         valve = valveService.addValve(valve);
-        return "addvalve";
+//        modelMap.addAttribute("BenMeisyo","BenMeisyo");
+        modelMap.addAttribute("valve",valve);
+//        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId());
+
+        return "addkiki";
     }
 
     @RequestMapping(value = "/getAllValveJson", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")

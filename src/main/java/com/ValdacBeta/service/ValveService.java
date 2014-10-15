@@ -27,7 +27,7 @@ public class ValveService {
 
     public Valve addValve(Valve valve){
 
-        //make id
+        //make sub id
         valve.setkCode("");
         valve.setKikiSysSeq("");
 
@@ -38,6 +38,9 @@ public class ValveService {
         valve.setUpdDate(sdf1.format(date));
 
         valveMapper.insertValve(valve);
+
+        //append id
+        valve.setKikiSysId(valveMapper.getLastInsertId());
         return valve;
     }
 }
