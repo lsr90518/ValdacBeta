@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ValdacBeta.dao.KikiMapper">
+    <select id="findAllKiki" resultType="Kiki">
+        select * from Kiki
+    </select>
+
+    <select id="findKikiById" parameterType="string" resultType="Kiki">
+        select * from Kiki where KikiId=#{KikiId}
+    </select>
+
+    <select id="findKikiBySysId" parameterType="int" resultType="Kiki">
+        select * from Kiki where KikiSysId=#{KikiSysId}
+    </select>
+
+    <insert id="insertKiki" parameterType="Kiki">
+        insert into Kiki(KikiSysId, KikiBunrui, KikiBunruiSeq, KikiNo, KikiMei, Syukan, MakerRyaku, Maker, KatasikiNo, SerialNo, OrderNo, Bikou, ImageId, TrkDate, UpdDate)
+         values(
+                #{kikiSysId},
+                #{kikiBunrui},
+                #{kikiBunruiSeq},
+                #{kikiNo},
+                #{kikiMei},
+                #{syukan},
+                #{makerRyaku},
+                #{maker},
+                #{katasikiNo},
+                #{serialNo},
+                #{orderNo},
+                #{bikou},
+                #{imageId},
+                #{trkDate},
+                #{updDate}
+                )
+    </insert>
+
+    <select id="getLastInsertId" resultType="int">
+        select KikiId from Kiki ORDER BY KikiId DESC limit 1
+    </select>
+
+</mapper>

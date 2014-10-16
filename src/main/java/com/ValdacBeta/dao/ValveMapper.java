@@ -13,4 +13,6 @@ public interface ValveMapper {
     public List<Valve> findAllValve();
 
     public void insertValve(Valve valve);
+
+    public int getLastInsertId();
 }
