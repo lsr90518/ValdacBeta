@@ -4,12 +4,11 @@ import com.ValdacBeta.dto.KikiForm;
 import com.ValdacBeta.entity.Kiki;
 import com.ValdacBeta.entity.User;
 import com.ValdacBeta.service.KikiService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -28,12 +27,6 @@ public class KikiController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session,ModelMap modelMap){
 
-        User user = (User) session.getAttribute("user");
-        modelMap.addAttribute("user",user);
-
-        List<Kiki> kikiList = kikiService.getAllKiki();
-        System.out.print(kikiList.size());
-
         return "addkiki";
     }
 
@@ -41,11 +34,12 @@ public class KikiController {
     public String add(@ModelAttribute("KikiForm")KikiForm kikiForm,ModelMap modelMap){
         //change function to json
 
-        System.out.println(kikiForm.getMaker());
-
         Kiki kiki = new Kiki();
         kiki.makeupValveByForm(kikiForm);
-        kikiService.addKiki(kiki);
+        kiki = kikiService.addKiki(kiki);
+
+        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
+        modelMap.addAttribute("kikiList",kikiList);
 
         return "addkiki";
     }

@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public interface UserMapper {
 
-    @Select("select * from User where userid=#{userid}")
+    @Select("select * from user where userId=#{userid}")
     public User findByUserId(String userid);
 
-    @Select("select * from User where username=#{username}")
+    @Select("select * from user where username=#{username}")
     public User findByUserName(String username);
 }
