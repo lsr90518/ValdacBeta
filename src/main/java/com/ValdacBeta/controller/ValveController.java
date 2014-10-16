@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -32,13 +33,14 @@ public class ValveController {
     KikiService kikiService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap){
+    public String add(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap,HttpSession session){
 
         Valve valve = new Valve();
         valve.makeupValveByForm(valveForm);
         valve = valveService.addValve(valve);
 //        modelMap.addAttribute("BenMeisyo","BenMeisyo");
         modelMap.addAttribute("valve",valve);
+        session.setAttribute("valve",valve);
 //        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId());
 
         return "addkiki";

@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ValdacBeta.dao.KikiMapper">
     <select id="findAllKiki" resultType="Kiki">
-        select * from Kiki
+        select * from kiki
     </select>
 
     <select id="findKikiById" parameterType="string" resultType="Kiki">
-        select * from Kiki where KikiId=#{KikiId}
+        select * from kiki where kikiId=#{kikiId}
     </select>
 
     <select id="findKikiBySysId" parameterType="int" resultType="Kiki">
-        select * from Kiki where KikiSysId=#{KikiSysId}
+        select * from kiki where kikiSysId=#{kikiSysId}
     </select>
 
     <insert id="insertKiki" parameterType="Kiki">
-        insert into Kiki(KikiSysId, KikiBunrui, KikiBunruiSeq, KikiNo, KikiMei, Syukan, MakerRyaku, Maker, KatasikiNo, SerialNo, OrderNo, Bikou, ImageId, TrkDate, UpdDate)
+        insert into kiki(KikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
          values(
                 #{kikiSysId},
                 #{kikiBunrui},
@@ -35,7 +35,7 @@
     </insert>
 
     <select id="getLastInsertId" resultType="int">
-        select KikiId from Kiki ORDER BY KikiId DESC limit 1
+        select kikiId from kiki ORDER BY kikiId DESC limit 1
     </select>
 
 </mapper>

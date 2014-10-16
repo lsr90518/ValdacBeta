@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -322,7 +323,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-8">
-                                <button class="btn btn-success" data-toggle="modal" data-target=".content-modal">登録</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target=".content-modal">追加</button>
                             </div>
                             <div class="col-md-4">
                                 <ul class="pagination">
@@ -418,6 +419,24 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>${kikiList[0].kikiBunrui}</td>
+                                    <td>${kikiList[0].kikiBunruiSeq}</td>
+                                    <td>${kikiList[0].kikiMei}</td>
+                                    <td>${kikiList[0].syukan}</td>
+                                    <td>${kikiList[0].maker}(${kikiLst[0].makerRyaku})</td>
+                                    <td>${kikiList[0].katasikiNo}</td>
+                                    <td>${kikiList[0].serialNo}</td>
+                                    <td>${kikiList[0].orderNo}</td>
+
+                                    <td>
+                                        <div class="operation-button">
+                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
+                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
                                 </tbody></table>
                         </div>
                     </div>
@@ -439,6 +458,21 @@
                         <div class="modal-body">
 
                                 <input type="hidden" name="kikiSysId" value="1" />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            機器分類
+                                        </div>
+                                        <div class="col-md-10">
+                                            <select name="kikiBunrui" class="form-control">
+                                                <option>弁</option>
+                                                <option>駆動部</option>
+                                                <option>補助部</option>
+                                                <option>付属部</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2">
