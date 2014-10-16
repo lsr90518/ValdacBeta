@@ -10,8 +10,16 @@ import java.util.List;
 public interface KikiMapper {
 
     public List<Kiki> findAllKiki();
-    public Kiki findKikiById(String KikiId);
+
+    public Kiki findKikiById(int KikiId);
+
     public List<Kiki> findKikiBySysId(int KikiSysId);
+
     public void insertKiki(Kiki kiki);
+
     public int getLastInsertId();
+
+    public void updateKikiByKiki(Kiki kiki);
+
+    public void deleteKikiByKikiId(int kiki);
 }

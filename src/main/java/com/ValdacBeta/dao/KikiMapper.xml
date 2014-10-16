@@ -5,7 +5,7 @@
         select * from kiki
     </select>
 
-    <select id="findKikiById" parameterType="string" resultType="Kiki">
+    <select id="findKikiById" parameterType="int" resultType="Kiki">
         select * from kiki where kikiId=#{kikiId}
     </select>
 
@@ -14,7 +14,7 @@
     </select>
 
     <insert id="insertKiki" parameterType="Kiki">
-        insert into kiki(KikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
+        insert into kiki(kikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
          values(
                 #{kikiSysId},
                 #{kikiBunrui},
@@ -34,8 +34,28 @@
                 )
     </insert>
 
+    <update id="updateKikiByKiki" parameterType="Kiki">
+        update kiki
+        set kikiBunrui=#{kikiBunrui},
+        kikiBunruiSeq=#{kikiBunruiSeq},
+        kikiNo=#{kikiNo},
+        kikiMei=#{kikiMei},
+        syukan=#{syukan},
+        makerRyaku=#{makerRyaku},
+        maker=#{maker},
+        katasikiNo=#{katasikiNo},
+        serialNo=#{serialNo},
+        orderNo=#{orderNo},
+        bikou=#{bikou},
+        imageId=#{imageId}
+        where kikiId=#{kikiId}
+    </update>
+
     <select id="getLastInsertId" resultType="int">
         select kikiId from kiki ORDER BY kikiId DESC limit 1
     </select>
 
+    <delete id="deleteKikiByKikiId" parameterType="int">
+        delete from kiki where kikiId=#{kikiId}
+    </delete>
 </mapper>

@@ -3,6 +3,7 @@ package com.ValdacBeta.controller;
 import com.ValdacBeta.dto.KikiForm;
 import com.ValdacBeta.entity.Kiki;
 import com.ValdacBeta.entity.User;
+import com.ValdacBeta.entity.Valve;
 import com.ValdacBeta.service.KikiService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,37 @@ public class KikiController {
         modelMap.addAttribute("kikiList",kikiList);
 
         return "addkiki";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("updateKikiForm")KikiForm kikiForm,ModelMap modelMap){
+        Kiki kiki = new Kiki();
+        kiki.makeupValveByForm(kikiForm);
+        kiki.setKikiId(kikiForm.getKikiId());
+        kikiService.updateKikiByKiki(kiki);
+
+        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
+        modelMap.addAttribute("kikiList",kikiList);
+        return "addkiki";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam("kikiId")String kikiId,ModelMap modelMap){
+        kikiService.deleteKikiByKikiByKikiId(kikiId);
+
+        List<Kiki> kikiList = kikiService.getKikiBySysId(1);
+        modelMap.addAttribute("kikiList",kikiList);
+        return "addkiki";
+    }
+
+    @RequestMapping(value = "/getKikiByKikiId", method = RequestMethod.GET)
+    @ResponseBody
+    public String getKikiByKikiId(@RequestParam("kikiId")String kikiId){
+
+        Kiki kiki = kikiService.getKikiByKikiId(kikiId);
+
+        Gson gson = new Gson();
+
+        return gson.toJson(kiki);
     }
 }
