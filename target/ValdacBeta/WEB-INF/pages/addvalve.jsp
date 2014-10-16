@@ -413,7 +413,7 @@
 
     function getMasterByType(obj){
         var id=obj.id;
-        var typeName=null;
+        var typeName="";
 //        alert(id);
         $.getJSON("/master/getMasterByTypeJson?id="+id,function(data){
 
