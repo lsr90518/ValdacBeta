@@ -198,7 +198,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置場所"/>
+                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="4" value="設置場所"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="SetBasyo" name="SetBasyo" class="form-control">
@@ -209,7 +209,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="系統"/>
+                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="5" value="系統"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="Keitou" name="Keitou" class="form-control">
@@ -220,7 +220,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="ICS番号"/>
+                                        <input type="button" class="btn btn-primary"  value="ICS番号"/>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="ICS" name="ICS" class="form-control">
@@ -265,7 +265,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="流体" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="14" value="流体" />
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" id="RyutaiRyaku" name="RyutaiRyaku" class="form-control" placeholder="略称">
@@ -274,7 +274,7 @@
                                         <input type="text" id="Ryutai" name="Ryutai" class="form-control">
                                     </div>
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="形式" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="7" value="形式" />
 
                                     </div>
                                     <div class="col-md-2">
@@ -289,7 +289,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="駆動方式" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="8" value="駆動方式" />
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" id="SousaRyaku" name="SousaRyaku" class="form-control" placeholder="略称">
@@ -298,7 +298,7 @@
                                         <input type="text" id="Sousa" name="Sousa" class="form-control">
                                     </div>
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="クラス" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="9" value="クラス" />
 
                                     </div>
                                     <div class="col-md-2">
@@ -313,7 +313,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="呼び径" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="10" value="呼び径" />
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" id="YobikeiRyaku" name="YobikeiRyaku" class="form-control" placeholder="略称">
@@ -322,7 +322,7 @@
                                         <input type="text" id="Yobikei" name="Yobikei" class="form-control">
                                     </div>
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="接続入口" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="11" value="接続入口" />
 
                                     </div>
                                     <div class="col-md-2">
@@ -336,13 +336,13 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="接続規格" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="12" value="接続規格" />
                                     </div>
                                     <div class="col-md-5">
                                         <input type="text" id="SzKikaku" name="SzKikaku" class="form-control">
                                     </div>
                                     <div class="col-md-1">
-                                        <input type="button" class="btn btn-danger" value="本体材質" />
+                                        <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="13" value="本体材質" />
 
                                     </div>
                                     <div class="col-md-2">
@@ -419,7 +419,7 @@
 
             for(var nIndex=0;nIndex<data.length;nIndex++){
 //                alert(data[nIndex].Name);
-                typeName=typeName+data[nIndex].Name+'¥n';
+                typeName=typeName+data[nIndex].name+'¥n';
             };
 
             alert(typeName);

@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by zhangrui on 2014/10/15.
  */
-public class Master implements Serializable {
+public class Master {
 
     /**マスターID*/
     public int masterId;
@@ -44,7 +44,7 @@ public class Master implements Serializable {
 
     /*** 名称の取得と設定*/
     public String getName(){return name;}
-    public void setName(String Name){
+    public void setName(String name){
         this.name=name;
     }
 }
