@@ -8,43 +8,43 @@ import java.io.Serializable;
 public class Master implements Serializable {
 
     /**マスターID*/
-    public int MasterId;
+    public int masterId;
     /**マスター種別*/
-    public String Type;
+    public String type;
     /**各種別の連番コード*/
-    public String Code;
+    public String code;
     /**略称*/
-    public String Ryaku;
+    public String ryaku;
     /**名称*/
-    public String Name;
+    public String name;
 
     /*** マスターIDの取得と設定*/
-    public int getMasterId(){return MasterId;}
-    public void setMasterId(int MasterId){
-        this.MasterId=MasterId;
+    public int getMasterId(){return masterId;}
+    public void setMasterId(int masterId){
+        this.masterId =masterId;
     }
 
     /*** マスター種別の取得と設定*/
-    public String getType(){return Type;}
-    public void setType(String Type){
-        this.Type=Type;
+    public String getType(){return type;}
+    public void setType(String type){
+        this.type=type;
     }
 
     /*** 各種別の連番コードの取得と設定*/
-    public String getCode(){return Code;}
-    public void setCode(String Code){
-        this.Code=Code;
+    public String getCode(){return code;}
+    public void setCode(String code){
+        this.code=code;
     }
 
     /*** 略称の取得と設定*/
-    public String getRyaku(){return Ryaku;}
-    public void setRyaku(String Ryaku){
-        this.Ryaku=Ryaku;
+    public String getRyaku(){return ryaku;}
+    public void setRyaku(String ryaku){
+        this.ryaku=ryaku;
     }
 
     /*** 名称の取得と設定*/
-    public String getName(){return Name;}
+    public String getName(){return name;}
     public void setName(String Name){
-        this.Name=Name;
+        this.name=name;
     }
 }

@@ -15,8 +15,8 @@ public interface MasterMapper {
      * @return  masterテーブルのデータ
      * */
 
-    @Select("select * from Master where Type=#{Type}")
-     public List<Master> findMasterByType(String Type);
+    @Select("select * from master where type=#{type}")
+     public List<Master> findMasterByType(String type);
 
 //    /**マスターデータを追加する
 //     * @param  master

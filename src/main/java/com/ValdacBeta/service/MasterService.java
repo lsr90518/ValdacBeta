@@ -16,8 +16,8 @@ public class MasterService {
     @Resource
     MasterMapper masterMapper;
 
-    public List<Master> getMasterByType(String Type){
-        List<Master> masterList =masterMapper.findMasterByType(Type);
+    public List<Master> getMasterByType(String type){
+        List<Master> masterList =masterMapper.findMasterByType(type);
         return masterList;
     }
 }
