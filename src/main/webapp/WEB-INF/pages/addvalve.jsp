@@ -60,7 +60,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">プロフィール</a>
+                                <a href="/profile/getUserProfile" class="btn btn-default btn-flat">プロフィール</a>
                             </div>
                             <div class="pull-right">
                                 <a href="#" class="btn btn-default btn-flat">退出</a>

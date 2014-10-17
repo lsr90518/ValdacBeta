@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.ValdacBeta.dao.UserMapper">
-    <select id="getUserById" parameterType="string" resultType="com.ValdacBeta.entity.User">
-        select * from x02User where x02UserId='gouda'
-    </select>
+
+    <update id="updateUser" parameterType="User">
+        update user
+        set
+          password=#{password},
+          username=#{username},
+          department=#{department},
+          profile=#{profile}
+        where
+          userId=#{userid}
+    </update>
 </mapper>
