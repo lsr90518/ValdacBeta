@@ -366,7 +366,7 @@
                                             <div class="operation-button">
                                                 <a class="btn btn-primary btn-sm operation-button-btn"><i class="fa fa-pencil"></i></a>
                                                 <a class="btn btn-danger btn-sm operation-button-btn"><i class="fa fa-trash-o"></i></a>
-                                                <a class="btn btn-info btn-sm operation-button-btn"><i class="fa fa-arrow-right"></i></a>
+                                                <a class="btn btn-info btn-sm operation-button-btn" href="/kiki/${tmpkiki.kikiId}"><i class="fa fa-arrow-right"></i></a>
                                                 <input type="hidden" class="kikiId" value="${tmpkiki.kikiId}"/>
                                             </div>
                                         </td>
@@ -664,6 +664,7 @@
         <form id="delete-form" action="/kiki/delete" method="post">
             <input type="hidden" id="delete-id" name="kikiId" value="" />
         </form>
+
 
         </section><!-- /.content -->
     </aside><!-- /.right-side -->

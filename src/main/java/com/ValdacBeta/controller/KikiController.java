@@ -66,7 +66,17 @@ public class KikiController {
         return "addkiki";
     }
 
-    @RequestMapping(value = "/getKikiByKikiId", method = RequestMethod.GET)
+    @RequestMapping(value = "/{kikiId}", method = RequestMethod.GET)
+    public String buhin(@PathVariable("kikiId")String kikiId,ModelMap modelMap,HttpSession session){
+
+        Kiki kiki = kikiService.getKikiByKikiId(kikiId);
+        session.setAttribute("kiki",kiki);
+
+
+        return "redirect:/buhin";
+    }
+
+    @RequestMapping(value = "/getKikiByKikiId", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getKikiByKikiId(@RequestParam("kikiId")String kikiId){
 
