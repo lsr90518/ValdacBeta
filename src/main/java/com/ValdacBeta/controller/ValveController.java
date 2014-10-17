@@ -32,6 +32,11 @@ public class ValveController {
     @Autowired
     KikiService kikiService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public String index(){
+        return "/addvalve";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String add(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap,HttpSession session){
 

@@ -36,8 +36,20 @@ public class KikiService {
         return kiki;
     }
 
+    public void updateKikiByKiki(Kiki kiki){
+        kikiMapper.updateKikiByKiki(kiki);
+    }
+
+    public void deleteKikiByKikiByKikiId(String kikiId){
+        kikiMapper.deleteKikiByKikiId(Integer.valueOf(kikiId));
+    }
+
     public List<Kiki> getKikiBySysId(int KikiSysId){
         List<Kiki> kikiList = kikiMapper.findKikiBySysId(KikiSysId);
         return kikiList;
+    }
+
+    public Kiki getKikiByKikiId(String KikiId){
+        return kikiMapper.findKikiById(Integer.valueOf(KikiId));
     }
 }
