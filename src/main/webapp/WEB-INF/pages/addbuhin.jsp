@@ -161,202 +161,135 @@
     <!-- collection -->
 
         <div class="col-lg-12">
-        <div class="box box-solid box-primary">
-            <div class="box-header box-panel">
-                <h3 class="box-title">${valve.benMeisyo}の弁情報</h3>
+            <div class="box box-solid box-primary">
+                <div class="box-header box-panel">
+                    <h3 class="box-title">${valve.benMeisyo}の弁情報</h3>
+                </div>
+
+
+                <div class="box-body" style="display: none">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                弁番号
+                            </div>
+                            <div class="col-md-4">
+                                ${valve.vNo}
+                            </div>
+                            <div class="col-md-2">
+                                類番
+                            </div>
+                            <div class="col-md-4">
+                                ${valve.vNoSub}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                圧力
+                            </div>
+                            <div class="col-md-2">
+                                ${valve.aturyokuMax}${valve.tani}
+                            </div>
+                            <div class="col-md-2">
+                                温度
+                            </div>
+                            <div class="col-md-2">
+                                ${valve.ondoMax}℃
+                            </div>
+                            <div class="col-md-2">
+                                流体名称
+                            </div>
+                            <div class="col-md-2">
+                                ${valve.ryutai}(${valve.ryutaiRyaku})
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div><!-- /.box-body弁情報 -->
             </div>
 
-
-            <div class="box-body" style="display: none">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            弁番号
-                        </div>
-                        <div class="col-md-4">
-                            ${valve.vNo}
-                        </div>
-                        <div class="col-md-2">
-                            類番
-                        </div>
-                        <div class="col-md-4">
-                            ${valve.vNoSub}
-                        </div>
-                    </div>
+            <div class="box box-solid box-success">
+                <div class="box-header box-panel">
+                    <h3 class="box-title">${kiki.kikiMei}の機器情報</h3>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            設置設備
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">機器分類</div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">分類連番</div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">機器名称</div>
+                            <div class="col-md-2"></div>
                         </div>
-                        <div class="col-md-2">
-                            ${valve.setSetubi}
-                        </div>
-                        <div class="col-md-2">
-                            設置機器
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.setKiki}
-                        </div>
-                        <div class="col-md-2">
-                            設置場所
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.setBasyo}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            系統:
-                        </div>
-                        <div class="col-md-4">
-                            ${valve.keitou}
-                        </div>
-                        <div class="col-md-2">
-                            適用法規
-                        </div>
-                        <div class="col-md-4">
-                            ${valve.houki}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            圧力
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.aturyokuMax}${valve.tani}
-                        </div>
-                        <div class="col-md-2">
-                            温度
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.ondoMax}℃
-                        </div>
-                        <div class="col-md-2">
-                            流体名称
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.ryutai}(${valve.ryutaiRyaku})
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            形式
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.keisiki}(${valve.keisikiRyaku})
-                        </div>
-                        <div class="col-md-2">
-                            駆動方式
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.sousa}(${valve.sousaRyaku})
-                        </div>
-                        <div class="col-md-2">
-                            クラス
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.classType}(${valve.classRyaku})
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            呼び径
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.yobikei}(${valve.yobikeiRyaku})
-                        </div>
-                        <div class="col-md-2">
-                            接続方式
-                        </div>
-                        <div class="col-md-2">
-                            ${valve.szHou}(${valve.szHouRyaku})
-                        </div>
-                        <div class="col-md-1">
-                            接続規格
-                        </div>
-                        <div class="col-md-1">
-                            ${valve.szKikaku}
-                        </div>
-                        <div class="col-md-1">
-                            本体材質
-                        </div>
-                        <div class="col-md-1">
-                            ${valve.zaisitu}(${valve.zaisituRyaku})
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            ICS
-                        </div>
-                        <div class="col-md-10">${valve.ics}</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            付帯情報
-                        </div>
-                        <div class="col-md-10">${valve.futai}</div>
-                    </div>
-                </div>
-
-            </div><!-- /.box-body弁情報 -->
-        </div>
-
-        <div class="box box-solid box-success">
-            <div class="box-header box-panel">
-                <h3 class="box-title">${kiki.kikiMei}の機器情報</h3>
-            </div>
-            <div class="box-body">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">機器分類</div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">分類連番</div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">機器番号</div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">機器名称</div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">主管係</div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">備考</div>
-                        <div class="col-md-10"></div>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <div class="box box-warning">
+                <div class="box-header box-panel">
+                    <h3 class="box-title">部品情報一覧</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <button class="btn btn-warning" data-toggle="modal" data-target=".content-modal">追加</button>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="pagination">
+                                <li class="prev disabled"><a href="#">← Previous</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="next"><a href="#">Next → </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover kiki-table">
+                            <tbody><tr>
+                                <th>部品区分</th>
+                                <th>連番</th>
+                                <th>部品図番号</th>
+                                <th>部品名</th>
+                                <th>使用箇所</th>
+                                <th>資材名</th>
+                                <th>品番</th>
+                                <th>メーカー</th>
+                                <th>操作</th>
+                            </tr>
+                            <c:forEach items="${kikiList}" var="tmpkiki">
+                                <tr>
+                                    <td>${tmpkiki.kikiBunrui}</td>
+                                    <td>${tmpkiki.kikiBunruiSeq}</td>
+                                    <td>${tmpkiki.kikiMei}</td>
+                                    <td>${tmpkiki.syukan}</td>
+                                    <td>${tmpkiki.maker}(${tmpkiki.makerRyaku})</td>
+                                    <td>${tmpkiki.katasikiNo}</td>
+                                    <td>${tmpkiki.serialNo}</td>
+                                    <td>${tmpkiki.orderNo}</td>
 
+                                    <td>
+                                        <div class="operation-button">
+                                            <a class="btn btn-primary btn-sm operation-button-btn"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger btn-sm operation-button-btn"><i class="fa fa-trash-o"></i></a>
+                                            <a class="btn btn-info btn-sm operation-button-btn" href="/kiki/${tmpkiki.kikiId}"><i class="fa fa-arrow-right"></i></a>
+                                            <input type="hidden" class="kikiId" value="${tmpkiki.kikiId}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </c:forEach>
+                            </tbody></table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div><!-- insert -->
 
@@ -367,30 +300,46 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">機器登録</h4>
+                        <h4 class="modal-title" id="myModalLabel">部品登録</h4>
                     </div>
                     <div class="modal-body">
 
-                        <input type="hidden" name="kikiSysId" value="1" />
+                        <input type="hidden" name="kikiId" value="1" />
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    機器分類
+                                    部品区分
                                 </div>
                                 <div class="col-md-10">
                                     <select name="kikiBunrui" class="form-control">
-                                        <option>弁</option>
-                                        <option>駆動部</option>
-                                        <option>補助部</option>
-                                        <option>付属部</option>
+                                        <option>消耗資材</option>
+                                        <option>経年部品</option>
+                                        <option>接管資材</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    機器番号
+                                    アスベスト区分
+                                </div>
+                                <div class="col-md-10">
+                                    <select name="kikiBunrui" class="form-control">
+                                        <option>アスベスト品</option>
+                                        <option>ノンアスベスト品</option>
+                                        <option>混在品</option>
+                                        <option>対象外</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    使用箇所
                                 </div>
                                 <div class="col-md-10">
                                     <input type="text" name="kikiNo" class="form-control" />
@@ -401,7 +350,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="button" class="btn btn-default" value="機器名称" />
+                                    <input type="button" class="btn btn-default" value="部品名" />
                                 </div>
                                 <div class="col-md-10">
                                     <input type="text" name="kikiMei" class="form-control" />
@@ -411,13 +360,36 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="button" class="btn btn-default" value="主管係" />
+                                    <input type="button" class="btn btn-default" value="標準仕様" />
                                 </div>
                                 <div class="col-md-10">
                                     <input type="text" name="syukan" class="form-control" />
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    概略寸法
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" name="kikiNo" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    備考
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" name="kikiNo" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
@@ -431,60 +403,41 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    型式番号
+                                    <input type="button" class="btn btn-default" value="資材名" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="katasikiNo" class="form-control" />
+                                    <input type="text" name="syukan" class="form-control" />
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    シリアル番号
+                                    <input type="button" class="btn btn-default" value="品番" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="serialNo" class="form-control" />
+                                    <input type="text" name="syukan" class="form-control" />
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    オーダー番号
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="orderNo" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    備考
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="bikou"class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                         <hr/>
 
                         <div class="form-group">
                             <input type="hidden" name="imageId" value="" />
                             <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-3">
-                                    <select class="form-control">
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                    </select>
+                                <div class="col-md-2">部品図番号</div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="imageId" />
+                                </div>
+                                <div class="col-md-2">備考</div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="buhinzuBikou" />
                                 </div>
                             </div>
                         </div>
@@ -492,7 +445,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-success" value="登録" />
+                        <input type="submit" class="btn btn-warning" value="登録" />
                     </div>
                 </div>
             </div>
