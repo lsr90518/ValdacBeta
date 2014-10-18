@@ -1,51 +1,45 @@
 package com.ValdacBeta.dto;
 
+
 /**
  * Created by Lsr on 10/14/14.
  */
 public class ValveForm {
-
-    public int KikiSysId;
+    public int kikiSysId;
     public String kCode;
-    public String KikiSysSeq;
-    public String VNo;
-    public String VNoSub;
-    public String BenMeisyo;
-    public String KikiSysMei;
-    public String SetSetubi;
-    public String SetKiki;
-    public String SetBasyo;
-    public String Keitou;
-    public String Houki;
-    public String KeisikiRyaku;
-    public String Keisiki;
-    public String SousaRyaku;
-    public String Sousa;
-    public String ClassRyaku;
-    public String ClassType;
-    public String YobikeiRyaku;
-    public String Yobikei;
-    public String SzHouRyaku;
-    public String SzHou;
-    public String SzKikaku;
-    public String ZaisituRyaku;
-    public String Zaisitu;
-    public String AturyokuMax;
-    public String Tani;
-    public String OndoMax;
-    public String RyutaiRyaku;
-    public String Ryutai;
-    public String ICS;
-    public String Futai;
-    public String TrkDate;
-    public String UpdDate;
+    public String kikiSysSeq;
+    public String vNo;
+    public String vNoSub;
+    public String benMeisyo;
+    public String keisikiRyaku;
+    public String keisiki;
+    public String sousaRyaku;
+    public String sousa;
+    public String classRyaku;
+    public String classType;
+    public String yobikeiRyaku;
+    public String yobikei;
+    public String szHouRyaku;
+    public String szHou;
+    public String szKikaku;
+    public String zaisituRyaku;
+    public String zaisitu;
+    public String aturyokuMax;
+    public String tani;
+    public String ondoMax;
+    public String ryutaiRyaku;
+    public String ryutai;
+    public String ics;
+    public String futai;
+    public String trkDate;
+    public String updDate;
 
     public int getKikiSysId() {
-        return KikiSysId;
+        return kikiSysId;
     }
 
     public void setKikiSysId(int kikiSysId) {
-        KikiSysId = kikiSysId;
+        this.kikiSysId = kikiSysId;
     }
 
     public String getkCode() {
@@ -57,259 +51,210 @@ public class ValveForm {
     }
 
     public String getKikiSysSeq() {
-        return KikiSysSeq;
+        return kikiSysSeq;
     }
 
     public void setKikiSysSeq(String kikiSysSeq) {
-        KikiSysSeq = kikiSysSeq;
+        this.kikiSysSeq = kikiSysSeq;
     }
 
-    public String getVNo() {
-        return VNo;
+    public String getvNo() {
+        return vNo;
     }
 
-    public void setVNo(String VNo) {
-        this.VNo = VNo;
+    public void setvNo(String vNo) {
+        this.vNo = vNo;
     }
 
-    public String getVNoSub() {
-        return VNoSub;
+    public String getvNoSub() {
+        return vNoSub;
     }
 
-    public void setVNoSub(String VNoSub) {
-        this.VNoSub = VNoSub;
+    public void setvNoSub(String vNoSub) {
+        this.vNoSub = vNoSub;
     }
 
     public String getBenMeisyo() {
-        return BenMeisyo;
+        return benMeisyo;
     }
 
     public void setBenMeisyo(String benMeisyo) {
-        BenMeisyo = benMeisyo;
-    }
-
-    public String getKikiSysMei() {
-        return KikiSysMei;
-    }
-
-    public void setKikiSysMei(String kikiSysMei) {
-        KikiSysMei = kikiSysMei;
-    }
-
-    public String getSetSetubi() {
-        return SetSetubi;
-    }
-
-    public void setSetSetubi(String setSetubi) {
-        SetSetubi = setSetubi;
-    }
-
-    public String getSetKiki() {
-        return SetKiki;
-    }
-
-    public void setSetKiki(String setKiki) {
-        SetKiki = setKiki;
-    }
-
-    public String getSetBasyo() {
-        return SetBasyo;
-    }
-
-    public void setSetBasyo(String setBasyo) {
-        SetBasyo = setBasyo;
-    }
-
-    public String getKeitou() {
-        return Keitou;
-    }
-
-    public void setKeitou(String keitou) {
-        Keitou = keitou;
-    }
-
-    public String getHouki() {
-        return Houki;
-    }
-
-    public void setHouki(String houki) {
-        Houki = houki;
+        this.benMeisyo = benMeisyo;
     }
 
     public String getKeisikiRyaku() {
-        return KeisikiRyaku;
+        return keisikiRyaku;
     }
 
     public void setKeisikiRyaku(String keisikiRyaku) {
-        KeisikiRyaku = keisikiRyaku;
+        this.keisikiRyaku = keisikiRyaku;
     }
 
     public String getKeisiki() {
-        return Keisiki;
+        return keisiki;
     }
 
     public void setKeisiki(String keisiki) {
-        Keisiki = keisiki;
+        this.keisiki = keisiki;
     }
 
     public String getSousaRyaku() {
-        return SousaRyaku;
+        return sousaRyaku;
     }
 
     public void setSousaRyaku(String sousaRyaku) {
-        SousaRyaku = sousaRyaku;
+        this.sousaRyaku = sousaRyaku;
     }
 
     public String getSousa() {
-        return Sousa;
+        return sousa;
     }
 
     public void setSousa(String sousa) {
-        Sousa = sousa;
+        this.sousa = sousa;
     }
 
     public String getClassRyaku() {
-        return ClassRyaku;
+        return classRyaku;
     }
 
     public void setClassRyaku(String classRyaku) {
-        ClassRyaku = classRyaku;
+        this.classRyaku = classRyaku;
     }
 
     public String getClassType() {
-        return ClassType;
+        return classType;
     }
 
-    public void setClassType(String aClass) {
-        ClassType = aClass;
+    public void setClassType(String classType) {
+        this.classType = classType;
     }
 
     public String getYobikeiRyaku() {
-        return YobikeiRyaku;
+        return yobikeiRyaku;
     }
 
     public void setYobikeiRyaku(String yobikeiRyaku) {
-        YobikeiRyaku = yobikeiRyaku;
+        this.yobikeiRyaku = yobikeiRyaku;
     }
 
     public String getYobikei() {
-        return Yobikei;
+        return yobikei;
     }
 
     public void setYobikei(String yobikei) {
-        Yobikei = yobikei;
+        this.yobikei = yobikei;
     }
 
     public String getSzHouRyaku() {
-        return SzHouRyaku;
+        return szHouRyaku;
     }
 
     public void setSzHouRyaku(String szHouRyaku) {
-        SzHouRyaku = szHouRyaku;
+        this.szHouRyaku = szHouRyaku;
     }
 
     public String getSzHou() {
-        return SzHou;
+        return szHou;
     }
 
     public void setSzHou(String szHou) {
-        SzHou = szHou;
+        this.szHou = szHou;
     }
 
     public String getSzKikaku() {
-        return SzKikaku;
+        return szKikaku;
     }
 
     public void setSzKikaku(String szKikaku) {
-        SzKikaku = szKikaku;
+        this.szKikaku = szKikaku;
     }
 
     public String getZaisituRyaku() {
-        return ZaisituRyaku;
+        return zaisituRyaku;
     }
 
     public void setZaisituRyaku(String zaisituRyaku) {
-        ZaisituRyaku = zaisituRyaku;
+        this.zaisituRyaku = zaisituRyaku;
     }
 
     public String getZaisitu() {
-        return Zaisitu;
+        return zaisitu;
     }
 
     public void setZaisitu(String zaisitu) {
-        Zaisitu = zaisitu;
+        this.zaisitu = zaisitu;
     }
 
     public String getAturyokuMax() {
-        return AturyokuMax;
+        return aturyokuMax;
     }
 
     public void setAturyokuMax(String aturyokuMax) {
-        AturyokuMax = aturyokuMax;
+        this.aturyokuMax = aturyokuMax;
     }
 
     public String getTani() {
-        return Tani;
+        return tani;
     }
 
     public void setTani(String tani) {
-        Tani = tani;
+        this.tani = tani;
     }
 
     public String getOndoMax() {
-        return OndoMax;
+        return ondoMax;
     }
 
     public void setOndoMax(String ondoMax) {
-        OndoMax = ondoMax;
+        this.ondoMax = ondoMax;
     }
 
     public String getRyutaiRyaku() {
-        return RyutaiRyaku;
+        return ryutaiRyaku;
     }
 
     public void setRyutaiRyaku(String ryutaiRyaku) {
-        RyutaiRyaku = ryutaiRyaku;
+        this.ryutaiRyaku = ryutaiRyaku;
     }
 
     public String getRyutai() {
-        return Ryutai;
+        return ryutai;
     }
 
     public void setRyutai(String ryutai) {
-        Ryutai = ryutai;
+        this.ryutai = ryutai;
     }
 
-    public String getICS() {
-        return ICS;
+    public String getIcs() {
+        return ics;
     }
 
-    public void setICS(String ICS) {
-        this.ICS = ICS;
+    public void setIcs(String ics) {
+        this.ics = ics;
     }
 
     public String getFutai() {
-        return Futai;
+        return futai;
     }
 
     public void setFutai(String futai) {
-        Futai = futai;
+        this.futai = futai;
     }
 
     public String getTrkDate() {
-        return TrkDate;
+        return trkDate;
     }
 
     public void setTrkDate(String trkDate) {
-        TrkDate = trkDate;
+        this.trkDate = trkDate;
     }
 
     public String getUpdDate() {
-        return UpdDate;
+        return updDate;
     }
 
     public void setUpdDate(String updDate) {
-        UpdDate = updDate;
+        this.updDate = updDate;
     }
-
 }

@@ -12,12 +12,6 @@ public class Valve {
     public String vNo;
     public String vNoSub;
     public String benMeisyo;
-    public String kikiSysMei;
-    public String setSetubi;
-    public String setKiki;
-    public String setBasyo;
-    public String keitou;
-    public String houki;
     public String keisikiRyaku;
     public String keisiki;
     public String sousaRyaku;
@@ -42,15 +36,9 @@ public class Valve {
     public String updDate;
 
     public void makeupValveByForm(ValveForm valveForm) {
-        setvNo(valveForm.getVNo());
-        setvNoSub(valveForm.getVNoSub());
+        setvNo(valveForm.getvNo());
+        setvNoSub(valveForm.getvNoSub());
         setBenMeisyo(valveForm.getBenMeisyo());
-        setKikiSysMei(valveForm.getKikiSysMei());
-        setSetSetubi(valveForm.getSetSetubi());
-        setSetKiki(valveForm.getSetKiki());
-        setSetBasyo(valveForm.getSetBasyo());
-        setKeitou(valveForm.getKeitou());
-        setHouki(valveForm.getHouki());//
         setKeisikiRyaku(valveForm.getKeisikiRyaku());
         setKeisiki(valveForm.getKeisiki());
         setSousaRyaku(valveForm.getSousaRyaku());
@@ -69,7 +57,7 @@ public class Valve {
         setOndoMax(valveForm.getOndoMax());
         setRyutai(valveForm.getRyutai());
         setRyutaiRyaku(valveForm.getRyutaiRyaku());
-        setIcs(valveForm.getICS());
+        setIcs(valveForm.getIcs());
         setFutai(valveForm.getFutai());
     }
 
@@ -119,54 +107,6 @@ public class Valve {
 
     public void setBenMeisyo(String benMeisyo) {
         this.benMeisyo = benMeisyo;
-    }
-
-    public String getKikiSysMei() {
-        return kikiSysMei;
-    }
-
-    public void setKikiSysMei(String kikiSysMei) {
-        this.kikiSysMei = kikiSysMei;
-    }
-
-    public String getSetSetubi() {
-        return setSetubi;
-    }
-
-    public void setSetSetubi(String setSetubi) {
-        this.setSetubi = setSetubi;
-    }
-
-    public String getSetKiki() {
-        return setKiki;
-    }
-
-    public void setSetKiki(String setKiki) {
-        this.setKiki = setKiki;
-    }
-
-    public String getSetBasyo() {
-        return setBasyo;
-    }
-
-    public void setSetBasyo(String setBasyo) {
-        this.setBasyo = setBasyo;
-    }
-
-    public String getKeitou() {
-        return keitou;
-    }
-
-    public void setKeitou(String keitou) {
-        this.keitou = keitou;
-    }
-
-    public String getHouki() {
-        return houki;
-    }
-
-    public void setHouki(String houki) {
-        this.houki = houki;
     }
 
     public String getKeisikiRyaku() {

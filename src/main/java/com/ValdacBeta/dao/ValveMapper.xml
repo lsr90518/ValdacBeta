@@ -8,20 +8,13 @@
         select kikiSysId from kikisystem ORDER BY kikiSysId DESC limit 1
     </select>
     <insert id="insertValve" parameterType="Valve">
-        insert into kikisystem(kCode, kikiSysSeq , vNo, vNoSub, benMeisyo, kikiSysMei, setSetubi, setKiki, setBasyo, keitou, houki, keisikiRyaku, keisiki, sousaRyaku, sousa, classRyaku, classType, yobikeiRyaku, yobikei, szHouRyaku, szHou, szKikaku, zaisituRyaku, zaisitu, aturyokuMax, tani, ondoMax, ryutaiRyaku, ryutai, ics, futai, trkDate, updDate)
+        insert into kikisystem(kCode, kikiSysSeq , vNo, vNoSub, benMeisyo, keisikiRyaku, keisiki, sousaRyaku, sousa, classRyaku, classType, yobikeiRyaku, yobikei, szHouRyaku, szHou, szKikaku, zaisituRyaku, zaisitu, aturyokuMax, tani, ondoMax, ryutaiRyaku, ryutai, ics, futai, trkDate, updDate)
         values(
-
         #{kCode},
         #{kikiSysSeq},
         #{vNo},
         #{vNoSub},
         #{benMeisyo},
-        #{kikiSysMei},
-        #{setSetubi},
-        #{setKiki},
-        #{setBasyo},
-        #{keitou},
-        #{houki},
         #{keisikiRyaku},
         #{keisiki},
         #{sousaRyaku},

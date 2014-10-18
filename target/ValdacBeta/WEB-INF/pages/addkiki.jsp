@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -185,46 +186,6 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    設置設備
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setSetubi}
-                                </div>
-                                <div class="col-md-2">
-                                    設置機器
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setKiki}
-                                </div>
-                                <div class="col-md-2">
-                                    設置場所
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setBasyo}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    系統:
-                                </div>
-                                <div class="col-md-4">
-                                    ${valve.keitou}
-                                </div>
-                                <div class="col-md-2">
-                                    適用法規
-                                </div>
-                                <div class="col-md-4">
-                                    ${valve.houki}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
                                     圧力
                                 </div>
                                 <div class="col-md-2">
@@ -350,93 +311,28 @@
                                     <th>オーダー</th>
                                     <th>操作</th>
                                 </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor </td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>
-                                        <div class="operation-button">
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>
-                                        <div class="operation-button">
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>
-                                        <div class="operation-button">
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>ニイガタメーソンネーラン(NIMCO)</td>
+                                <c:forEach items="${kikiList}" var="tmpkiki">
+                                    <tr>
+                                        <td>${tmpkiki.kikiBunrui}</td>
+                                        <td>${tmpkiki.kikiBunruiSeq}</td>
+                                        <td>${tmpkiki.kikiMei}</td>
+                                        <td>${tmpkiki.syukan}</td>
+                                        <td>${tmpkiki.maker}(${tmpkiki.makerRyaku})</td>
+                                        <td>${tmpkiki.katasikiNo}</td>
+                                        <td>${tmpkiki.serialNo}</td>
+                                        <td>${tmpkiki.orderNo}</td>
 
-                                    <td>
-                                        <div class="operation-button">
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>${kikiList[0].kikiBunrui}</td>
-                                    <td>${kikiList[0].kikiBunruiSeq}</td>
-                                    <td>${kikiList[0].kikiMei}</td>
-                                    <td>${kikiList[0].syukan}</td>
-                                    <td>${kikiList[0].maker}(${kikiLst[0].makerRyaku})</td>
-                                    <td>${kikiList[0].katasikiNo}</td>
-                                    <td>${kikiList[0].serialNo}</td>
-                                    <td>${kikiList[0].orderNo}</td>
+                                        <td>
+                                            <div class="operation-button">
+                                                <a class="btn btn-primary btn-sm operation-button-btn"><i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-danger btn-sm operation-button-btn"><i class="fa fa-trash-o"></i></a>
+                                                <a class="btn btn-info btn-sm operation-button-btn" href="/kiki/${tmpkiki.kikiId}"><i class="fa fa-arrow-right"></i></a>
+                                                <input type="hidden" class="kikiId" value="${tmpkiki.kikiId}"/>
+                                            </div>
+                                        </td>
+                                    </tr>
 
-                                    <td>
-                                        <div class="operation-button">
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm"><i class="fa fa-arrow-right"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                </c:forEach>
                                 </tbody></table>
                         </div>
                     </div>
@@ -444,11 +340,11 @@
 
 
             </div>
-        </div>
+        </div><!-- insert -->
 
-        <!-- content modal -->
-        <div class="modal fade content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <form action="/kiki/add" method="post">
+        <!-- add content modal -->
+        <div id="kiki-modal" class="modal fade content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <form action="/kiki/add" id="KikiForm" name="KikiForm" method="post">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -553,7 +449,7 @@
                                             備考
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" name="bikou" class="form-control" />
+                                            <input type="text" name="bikou"class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -585,6 +481,151 @@
             </form>
         </div>
 
+
+        <!-- update content modal -->
+        <div id="kiki-update-modal" class="modal fade update-content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <form action="/kiki/update" id="update-KikiForm" name="updateKikiForm" method="post">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="update-myModalLabel">機器情報更新</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <input type="hidden" name="kikiSysId" value="1" />
+                            <input type="hidden" name="kikiId" id="update-kikiId" value="" />
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        機器分類
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select name="kikiBunrui" id="kikiBunrui" class="form-control">
+                                            <option>弁</option>
+                                            <option>駆動部</option>
+                                            <option>補助部</option>
+                                            <option>付属部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        機器番号
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="kikiNo" id="kikiNo" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="button" class="btn btn-default" value="機器名称" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="kikiMei" id="kikiMei" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="button" class="btn btn-default" value="主管係" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="syukan" id="syukan" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="button" class="btn btn-default" value="メーカー" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="text" name="makerRyaku" id="makerRyaku" class="form-control" placeholder="略称" />
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" name="maker" id="maker" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        型式番号
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="katasikiNo" id="katasikiNo" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        シリアル番号
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="serialNo" id="serialNo" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        オーダー番号
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="orderNo" id="orderNo" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        備考
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" name="bikou" id="bikou" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+
+                            <div class="form-group">
+                                <input type="hidden" name="imageId" id="imageId" value="" />
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-3">
+                                        <select class="form-control">
+                                            <option>画像種別</option>
+                                            <option>画像種別</option>
+                                            <option>画像種別</option>
+                                            <option>画像種別</option>
+                                            <option>画像種別</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="file" />
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="更新" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- update over -->
+        <form id="delete-form" action="/kiki/delete" method="post">
+            <input type="hidden" id="delete-id" name="kikiId" value="" />
+        </form>
+
+
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
@@ -609,6 +650,35 @@
         $(".kiki-table tr").mouseout(function(obj){
             var tr = $(obj.currentTarget)[0];
             $(tr).find(".operation-button").css("opacity","0");
+        });
+
+        $(".operation-button-btn").click(function(){
+            var operation = $($(this)[0]).find("i");
+            var operationStr = new String(operation[0].className);
+            var kikiId = $($(this)[0]).siblings(".kikiId")[0].value;
+            if(operationStr == "fa fa-pencil"){
+                //edit
+                $.getJSON("/kiki/getKikiByKikiId",{kikiId:kikiId},function(data){
+                    $("#update-kikiId").val(data.kikiId);
+                    $("#kikiBunrui").html("<option>"+data.kikiBunrui+"</option>"+$("#kikiBunrui").html());
+                    $("#kikiNo").val(data.kikiNo);
+                    $("#kikiMei").val(data.kikiMei);
+                    $("#syukan").val(data.syukan);
+                    $("#makerRyaku").val(data.makerRyaku);
+                    $("#maker").val(data.maker);
+                    $("#katasikiNo").val(data.katasikiNo);
+                    $("#serialNo").val(data.serialNo);
+                    $("#orderNo").val(data.bikou);
+                    $("#kiki-update-modal").modal('show');
+                });
+
+            } else if(operationStr == "fa fa-trash-o") {
+                //delete
+                $("#delete-id").val(kikiId);
+                $("#delete-form").submit();
+            } else {
+                //goto buhin
+            }
         });
     });
 </script>
