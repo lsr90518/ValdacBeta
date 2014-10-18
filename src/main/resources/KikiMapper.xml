@@ -35,28 +35,6 @@
                 )
     </insert>
 
-    <insert id="insertMachine" parameterType="Kiki">
-        insert into
-        kiki(kikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
-        values(
-        #{kikiSysId},
-        #{kikiBunrui},
-        #{kikiBunruiSeq},
-        #{kikiNo},
-        #{kikiMei},
-        #{syukan},
-        #{makerRyaku},
-        #{maker},
-        #{katasikiNo},
-        #{serialNo},
-        #{orderNo},
-        #{bikou},
-        #{imageId},
-        #{trkDate},
-        #{updDate}
-        )
-    </insert>
-
     <update id="updateKikiByKiki" parameterType="Kiki">
         update kiki
         set
@@ -71,7 +49,8 @@
           serialNo=#{serialNo},
           orderNo=#{orderNo},
           bikou=#{bikou},
-          imageId=#{imageId}
+          imageId=#{imageId},
+          updDate=#{updDate}
         where kikiId=#{kikiId}
     </update>
 

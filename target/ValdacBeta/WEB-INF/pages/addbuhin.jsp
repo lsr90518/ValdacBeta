@@ -148,8 +148,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Login</a></li>
-            <li>${valve.benMeisyo}</li>
-            <li class="active">${kiki.kikiMei}</li>
+            <li><a href="/valve">${valve.benMeisyo}</a></li>
+            <li class="active"><a href="/kiki">${kiki.kikiMei}</a></li>
             <li>部品情報登録</li>
         </ol>
     </section>
@@ -254,39 +254,37 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover kiki-table">
                             <tbody><tr>
-                                <th>部品区分</th>
-                                <th>連番</th>
-                                <th>部品図番号</th>
                                 <th>部品名</th>
+                                <th>部品区分</th>
                                 <th>使用箇所</th>
                                 <th>資材名</th>
+                                <th>メーカー(略)</th>
                                 <th>品番</th>
-                                <th>メーカー</th>
+                                <th>標準仕様</th>
                                 <th>操作</th>
                             </tr>
-                            <c:forEach items="${kikiList}" var="tmpkiki">
+                            <c:forEach items="${buhinList}" var="tmpbuhin">
                                 <tr>
-                                    <td>${tmpkiki.kikiBunrui}</td>
-                                    <td>${tmpkiki.kikiBunruiSeq}</td>
-                                    <td>${tmpkiki.kikiMei}</td>
-                                    <td>${tmpkiki.syukan}</td>
-                                    <td>${tmpkiki.maker}(${tmpkiki.makerRyaku})</td>
-                                    <td>${tmpkiki.katasikiNo}</td>
-                                    <td>${tmpkiki.serialNo}</td>
-                                    <td>${tmpkiki.orderNo}</td>
+                                    <td>${tmpbuhin.buhinMei}</td>
+                                    <td>${tmpbuhin.buhinKbn}</td>
+                                    <td>${tmpbuhin.siyouKasyo}</td>
+                                    <td>${tmpbuhin.sizaiName}</td>
+                                    <td>${tmpbuhin.maker}(${tmpbuhin.makerRyaku})</td>
+                                    <td>${tmpbuhin.hinban}</td>
+                                    <td>${tmpbuhin.hyojunSiyou}</td>
 
                                     <td>
                                         <div class="operation-button">
                                             <a class="btn btn-primary btn-sm operation-button-btn"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-danger btn-sm operation-button-btn"><i class="fa fa-trash-o"></i></a>
-                                            <a class="btn btn-info btn-sm operation-button-btn" href="/kiki/${tmpkiki.kikiId}"><i class="fa fa-arrow-right"></i></a>
-                                            <input type="hidden" class="kikiId" value="${tmpkiki.kikiId}"/>
+                                            <input type="hidden" class="buhinId" value="${tmpbuhin.buhinId}"/>
                                         </div>
                                     </td>
                                 </tr>
 
                             </c:forEach>
-                            </tbody></table>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -294,8 +292,8 @@
     </div><!-- insert -->
 
     <!-- add content modal -->
-    <div id="kiki-modal" class="modal fade content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form action="/kiki/add" id="KikiForm" name="KikiForm" method="post">
+    <div id="buhin-modal" class="modal fade content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form action="/buhin/add" id="buhinForm" name="BuhinForm" method="post">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -304,14 +302,14 @@
                     </div>
                     <div class="modal-body">
 
-                        <input type="hidden" name="kikiId" value="1" />
+                        <input type="hidden" name="kikiId" value="${kiki.kikiId}" />
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
                                     部品区分
                                 </div>
                                 <div class="col-md-10">
-                                    <select name="kikiBunrui" class="form-control">
+                                    <select name="buhinKbn" class="form-control">
                                         <option>消耗資材</option>
                                         <option>経年部品</option>
                                         <option>接管資材</option>
@@ -326,7 +324,7 @@
                                     アスベスト区分
                                 </div>
                                 <div class="col-md-10">
-                                    <select name="kikiBunrui" class="form-control">
+                                    <select name="asbKbn" class="form-control">
                                         <option>アスベスト品</option>
                                         <option>ノンアスベスト品</option>
                                         <option>混在品</option>
@@ -342,7 +340,7 @@
                                     使用箇所
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="kikiNo" class="form-control" />
+                                    <input type="text" name="siyouKasyo" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -353,7 +351,7 @@
                                     <input type="button" class="btn btn-default" value="部品名" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="kikiMei" class="form-control" />
+                                    <input type="text" name="buhinMei" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -363,7 +361,7 @@
                                     <input type="button" class="btn btn-default" value="標準仕様" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="syukan" class="form-control" />
+                                    <input type="text" name="hyojunSiyou" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -373,8 +371,14 @@
                                 <div class="col-md-2">
                                     概略寸法
                                 </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="kikiNo" class="form-control" />
+                                <div class="col-md-6">
+                                    <input type="text" name="sunpou" class="form-control" />
+                                </div>
+                                <div class="col-md-2">
+                                    数量
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="suryo" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -385,7 +389,7 @@
                                     備考
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="kikiNo" class="form-control" />
+                                    <input type="text" name="bikou" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -410,7 +414,7 @@
                                     <input type="button" class="btn btn-default" value="資材名" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="syukan" class="form-control" />
+                                    <input type="text" name="sizaiName" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -421,7 +425,7 @@
                                     <input type="button" class="btn btn-default" value="品番" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="syukan" class="form-control" />
+                                    <input type="text" name="hinban" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -431,12 +435,8 @@
                         <div class="form-group">
                             <input type="hidden" name="imageId" value="" />
                             <div class="row">
-                                <div class="col-md-2">部品図番号</div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" name="imageId" />
-                                </div>
                                 <div class="col-md-2">備考</div>
-                                <div class="col-md-4">
+                                <div class="col-md-10">
                                     <input type="text" class="form-control" name="buhinzuBikou" />
                                 </div>
                             </div>
@@ -454,40 +454,45 @@
 
 
     <!-- update content modal -->
-    <div id="kiki-update-modal" class="modal fade update-content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form action="/kiki/update" id="update-KikiForm" name="updateKikiForm" method="post">
+    <div id="buhin-update-modal" class="modal fade udpate-content-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form action="/buhin/update" id="buhinUpdateForm" name="BuhinForm" method="post">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="update-myModalLabel">機器情報更新</h4>
+                        <h4 class="modal-title">部品登録</h4>
                     </div>
                     <div class="modal-body">
 
-                        <input type="hidden" name="kikiSysId" value="1" />
-                        <input type="hidden" name="kikiId" id="update-kikiId" value="" />
+                        <input type="hidden" name="kikiId" id="kikiId" value="${kiki.kikiId}" />
+                        <input type="hidden" name="buhinId" id="update-buhinId" value="1" />
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    機器分類
+                                    部品区分
                                 </div>
                                 <div class="col-md-10">
-                                    <select name="kikiBunrui" id="kikiBunrui" class="form-control">
-                                        <option>弁</option>
-                                        <option>駆動部</option>
-                                        <option>補助部</option>
-                                        <option>付属部</option>
+                                    <select name="buhinKbn" id="buhinKbn" class="form-control">
+                                        <option>消耗資材</option>
+                                        <option>経年部品</option>
+                                        <option>接管資材</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    機器番号
+                                    アスベスト区分
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="kikiNo" id="kikiNo" class="form-control" />
+                                    <select name="asbKbn" id="asbKbn" class="form-control">
+                                        <option>アスベスト品</option>
+                                        <option>ノンアスベスト品</option>
+                                        <option>混在品</option>
+                                        <option>対象外</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -495,90 +500,107 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="button" class="btn btn-default" value="機器名称" />
+                                    使用箇所
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="kikiMei" id="kikiMei" class="form-control" />
+                                    <input type="text" id="siyouKasyo" name="siyouKasyo" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <input type="button" class="btn btn-default" value="部品名" />
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="buhinMei" name="buhinMei" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="button" class="btn btn-default" value="主管係" />
+                                    <input type="button" class="btn btn-default" value="標準仕様" />
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="syukan" id="syukan" class="form-control" />
+                                    <input type="text" id="hyojunSiyou" name="hyojunSiyou" class="form-control" />
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="button" class="btn btn-default" value="メーカー" />
+                                    概略寸法
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" name="makerRyaku" id="makerRyaku" class="form-control" placeholder="略称" />
+                                <div class="col-md-6">
+                                    <input type="text" id="sunpou" name="sunpou" class="form-control" />
                                 </div>
-                                <div class="col-md-7">
-                                    <input type="text" name="maker" id="maker" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
                                 <div class="col-md-2">
-                                    型式番号
+                                    数量
                                 </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="katasikiNo" id="katasikiNo" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
                                 <div class="col-md-2">
-                                    シリアル番号
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="serialNo" id="serialNo" class="form-control" />
+                                    <input type="text" id="suryo" name="suryo" class="form-control" />
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    オーダー番号
-                                </div>
-                                <div class="col-md-10">
-                                    <input type="text" name="orderNo" id="orderNo" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
                                     備考
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" name="bikou" id="bikou" class="form-control" />
+                                    <input type="text" id="bikou" name="bikou" class="form-control" />
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <input type="button" class="btn btn-default" value="メーカー" />
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="makerRyaku" name="makerRyaku" class="form-control" placeholder="略称" />
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="maker" name="maker" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <input type="button" class="btn btn-default" value="資材名" />
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="sizaiName" name="sizaiName" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <input type="button" class="btn btn-default" value="品番" />
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="hinban" name="hinban" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
                         <hr/>
 
                         <div class="form-group">
-                            <input type="hidden" name="imageId" id="imageId" value="" />
+                            <input type="hidden" name="imageId" value="" />
                             <div class="row">
-                                <div class="col-md-1"></div>
-                                <div class="col-md-3">
-                                    <select class="form-control">
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                        <option>画像種別</option>
-                                    </select>
+                                <div class="col-md-2">備考</div>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="buhinzuBikou" name="buhinzuBikou" />
                                 </div>
                             </div>
                         </div>
@@ -586,18 +608,16 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-success" value="更新" />
+                        <input type="submit" class="btn btn-warning" value="更新" />
                     </div>
                 </div>
             </div>
         </form>
-    </div><!-- update over -->
-    <form id="delete-form" action="/kiki/delete" method="post">
-        <input type="hidden" id="delete-id" name="kikiId" value="" />
-    </form>
+    </div>
 
-    <form id="buhin-form" action="/kiki/buhin" method="post">
-        <input type="hidden" id="goBuhin-id" name="kikiId" value="" />
+
+    <form id="delete-form" action="/buhin/delete" method="post">
+        <input type="hidden" id="delete-id" name="buhinId" value="" />
     </form>
 
     </section><!-- /.content -->
@@ -629,31 +649,30 @@
         $(".operation-button-btn").click(function(){
             var operation = $($(this)[0]).find("i");
             var operationStr = new String(operation[0].className);
-            var kikiId = $($(this)[0]).siblings(".kikiId")[0].value;
+            var buhinId = $($(this)[0]).siblings(".buhinId")[0].value;
             if(operationStr == "fa fa-pencil"){
                 //edit
-                $.getJSON("/kiki/getKikiByKikiId",{kikiId:kikiId},function(data){
-                    $("#update-kikiId").val(data.kikiId);
-                    $("#kikiBunrui").html("<option>"+data.kikiBunrui+"</option>"+$("#kikiBunrui").html());
-                    $("#kikiNo").val(data.kikiNo);
-                    $("#kikiMei").val(data.kikiMei);
-                    $("#syukan").val(data.syukan);
+                $.getJSON("/buhin/getBuhinByBuhinId",{buhinId:buhinId},function(data){
+                    $("#update-buhinId").val(data.buhinId);
+                    $("#kikiId").val(data.kikiId);
+                    $("#buhinKbn").html("<option>"+data.buhinKbn+"</option>"+$("#buhinKbn").html());
+                    $("#asbKbn").html("<option>"+data.asbKbn+"</option>"+$("#asbKbn").html());
+                    $("#buhinMei").val(data.buhinMei);
+                    $("#hyojunSiyou").val(data.hyojunSiyou);
+                    $("#siyouKasyo").val(data.siyouKasyo);
+                    $("#sizaiName").val(data.sizaiName);
+                    $("#hinban").val(data.hinban);
+                    $("#sunpou").val(data.sunpou);
                     $("#makerRyaku").val(data.makerRyaku);
                     $("#maker").val(data.maker);
-                    $("#katasikiNo").val(data.katasikiNo);
-                    $("#serialNo").val(data.serialNo);
                     $("#orderNo").val(data.bikou);
-                    $("#kiki-update-modal").modal('show');
+                    $("#buhin-update-modal").modal('show');
                 });
 
             } else if(operationStr == "fa fa-trash-o") {
                 //delete
-                $("#delete-id").val(kikiId);
+                $("#delete-id").val(buhinId);
                 $("#delete-form").submit();
-            } else {
-                //goto buhin
-                $("#goBuhin-id").val(kikiId);
-                $("#buhin-form").submit();
             }
         });
     });

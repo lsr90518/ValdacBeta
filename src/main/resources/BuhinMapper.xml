@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ValdacBeta.dao.BuhinMapper">
+    <select id="findAllBuhins" resultType="Buhin">
+        select * from buhin
+    </select>
+
+    <select id="findBuhinById" parameterType="int" resultType="Buhin">
+        select * from buhin where buhinId=#{buhinId}
+    </select>
+
+    <select id="findBuhinByKikiId" parameterType="int" resultType="Buhin">
+        select * from buhin where kikiId=#{kikiId}
+    </select>
+
+    <select id="getLastInsertId" resultType="int">
+        select buhinId from buhin ORDER BY buhinId DESC limit 1
+    </select>
+
+    <insert id="insertBuhin" parameterType="Buhin">
+        insert into
+                buhin(kikiSysId, kikiId, kikiBunrui, kikiBunruiSeq, buhinKbn, BuhinSeq, asbKbn, buhinzuBikou, buhinMei, hyojunSiyou, siyouKasyo, sizaiName, hinban, makerRyaku, maker, sunpou ,bikou, suryo, imageId, trkDate, updDate)
+               values(
+                  #{kikiSysId},
+                  #{kikiId},
+                  #{kikiBunrui},
+                  #{kikiBunruiSeq},
+                  #{buhinKbn},
+                  #{BuhinSeq},
+                  #{asbKbn},
+                  #{buhinzuBikou},
+                  #{buhinMei},
+                  #{hyojunSiyou},
+                  #{siyouKasyo},
+                  #{sizaiName},
+                  #{hinban},
+                  #{makerRyaku},
+                  #{maker},
+                  #{sunpou},
+                  #{bikou},
+                  #{suryo},
+                  #{imageId},
+                  #{trkDate},
+                  #{updDate}
+               )
+    </insert>
+
+    <update id="updateBuhinByBuhin" parameterType="Buhin">
+        update buhin
+        set buhinKbn=#{buhinKbn},
+            buhinSeq=#{buhinSeq},
+            asbKbn=#{asbKbn},
+            buhinzuBikou=#{buhinzuBikou},
+            buhinMei=#{buhinMei},
+            hyojunSiyou=#{hyojunSiyou},
+            siyouKasyo=#{siyouKasyo},
+            sizaiName=#{sizaiName},
+            hinban=#{hinban},
+            makerRyaku=#{makerRyaku},
+            maker=#{maker},
+            sunpou=#{sunpou},
+            bikou=#{bikou},
+            suryo=#{suryo},
+            imageId=#{imageId},
+            updDate=#{updDate}
+        where
+            buhinId=#{buhinId}
+    </update>
+
+    <delete id="deleteBuhinByBuhin" parameterType="int">
+        delete from buhin where buhinId=#{buhinId}
+    </delete>
+</mapper>

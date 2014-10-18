@@ -147,8 +147,8 @@
                 <small>機器情報登録</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Login</a></li>
-                <li class="active">${valve.benMeisyo}</li>
+                <li><i class="fa fa-dashboard"></i> Login</li>
+                <li class="active"><a href="/valve">${valve.benMeisyo}</a></li>
                 <li>機器情報登録</li>
             </ol>
         </section>
@@ -353,7 +353,7 @@
                         </div>
                         <div class="modal-body">
 
-                                <input type="hidden" name="kikiSysId" value="1" />
+                                <input type="hidden" name="kikiSysId" value="${valve.kikiSysId}" />
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-2">
@@ -493,7 +493,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <input type="hidden" name="kikiSysId" value="1" />
+                            <input type="hidden" name="kikiSysId" value="${valve.kikiSysId}" />
                             <input type="hidden" name="kikiId" id="update-kikiId" value="" />
                             <div class="form-group">
                                 <div class="row">

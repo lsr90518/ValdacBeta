@@ -29,7 +29,7 @@ public class KikiService {
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
         kiki.setTrkDate(sdf1.format(date));
         kiki.setUpdDate(sdf1.format(date));
-        kikiMapper.insertMachine(kiki);
+        kikiMapper.insertKiki(kiki);
 
         //make id
         kiki.setKikiId(kikiMapper.getLastInsertId());
@@ -37,6 +37,11 @@ public class KikiService {
     }
 
     public void updateKikiByKiki(Kiki kiki){
+
+        Date date = new Date();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+        kiki.setUpdDate(sdf1.format(date));
+
         kikiMapper.updateKikiByKiki(kiki);
     }
 

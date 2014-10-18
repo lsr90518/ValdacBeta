@@ -33,7 +33,8 @@ public class ValveController {
     KikiService kikiService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String index(){
+    public String index(HttpSession session, ModelMap modelMap){
+
         return "/addvalve";
     }
 
@@ -43,10 +44,8 @@ public class ValveController {
         Valve valve = new Valve();
         valve.makeupValveByForm(valveForm);
         valve = valveService.addValve(valve);
-//        modelMap.addAttribute("BenMeisyo","BenMeisyo");
         modelMap.addAttribute("valve",valve);
         session.setAttribute("valve",valve);
-//        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId());
 
         return "addkiki";
     }
