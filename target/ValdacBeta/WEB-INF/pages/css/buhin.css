@@ -2226,6 +2226,9 @@ Component: timeline
     border: 0;
 }
 /* PAGINATION */
+.pagination{
+    margin: 0 0 10px 0;
+}
 .pagination > li > a {
     background: #fafafa;
     color: #666;
@@ -3523,4 +3526,7 @@ fieldset[disabled] .btn-vk.active {
 .btn-vk .badge {
     color: #587ea3;
     background-color: #ffffff;
+}
+.operation-button{
+    opacity: 0;
 }
