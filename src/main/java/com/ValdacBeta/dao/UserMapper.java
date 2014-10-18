@@ -3,6 +3,7 @@ package com.ValdacBeta.dao;
 import com.ValdacBeta.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -10,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public interface UserMapper {
 
-    @Select("select * from user where userId=#{userid}")
+    @Select("select * from user where userId=#{userId}")
     public User findByUserId(String userid);
 
-    @Select("select * from user where username=#{username}")
-    public User findByUserName(String username);
+
+    public void updateUser(User user);
 }

@@ -186,43 +186,6 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
-                                    設置設備
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setSetubi}
-                                </div>
-                                <div class="col-md-2">
-                                    設置機器
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setKiki}
-                                </div>
-                                <div class="col-md-2">
-                                    設置場所
-                                </div>
-                                <div class="col-md-2">
-                                    ${valve.setBasyo}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    系統:
-                                </div>
-                                <div class="col-md-4">
-                                    ${valve.keitou}
-                                </div>
-                                <div class="col-md-2">
-                                    適用法規
-                                </div>
-                                <div class="col-md-4">
-                                    ${valve.houki}
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
