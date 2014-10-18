@@ -156,16 +156,6 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" onclick="getAllValve()" value="機器システム"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="KikiSysMei" name="KikiSysMei" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
                                     <div class="col-md-4">
                                         <input type="text" id="VNo" name="VNo" class="form-control" placeholder="弁番号">
                                     </div>
@@ -181,60 +171,10 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="2" value="設置設備"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" id="SetSetubi" name="SetSetubi" class="form-control">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="設置装備"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" id="SetKiki" name="SetKiki" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="4" value="設置場所"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="SetBasyo" name="SetBasyo" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" onclick="getMasterByType(this)" id="5" value="系統"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="Keitou" name="Keitou" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
                                         <input type="button" class="btn btn-primary"  value="ICS番号"/>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" id="ICS" name="ICS" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary" value="工具"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="Tool" name="Tool" class="form-control">
+                                        <input type="text" id="ics" name="ics" class="form-control">
                                     </div>
                                 </div>
                             </div>

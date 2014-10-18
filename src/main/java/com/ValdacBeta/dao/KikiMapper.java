@@ -15,7 +15,7 @@ public interface KikiMapper {
 
     public List<Kiki> findKikiBySysId(int KikiSysId);
 
-    public void insertKiki(Kiki kiki);
+    public void insertMachine(Kiki kiki);
 
     public int getLastInsertId();
 
