@@ -59,7 +59,7 @@ public class BuhinController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam("buhinId")String buhinId,ModelMap modelMap,HttpSession session){
-        buhinService.deleteKikiByKikiByKikiId(buhinId);
+        buhinService.deleteBuhinByBuhin(buhinId);
         Kiki kiki = (Kiki)session.getAttribute("kiki");
         List<Buhin> buhinList = buhinService.getBuhinByKikiId(kiki.getKikiId());
         modelMap.addAttribute("buhinList",buhinList);

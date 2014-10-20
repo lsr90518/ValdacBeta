@@ -49,6 +49,10 @@ public class KikiService {
         kikiMapper.deleteKikiByKikiId(Integer.valueOf(kikiId));
     }
 
+    public void deleteKikiByKikiSysId(String kikiSysId){
+        kikiMapper.deleteKikiByKikiSysId(Integer.valueOf(kikiSysId));
+    }
+
     public List<Kiki> getKikiBySysId(int KikiSysId){
         List<Kiki> kikiList = kikiMapper.findKikiBySysId(KikiSysId);
         return kikiList;

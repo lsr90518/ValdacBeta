@@ -70,4 +70,12 @@
     <delete id="deleteBuhinByBuhin" parameterType="int">
         delete from buhin where buhinId=#{buhinId}
     </delete>
+
+    <delete id="deleteBuhinByKikiSysId" parameterType="int">
+        delete from buhin where kikiSysId = #{kikiSysId}
+    </delete>
+    <delete id="deleteBuhinByKikiId" parameterType="int">
+        delete from buhin where kikiId = #{kikiId}
+    </delete>
+
 </mapper>

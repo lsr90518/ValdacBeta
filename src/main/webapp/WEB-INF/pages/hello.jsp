@@ -138,7 +138,7 @@
         <small>弁情報登録</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Login</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Index</a></li>
         <li class="active">新規登録</li>
     </ol>
 </section>

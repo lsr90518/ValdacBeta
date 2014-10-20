@@ -22,4 +22,6 @@ public interface KikiMapper {
     public void updateKikiByKiki(Kiki kiki);
 
     public void deleteKikiByKikiId(int kiki);
+
+    void deleteKikiByKikiSysId(Integer kikiSysId);
 }

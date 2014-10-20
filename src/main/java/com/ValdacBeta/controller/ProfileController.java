@@ -42,6 +42,7 @@ public class ProfileController {
             user = userService.updateUser(user.getUserid(),username,password,department,profile);
             modelMap.addAttribute("user",user);
             session.setAttribute("user",user);
+            modelMap.addAttribute("message","更新完成");
             return "profile";
         } else {
             return "login";

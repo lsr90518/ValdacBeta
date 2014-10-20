@@ -61,4 +61,8 @@
     <delete id="deleteKikiByKikiId" parameterType="int">
         delete from kiki where kikiId=#{kikiId}
     </delete>
+
+    <delete id="deleteKikiByKikiSysId" parameterType="int">
+        delete from kiki where kikiSysId=#{kikiSysId}
+    </delete>
 </mapper>
