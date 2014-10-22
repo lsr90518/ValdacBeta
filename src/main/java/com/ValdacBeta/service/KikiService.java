@@ -61,4 +61,8 @@ public class KikiService {
     public Kiki getKikiByKikiId(String KikiId){
         return kikiMapper.findKikiById(Integer.valueOf(KikiId));
     }
+
+    public List<Kiki> getTenKikis() {
+        return kikiMapper.findTenKiki();
+    }
 }

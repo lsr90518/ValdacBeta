@@ -24,4 +24,6 @@ public interface KikiMapper {
     public void deleteKikiByKikiId(int kiki);
 
     void deleteKikiByKikiSysId(Integer kikiSysId);
+
+    List<Kiki> findTenKiki();
 }

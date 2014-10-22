@@ -13,6 +13,10 @@
         select * from buhin where kikiId=#{kikiId}
     </select>
 
+    <select id="findTenBuhin" resultType="Buhin">
+        select * from buhin order by buhinId desc limit 10;
+    </select>
+
     <select id="getLastInsertId" resultType="int">
         select buhinId from buhin ORDER BY buhinId DESC limit 1
     </select>

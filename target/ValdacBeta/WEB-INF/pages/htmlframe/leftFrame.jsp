@@ -38,8 +38,8 @@
                     </a>
                 </li>
                 <li id="left-menu-edit">
-                    <a href="/edit">
-                        <i class="fa fa-edit"></i> <span>アイテム編集</span>
+                    <a href="/list">
+                        <i class="fa fa-edit"></i> <span>アイテム一覧</span>
                     </a>
                 </li>
                 <li id="left-menu-image">

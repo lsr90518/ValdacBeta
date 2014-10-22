@@ -27,4 +27,6 @@ public interface BuhinMapper {
     void deleteBuhinByKikiSysId(Integer kikiSysId);
 
     void deleteBuhinByKikiId(Integer kikiId);
+
+    List<Buhin> findTenBuhin();
 }

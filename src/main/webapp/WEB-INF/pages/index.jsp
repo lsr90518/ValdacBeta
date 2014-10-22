@@ -58,10 +58,10 @@
                         <div class="small-box bg-red">
                             <div class="inner">
                                 <h3>
-                                    編集
+                                    一覧
                                 </h3>
                                 <p>
-                                    バルブ、機器、部品情報編集
+                                    バルブ、機器、部品情報検索、一覧
                                 </p>
                             </div>
                             <div class="icon">

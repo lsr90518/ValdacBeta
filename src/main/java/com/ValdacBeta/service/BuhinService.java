@@ -67,4 +67,7 @@ public class BuhinService {
 
     }
 
+    public List<Buhin> getTenBuhins() {
+        return buhinMapper.findTenBuhin();
+    }
 }

@@ -13,6 +13,10 @@
         select * from kiki where kikiSysId=#{kikiSysId}
     </select>
 
+    <select id="findTenKiki" resultType="Kiki">
+        select * from kiki order by kikiId desc limit 10;
+    </select>
+
     <insert id="insertKiki" parameterType="Kiki">
         insert into
                 kiki(kikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)

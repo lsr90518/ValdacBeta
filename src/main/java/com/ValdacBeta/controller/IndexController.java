@@ -45,8 +45,8 @@ public class IndexController {
         return "redirect:/valve";
     }
 
-    @RequestMapping(value = "edit",method = RequestMethod.GET)
+    @RequestMapping(value = "list",method = RequestMethod.GET)
     public String edit(HttpSession session,ModelMap modelMap){
-        return "edit";
+        return "redirect:/list";
     }
 }

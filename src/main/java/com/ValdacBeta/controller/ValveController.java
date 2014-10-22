@@ -50,7 +50,7 @@ public class ValveController {
         modelMap.addAttribute("valve",valve);
         session.setAttribute("valve",valve);
 
-        return "addkiki";
+        return "redirect:/kiki";
     }
 
     @RequestMapping(value = "/{kikiSysId}", method = RequestMethod.GET)
