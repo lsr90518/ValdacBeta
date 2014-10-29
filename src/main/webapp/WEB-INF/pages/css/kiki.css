@@ -1379,6 +1379,9 @@ body > .header .logo .icon {
 .box.box-primary {
     border-top-color: #3c8dbc;
 }
+.box.box-kiki {
+    border-top-color: #37cccd;
+}
 .box.box-info {
     border-top-color: #00c0ef;
 }
@@ -1541,6 +1544,11 @@ body > .header .logo .icon {
     color: #fff;
     background: #3c8dbc;
     background-color: #3c8dbc;
+}
+.box.box-solid.box-kiki > .box-header {
+    color:#fff;
+    background: #37cccd;
+    background-color: #37cccd;
 }
 .box.box-solid.box-primary > .box-header a {
     color: #444;

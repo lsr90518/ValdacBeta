@@ -6,7 +6,6 @@ package com.ValdacBeta.dto;
 public class KikiForm {
 
     public int kikiId;
-    public String kikiSysId;
     public String kikiBunrui;
     public String kikiBunruiSeq;
     public String kikiNo;
@@ -28,14 +27,6 @@ public class KikiForm {
 
     public void setKikiId(int kikiId) {
         this.kikiId = kikiId;
-    }
-
-    public String getKikiSysId() {
-        return kikiSysId;
-    }
-
-    public void setKikiSysId(String kikiSysId) {
-        this.kikiSysId = kikiSysId;
     }
 
     public String getKikiBunrui() {

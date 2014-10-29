@@ -23,4 +23,5 @@ public interface ValveMapper {
     public void deleteKikiSystemByKikiSysId(Integer kikiSysId);
 
     void updateValveByValve(Valve valve);
+
 }

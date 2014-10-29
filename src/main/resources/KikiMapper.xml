@@ -9,19 +9,14 @@
         select * from kiki where kikiId=#{kikiId}
     </select>
 
-    <select id="findKikiBySysId" parameterType="int" resultType="Kiki">
-        select * from kiki where kikiSysId=#{kikiSysId}
-    </select>
-
     <select id="findTenKiki" resultType="Kiki">
         select * from kiki order by kikiId desc limit 10;
     </select>
 
     <insert id="insertKiki" parameterType="Kiki">
         insert into
-                kiki(kikiSysId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
+                kiki(kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo, orderNo, bikou, imageId, trkDate, updDate)
          values(
-                #{kikiSysId},
                 #{kikiBunrui},
                 #{kikiBunruiSeq},
                 #{kikiNo},
@@ -63,10 +58,18 @@
     </select>
 
     <delete id="deleteKikiByKikiId" parameterType="int">
-        delete from kiki where kikiId=#{kikiId}
+        DELETE ksl.*,k.*,b.*
+        FROM kikisystemrelation ksl
+		LEFT JOIN kiki k ON ksl.kikiId=k.kikiId
+		LEFT JOIN buhin b ON ksl.buhinid=b.buhinId
+		WHERE ksl.kikiid=#{kikiId}
     </delete>
 
-    <delete id="deleteKikiByKikiSysId" parameterType="int">
-        delete from kiki where kikiSysId=#{kikiSysId}
-    </delete>
+    <select id="findKikiBySysId" parameterType="int" resultType="Kiki">
+        SELECT DISTINCT kiki.kikiId, kikiBunrui, kikiBunruiSeq, kikiNo, kikiMei, syukan, makerRyaku, maker, katasikiNo, serialNo,orderNo, bikou, imageId, trkDate, updDate
+        FROM kiki, kikisystemrelation
+        WHERE kikisystemrelation.kikisysid=#{kikiSysId}
+        AND kikisystemrelation.kikiid=kiki.kikiId
+    </select>
+
 </mapper>

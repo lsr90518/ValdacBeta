@@ -40,8 +40,6 @@ public class BuhinController {
         buhin.makeupValueByForm(buhinForm);
         buhin = buhinService.addBuhin(buhin);
 
-        List<Buhin> buhinList = buhinService.getBuhinByKikiId(buhin.getKikiId());
-        modelMap.addAttribute("buhinList",buhinList);
         return "addbuhin";
     }
 
@@ -52,14 +50,12 @@ public class BuhinController {
         buhin.setBuhinId(buhinForm.getBuhinId());
         buhinService.updateBuhinByBuhin(buhin);
 
-        List<Buhin> buhinList = buhinService.getBuhinByKikiId(buhin.getKikiId());
-        modelMap.addAttribute("buhinList",buhinList);
         return "addbuhin";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam("buhinId")String buhinId,ModelMap modelMap,HttpSession session){
-        buhinService.deleteBuhinByBuhin(buhinId);
+        buhinService.deleteBuhinByBuhinId(buhinId);
         Kiki kiki = (Kiki)session.getAttribute("kiki");
         List<Buhin> buhinList = buhinService.getBuhinByKikiId(kiki.getKikiId());
         modelMap.addAttribute("buhinList",buhinList);

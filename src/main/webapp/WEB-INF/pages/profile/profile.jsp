@@ -1,12 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<c:import url="htmlframe/headFrame.jsp" />
+<c:import url="../htmlframe/headFrame.jsp" />
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
-<c:import url="htmlframe/headerFrame.jsp"/>
+<c:import url="../htmlframe/headerFrame.jsp"/>
 <div class="wrapper row-offcanvas row-offcanvas-left">
 <!-- Left side column. contains the logo and sidebar -->
-    <c:import url="htmlframe/leftFrame.jsp" />
+    <c:import url="../htmlframe/leftFrame.jsp" />
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -137,7 +137,7 @@
     }
 </script>
 
-<c:import url="htmlframe/footerFrame.jsp" />
+<c:import url="../htmlframe/footerFrame.jsp" />
 
 
 </body>

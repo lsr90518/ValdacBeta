@@ -47,7 +47,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="/valve" class="small-box-footer">
+                            <a href="/item/add" class="small-box-footer">
                                 入る <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
@@ -61,13 +61,13 @@
                                     一覧
                                 </h3>
                                 <p>
-                                    バルブ、機器、部品情報検索、一覧
+                                    アイテム情報一覧
                                 </p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="/edit" class="small-box-footer">
+                            <a href="/item" class="small-box-footer">
                                 入る <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
@@ -151,8 +151,8 @@
 
                                                 <td>
                                                     <div class="operation-button">
-                                                        <a class="btn btn-primary btn-sm operation-button-btn" href="/valve/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-danger btn-sm operation-button-btn" href="/valve/delete/${tmpValve.kikiSysId}"><i class="fa fa-trash-o"></i></a>
+                                                        <a class="btn btn-primary btn-sm operation-button-btn" href="/item/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
+                                                        <a class="btn btn-danger btn-sm operation-button-btn" href="/item/${tmpValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>

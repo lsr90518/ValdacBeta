@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:import url="htmlframe/headFrame.jsp" />
+<c:import url="../htmlframe/headFrame.jsp" />
 <body class="skin-blue">
-<c:import url="htmlframe/headerFrame.jsp" />
+<c:import url="../htmlframe/headerFrame.jsp" />
 
 <div class="wrapper row-offcanvas row-offcanvas-left">
 <!-- Left side column. contains the logo and sidebar -->
-<c:import url="htmlframe/leftFrame.jsp" />
+<c:import url="../htmlframe/leftFrame.jsp" />
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -27,7 +27,7 @@
     <section class="content">
 
         <div class="row">
-        <form role="form" id="valveForm" class="box-body-form" method="post" action="/valve/add">
+        <form role="form" id="valveForm" class="box-body-form" method="post" action="/item/add">
             <!-- collection -->
 
             <div class="col-lg-12">
@@ -211,8 +211,8 @@
             </div>
         </form>
         </div>
-
     </section><!-- /.content -->
+
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
@@ -254,7 +254,7 @@
 </script>
 
 
-<c:import url="htmlframe/footerFrame.jsp" />
+<c:import url="../htmlframe/footerFrame.jsp" />
 
 </body>
 </html>

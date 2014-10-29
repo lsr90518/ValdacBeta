@@ -10,7 +10,10 @@
     </select>
 
     <select id="findBuhinByKikiId" parameterType="int" resultType="Buhin">
-        select * from buhin where kikiId=#{kikiId}
+        SELECT DISTINCT buhin.buhinId,buhinKbn, buhinSeq, asbKbn, buhinzuBikou, buhinMei, hyojunSiyou, siyouKasyo, sizaiName, hinban, makerRyaku, maker, sunpou, bikou, suryo, imageId, trkDate, updDate
+        FROM buhin, kikisystemrelation
+        WHERE kikisystemrelation.kikiid=#{kikiId}
+        AND kikisystemrelation.buhinid=buhin.buhinId
     </select>
 
     <select id="findTenBuhin" resultType="Buhin">
@@ -23,12 +26,8 @@
 
     <insert id="insertBuhin" parameterType="Buhin">
         insert into
-                buhin(kikiSysId, kikiId, kikiBunrui, kikiBunruiSeq, buhinKbn, BuhinSeq, asbKbn, buhinzuBikou, buhinMei, hyojunSiyou, siyouKasyo, sizaiName, hinban, makerRyaku, maker, sunpou ,bikou, suryo, imageId, trkDate, updDate)
+                buhin(buhinKbn, BuhinSeq, asbKbn, buhinzuBikou, buhinMei, hyojunSiyou, siyouKasyo, sizaiName, hinban, makerRyaku, maker, sunpou ,bikou, suryo, imageId, trkDate, updDate)
                values(
-                  #{kikiSysId},
-                  #{kikiId},
-                  #{kikiBunrui},
-                  #{kikiBunruiSeq},
                   #{buhinKbn},
                   #{BuhinSeq},
                   #{asbKbn},
@@ -71,8 +70,11 @@
             buhinId=#{buhinId}
     </update>
 
-    <delete id="deleteBuhinByBuhin" parameterType="int">
-        delete from buhin where buhinId=#{buhinId}
+    <delete id="deleteBuhinByBuhinId" parameterType="int">
+        DELETE ksl.*,b.*
+        FROM kikisystemrelation ksl
+		LEFT JOIN buhin b ON ksl.buhinid=b.buhinId
+		WHERE ksl.buhinid=#{buhinId}
     </delete>
 
     <delete id="deleteBuhinByKikiSysId" parameterType="int">

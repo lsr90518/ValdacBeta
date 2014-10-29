@@ -22,7 +22,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/valve")
+@RequestMapping("/old")
 public class ValveController {
 
     @Autowired

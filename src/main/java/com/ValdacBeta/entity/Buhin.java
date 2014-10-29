@@ -7,10 +7,6 @@ import com.ValdacBeta.dto.BuhinForm;
  */
 public class Buhin {
     public int buhinId;
-    public int kikiSysId;
-    public int kikiId;
-    public String kikiBunrui;
-    public String kikiBunruiSeq;
     public String buhinKbn;
     public String BuhinSeq;
     public String asbKbn;
@@ -30,10 +26,6 @@ public class Buhin {
     public String updDate;//hinban
 
     public void makeupValueByForm(BuhinForm buhinForm){
-        setKikiId(buhinForm.getKikiId());
-        setKikiSysId(buhinForm.getKikiSysId());
-        setKikiBunrui(buhinForm.getKikiBunrui());
-        setKikiBunruiSeq(buhinForm.getKikiBunruiSeq());
         setBuhinKbn(buhinForm.getBuhinKbn());
         setBuhinSeq(buhinForm.getBuhinSeq());
         setAsbKbn(buhinForm.getAsbKbn());
@@ -59,38 +51,6 @@ public class Buhin {
         this.buhinId = buhinId;
     }
 
-    public int getKikiSysId() {
-        return kikiSysId;
-    }
-
-    public void setKikiSysId(int kikiSysId) {
-        this.kikiSysId = kikiSysId;
-    }
-
-    public int getKikiId() {
-        return kikiId;
-    }
-
-    public void setKikiId(int kikiId) {
-        this.kikiId = kikiId;
-    }
-
-    public String getKikiBunrui() {
-        return kikiBunrui;
-    }
-
-    public void setKikiBunrui(String kikiBunrui) {
-        this.kikiBunrui = kikiBunrui;
-    }
-
-    public String getKikiBunruiSeq() {
-        return kikiBunruiSeq;
-    }
-
-    public void setKikiBunruiSeq(String kikiBunruiSeq) {
-        this.kikiBunruiSeq = kikiBunruiSeq;
-    }
-
     public String getBuhinKbn() {
         return buhinKbn;
     }
@@ -114,8 +74,6 @@ public class Buhin {
     public void setSiyouKasyo(String siyouKasyo) {
         this.siyouKasyo = siyouKasyo;
     }
-
-
 
     public String getAsbKbn() {
         return asbKbn;

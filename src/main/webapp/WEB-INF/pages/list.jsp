@@ -9,7 +9,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="htmlframe/headFrame.jsp" />
-<link rel="stylesheet" type="text/css" href="/css/edit.css" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
 
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
@@ -117,8 +117,8 @@
                                         <td>${tmpValve.szKikaku}</td>
                                         <td>${tmpValve.zaisitu}</td>
                                         <td>
-                                            <a class="btn btn-primary btn-short operation-button" href="/valve/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-short operation-button" href="/valve/delete/${tmpValve.kikiSysId}"><i class="fa fa-trash-o"></i></a>
+                                            <a class="btn btn-primary btn-short operation-button" href="/item/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger btn-short operation-button" href="/item/${tmpValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 </c:forEach>

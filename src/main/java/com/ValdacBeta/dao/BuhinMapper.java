@@ -22,7 +22,7 @@ public interface BuhinMapper {
 
     public void updateBuhinByBuhin(Buhin buhin);
 
-    public void deleteBuhinByBuhin(int buhinId);
+    public void deleteBuhinByBuhinId(int buhinId);
 
     void deleteBuhinByKikiSysId(Integer kikiSysId);
 

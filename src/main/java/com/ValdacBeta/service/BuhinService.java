@@ -45,8 +45,8 @@ public class BuhinService {
         buhinMapper.updateBuhinByBuhin(buhin);
     }
 
-    public void deleteBuhinByBuhin(String buhinId){
-        buhinMapper.deleteBuhinByBuhin(Integer.valueOf(buhinId));
+    public void deleteBuhinByBuhinId(String buhinId){
+        buhinMapper.deleteBuhinByBuhinId(Integer.valueOf(buhinId));
     }
 
     public List<Buhin> getBuhinByKikiId(int kikiId){

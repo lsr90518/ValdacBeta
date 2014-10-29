@@ -1379,6 +1379,9 @@ body > .header .logo .icon {
 .box.box-primary {
     border-top-color: #3c8dbc;
 }
+.box.box-kiki {
+    border-top-color: #37cccd;
+}
 .box.box-info {
     border-top-color: #00c0ef;
 }
@@ -1541,6 +1544,11 @@ body > .header .logo .icon {
     color: #fff;
     background: #3c8dbc;
     background-color: #3c8dbc;
+}
+.box.box-solid.box-kiki > .box-header {
+    color:#fff;
+    background: #37cccd;
+    background-color: #37cccd;
 }
 .box.box-solid.box-primary > .box-header a {
     color: #444;
@@ -1896,6 +1904,15 @@ Component: timeline
 .btn.btn-success:active,
 .btn.btn-success.hover {
     background-color: #008d4c;
+}
+.btn.btn-kiki {
+    background-color: #37cccd;
+    border-color: #2DACAD;
+}
+.btn.btn-kiki:hover,
+.btn.btn-kiki:active,
+.btn.btn-kiki.hover {
+    background-color: #2DACAD;
 }
 .btn.btn-info {
     background-color: #00c0ef;
@@ -3527,4 +3544,16 @@ fieldset[disabled] .btn-vk.active {
 
 .operation-button{
     opacity: 0;
+}
+
+.search-div{
+    margin-left: 50%;
+}
+
+.box-buhin{
+    border-top-color: rgba(26, 188, 156,1.0);
+}
+
+.btn-short{
+    padding:0 12px 0 12px;
 }

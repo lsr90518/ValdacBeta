@@ -30,7 +30,7 @@ public class KikiController {
 
         Valve valve = (Valve) session.getAttribute("valve");
         if(valve != null){
-            List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId());
+            List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId()+"");
             modelMap.addAttribute("kikiList",kikiList);
         }
         return "addkiki";
@@ -44,8 +44,6 @@ public class KikiController {
         kiki.makeupValveByForm(kikiForm);
         kiki = kikiService.addKiki(kiki);
 
-        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
-        modelMap.addAttribute("kikiList",kikiList);
 
         return "addkiki";
     }
@@ -56,9 +54,6 @@ public class KikiController {
         kiki.makeupValveByForm(kikiForm);
         kiki.setKikiId(kikiForm.getKikiId());
         kikiService.updateKikiByKiki(kiki);
-
-        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
-        modelMap.addAttribute("kikiList",kikiList);
         return "addkiki";
     }
 
@@ -67,7 +62,7 @@ public class KikiController {
         kikiService.deleteKikiByKikiByKikiId(kikiId);
 
         Valve valve = (Valve) session.getAttribute("valve");
-        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId());
+        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId()+"");
         modelMap.addAttribute("kikiList",kikiList);
         return "addkiki";
     }

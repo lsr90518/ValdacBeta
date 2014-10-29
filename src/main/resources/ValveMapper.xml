@@ -80,8 +80,13 @@
         where kikiSysId = #{kikiSysId}
     </update>
 
-    <delete id="deleteKikiSystemByKikiSysId" parameterType="string" >
-        delete from kikisystem where kikiSysId=#{kikiSysId}
+    <delete id="deleteKikiSystemByKikiSysId" parameterType="int" >
+        DELETE ks.*,ksl.*,k.*,b.*
+        FROM kikisystemrelation ksl
+		LEFT JOIN kikisystem ks ON ksl.kikisysid=ks.kikiSysId
+		LEFT JOIN kiki k ON ksl.kikiId=k.kikiId
+		LEFT JOIN buhin b ON ksl.buhinid=b.buhinId
+		WHERE ksl.kikisysid=#{kikiSysId}
     </delete>
 
 </mapper>

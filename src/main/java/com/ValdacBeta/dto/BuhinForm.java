@@ -5,10 +5,6 @@ package com.ValdacBeta.dto;
  */
 public class BuhinForm {
     public int buhinId;
-    public int kikiSysId;
-    public int kikiId;
-    public String kikiBunrui;
-    public String kikiBunruiSeq;
     public String buhinKbn;
     public String buhinSeq;
     public String asbKbn;
@@ -33,38 +29,6 @@ public class BuhinForm {
 
     public void setBuhinId(int buhinId) {
         this.buhinId = buhinId;
-    }
-
-    public int getKikiSysId() {
-        return kikiSysId;
-    }
-
-    public void setKikiSysId(int kikiSysId) {
-        this.kikiSysId = kikiSysId;
-    }
-
-    public int getKikiId() {
-        return kikiId;
-    }
-
-    public void setKikiId(int kikiId) {
-        this.kikiId = kikiId;
-    }
-
-    public String getKikiBunrui() {
-        return kikiBunrui;
-    }
-
-    public void setKikiBunrui(String kikiBunrui) {
-        this.kikiBunrui = kikiBunrui;
-    }
-
-    public String getKikiBunruiSeq() {
-        return kikiBunruiSeq;
-    }
-
-    public void setKikiBunruiSeq(String kikiBunruiSeq) {
-        this.kikiBunruiSeq = kikiBunruiSeq;
     }
 
     public String getBuhinKbn() {
