@@ -15,11 +15,15 @@ public interface KikiMapper {
 
     public List<Kiki> findKikiBySysId(int KikiSysId);
 
-    public void insertMachine(Kiki kiki);
+    public void insertKiki(Kiki kiki);
 
     public int getLastInsertId();
 
     public void updateKikiByKiki(Kiki kiki);
 
     public void deleteKikiByKikiId(int kiki);
+
+    void deleteKikiByKikiSysId(Integer kikiSysId);
+
+    List<Kiki> findTenKiki();
 }

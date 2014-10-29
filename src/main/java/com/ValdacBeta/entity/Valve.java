@@ -61,6 +61,38 @@ public class Valve {
         setFutai(valveForm.getFutai());
     }
 
+    public String toText(){
+        String text =
+                    kCode+" "+
+                    kikiSysSeq+" "+
+                    vNo+" "+
+                    vNoSub+" "+
+                    benMeisyo+" "+
+                    keisikiRyaku+" "+
+                    keisiki+" "+
+                    sousaRyaku+" "+
+                    sousa+" "+
+                    classRyaku+" "+
+                    classType+" "+
+                    yobikeiRyaku+" "+
+                    yobikei+" "+
+                    szHouRyaku+" "+
+                    szHou+" "+
+                    szKikaku+" "+
+                    zaisituRyaku+" "+
+                    zaisitu+" "+
+                    aturyokuMax+" "+
+                    tani+" "+
+                    ondoMax+" "+
+                    ryutaiRyaku+" "+
+                    ryutai+" "+
+                    ics+" "+
+                    futai+" "+
+                    trkDate+" "+
+                    updDate;
+        return text;
+    }
+
     public int getKikiSysId() {
         return kikiSysId;
     }

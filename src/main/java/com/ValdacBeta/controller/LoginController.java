@@ -29,7 +29,7 @@ public class LoginController {
         if(user != null){
             session.setAttribute("user",user);
             modelMap.addAttribute("user",user);
-            return "addvalve";
+            return "redirect:/";
         } else {
             return "login";
         }

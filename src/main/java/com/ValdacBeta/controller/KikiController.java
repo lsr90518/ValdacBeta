@@ -28,6 +28,11 @@ public class KikiController {
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session,ModelMap modelMap){
 
+        Valve valve = (Valve) session.getAttribute("valve");
+        if(valve != null){
+            List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId()+"");
+            modelMap.addAttribute("kikiList",kikiList);
+        }
         return "addkiki";
     }
 
@@ -39,8 +44,6 @@ public class KikiController {
         kiki.makeupValveByForm(kikiForm);
         kiki = kikiService.addKiki(kiki);
 
-        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
-        modelMap.addAttribute("kikiList",kikiList);
 
         return "addkiki";
     }
@@ -51,17 +54,15 @@ public class KikiController {
         kiki.makeupValveByForm(kikiForm);
         kiki.setKikiId(kikiForm.getKikiId());
         kikiService.updateKikiByKiki(kiki);
-
-        List<Kiki> kikiList = kikiService.getKikiBySysId(kiki.getKikiSysId());
-        modelMap.addAttribute("kikiList",kikiList);
         return "addkiki";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String delete(@RequestParam("kikiId")String kikiId,ModelMap modelMap){
+    public String delete(@RequestParam("kikiId")String kikiId,ModelMap modelMap,HttpSession session){
         kikiService.deleteKikiByKikiByKikiId(kikiId);
 
-        List<Kiki> kikiList = kikiService.getKikiBySysId(1);
+        Valve valve = (Valve) session.getAttribute("valve");
+        List<Kiki> kikiList = kikiService.getKikiBySysId(valve.getKikiSysId()+"");
         modelMap.addAttribute("kikiList",kikiList);
         return "addkiki";
     }

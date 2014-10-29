@@ -29,7 +29,7 @@ public class KikiService {
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
         kiki.setTrkDate(sdf1.format(date));
         kiki.setUpdDate(sdf1.format(date));
-        kikiMapper.insertMachine(kiki);
+        kikiMapper.insertKiki(kiki);
 
         //make id
         kiki.setKikiId(kikiMapper.getLastInsertId());
@@ -37,6 +37,11 @@ public class KikiService {
     }
 
     public void updateKikiByKiki(Kiki kiki){
+
+        Date date = new Date();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+        kiki.setUpdDate(sdf1.format(date));
+
         kikiMapper.updateKikiByKiki(kiki);
     }
 
@@ -44,12 +49,20 @@ public class KikiService {
         kikiMapper.deleteKikiByKikiId(Integer.valueOf(kikiId));
     }
 
-    public List<Kiki> getKikiBySysId(int KikiSysId){
-        List<Kiki> kikiList = kikiMapper.findKikiBySysId(KikiSysId);
+    public void deleteKikiByKikiSysId(String kikiSysId){
+        kikiMapper.deleteKikiByKikiSysId(Integer.valueOf(kikiSysId));
+    }
+
+    public List<Kiki> getKikiBySysId(String KikiSysId){
+        List<Kiki> kikiList = kikiMapper.findKikiBySysId(Integer.valueOf(KikiSysId));
         return kikiList;
     }
 
     public Kiki getKikiByKikiId(String KikiId){
         return kikiMapper.findKikiById(Integer.valueOf(KikiId));
+    }
+
+    public List<Kiki> getTenKikis() {
+        return kikiMapper.findTenKiki();
     }
 }

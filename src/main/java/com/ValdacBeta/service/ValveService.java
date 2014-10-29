@@ -43,4 +43,25 @@ public class ValveService {
         valve.setKikiSysId(valveMapper.getLastInsertId());
         return valve;
     }
+
+    public List<Valve> getTenValves() {
+        return valveMapper.findTenValves();
+    }
+
+    public Valve getValveByKikiSysId(String kikiSysId) {
+        return valveMapper.findValveByKikiSysId(Integer.valueOf(kikiSysId));
+    }
+
+    public void deleteKikiSystemByKikiSysId(String kikiSysId) {
+        valveMapper.deleteKikiSystemByKikiSysId(Integer.valueOf(kikiSysId));
+    }
+
+    public void updateValve(Valve valve) {
+        //append Date
+        Date date = new Date();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+        valve.setUpdDate(sdf1.format(date));
+        valveMapper.updateValveByValve(valve);
+
+    }
 }

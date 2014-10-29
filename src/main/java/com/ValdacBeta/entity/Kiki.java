@@ -8,7 +8,6 @@ import com.ValdacBeta.dto.KikiForm;
 public class Kiki {
 
     public int kikiId;
-    public int kikiSysId;
     public String kikiBunrui;
     public String kikiBunruiSeq;
     public String kikiNo;
@@ -25,7 +24,6 @@ public class Kiki {
     public String updDate;
 
     public void makeupValveByForm(KikiForm kikiForm){
-        setKikiSysId(Integer.valueOf(kikiForm.getKikiSysId()));
         setKikiBunrui(kikiForm.getKikiBunrui());
         setKikiBunruiSeq(kikiForm.getKikiBunruiSeq());
         setKikiNo(kikiForm.getKikiNo());
@@ -48,14 +46,6 @@ public class Kiki {
 
     public void setKikiId(int kikiId) {
         this.kikiId = kikiId;
-    }
-
-    public int getKikiSysId() {
-        return kikiSysId;
-    }
-
-    public void setKikiSysId(int kikiSysId) {
-        this.kikiSysId = kikiSysId;
     }
 
     public String getKikiBunrui() {

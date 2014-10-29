@@ -15,4 +15,13 @@ public interface ValveMapper {
     public void insertValve(Valve valve);
 
     public int getLastInsertId();
+
+    public List<Valve> findTenValves();
+
+    public Valve findValveByKikiSysId(int kikiSysId);
+
+    public void deleteKikiSystemByKikiSysId(Integer kikiSysId);
+
+    void updateValveByValve(Valve valve);
+
 }
