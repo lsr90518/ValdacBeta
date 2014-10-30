@@ -21,6 +21,23 @@
         </ol>
     </section>
 
+    <div class="box box-solid">
+        <div class="box-body no-padding">
+            <div class="form-group" style="margin-bottom:0px">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <div class="row">
+                            <div class=" col-md-8 col-xs-12 btn-group">
+                                <a href="/profile/getUserProfile" class="btn btn-default btn-flat bg-navy">profile</a>
+                                <a href="/profile/getUserProfileImage" class="btn btn-default btn-flat">画像更新</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main content -->
     <section class="content">
 
@@ -68,17 +85,6 @@
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" id="department" name="department" class="form-control" value=${user.department}>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary"  value="イメージ画像"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="profile" name="profile" class="form-control" value=${user.profile}>
                                     </div>
                                 </div>
                             </div>

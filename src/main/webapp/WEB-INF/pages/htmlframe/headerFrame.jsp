@@ -31,7 +31,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="/img/profile/${user.profile}" class="img-circle" alt="User Image" />
                             <p>
                                 ${user.username} - ${user.department}
                             </p>
