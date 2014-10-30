@@ -51,7 +51,7 @@
         </c:if>
 
         <div class="row">
-        <form role="form" class="box-body-form"  method="post" action="/profile/updateUserProfileImage">
+        <form role="form" class="box-body-form"  method="post" action="/profile/updateUserProfileImage" enctype="multipart/form-data">
             <!-- collection -->
 
             <div class="col-lg-12">
@@ -92,7 +92,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </form>
         </div>
@@ -127,7 +126,8 @@
             window.close();
         });
     });
-    --%>
+
+    // upload to local
     $(document.getElementById("imagename")).change(function(){
         var imagename=document.getElementById("imagename").value;
 //        alert(imagename);
@@ -137,7 +137,7 @@
         $.get("/updateUserProfileImage?imagename="+imagename,function(data){
         });
     });
-
+    --%>
 
 </script>
 

@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -60,13 +63,14 @@ public class ProfileController {
         }
 
     @RequestMapping(value="/updateUserProfileImage",method = RequestMethod.POST,produces="text/html;charset=UTF-8")
-    public String updateUserProfileImage(String imagename,HttpSession session,
+    public String updateUserProfileImage(MultipartFile imagename,HttpSession session,
                                     ModelMap modelMap){
         User user=(User)session.getAttribute("user");
-
+//        MultipartHttpServletRequest multipartHttpServletRequest=(MultipartHttpServletRequest) request;
+//        MultipartFile multipartFile=multipartHttpServletRequest.getFile("imagename");
 
         if (user !=null){
-            user = userService.updateUserProfileImageToLocal(user,imagename);
+            user = userService.updateUserProfileImageToLocal(user,session,imagename);
 
             modelMap.addAttribute("user",user);
             session.setAttribute("user",user);

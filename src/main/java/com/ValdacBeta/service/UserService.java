@@ -2,12 +2,18 @@ package com.ValdacBeta.service;
 
 import com.ValdacBeta.dao.UserMapper;
 import com.ValdacBeta.entity.User;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.nio.file.Path;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Lsr on 10/9/14.
@@ -86,69 +92,41 @@ public class UserService {
     /**
      * ユーザの画像情報をDBに更新　Local場合
      * @param user ユーザ
-     * @param uploadImageName 画像名
      * @return user 更新後のユーザ
      * */
-    public User updateUserProfileImageToLocal(User user,String uploadImageName) {
-
-        FileChannel ifc = null;
-        FileChannel ofcLocal = null;
-        FileChannel ofcTomcat = null;
-        FileChannel ofcTarget = null;
-
+    public User updateUserProfileImageToLocal(User user,HttpSession session,MultipartFile multipartFile ) {
         String profile=user.getUserid()+".png";
         System.out.println("更新後の画像名:"+profile);
-        try {
-            System.out.println("ユーザローカルのファイル名："+uploadImageName);
-            FileInputStream fis = new FileInputStream("/Users/zhangrui/Desktop/workspace/img/"+uploadImageName);
-            ifc = fis.getChannel();
-//profileに保存
-            File outFileLocal = new File("/Users/zhangrui/Desktop/workspace/ValdacBeta/src/main/webapp/WEB-INF/pages/img/profile/"+profile);
-            FileOutputStream fosLocal = new FileOutputStream(outFileLocal);
-            ofcLocal = fosLocal.getChannel();
-            ifc.transferTo(0, ifc.size(), ofcLocal);
+        String PathTarget=session.getServletContext().getRealPath("");
 
-////tomcatに保存
-            File outFileTomcat = new File(profile);
-            System.out.println(outFileTomcat.getName());
-            System.out.println(outFileTomcat.getParent());
-            FileOutputStream fosTomcat = new FileOutputStream(outFileTomcat);
-            ofcTomcat = fosTomcat.getChannel();
-            ifc.transferTo(0, ifc.size(), ofcTomcat);
-//targetに保存
-            File outFileTarget=new File("/Users/zhangrui/Desktop/workspace/ValdacBeta/target/ValdacBeta/WEB-INF/pages/img/profile/"+profile);
-//            System.out.println(outFile.getName());
-//            System.out.println(outFile.getParent());
-            FileOutputStream fosTarget = new FileOutputStream(outFileTarget);
-            ofcTarget = fosTarget.getChannel();
-            ifc.transferTo(0, ifc.size(), ofcTarget);
+        Integer pos= PathTarget.indexOf("target");
+        String PathSrc=PathTarget.substring(0,pos);
+
+        System.out.println("path1:"+PathTarget);
+        System.out.println("path3:"+PathSrc);
+
+        try {
+//profileに保存
+            File outFileLocal = new File(PathSrc+"src/main/webapp/WEB-INF/pages/img/profile/"+profile);
+            FileUtils.copyInputStreamToFile(multipartFile.getInputStream(),outFileLocal);
+
+//////tomcatに保存
+//            File outFileTomcat = new File(profile);
+//            System.out.println(outFileTomcat.getName());
+//            System.out.println(outFileTomcat.getParent());
+//            FileOutputStream fosTomcat = new FileOutputStream(outFileTomcat);
+//            ofcTomcat = fosTomcat.getChannel();
+////            ifc.transferTo(0, ifc.size(), ofcTomcat);
+//            multipartFile.transferTo(outFileTomcat);
+////targetに保存
+            File outFileTarget=new File(PathTarget+"/WEB-INF/pages/img/profile/"+profile);
+            FileUtils.copyInputStreamToFile(multipartFile.getInputStream(),outFileTarget);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (ifc != null) {
-                try {
-                    // 入力チャネルを close します。
-                    ifc.close();
-                } catch (IOException e) {
-                }
-            }
-            if (ofcLocal != null) {
-                try {
-                    // 出力チャネルを close します。
-                    ofcLocal.close();
-                } catch (IOException e) {
-                }
-            }
-            if (ofcTarget != null) {
-                try {
-                    // 出力チャネルを close します。
-                    ofcTarget.close();
-                } catch (IOException e) {
-                }
-            }
         }
         user.setProfile(profile);
         userMapper.updateUser(user);
