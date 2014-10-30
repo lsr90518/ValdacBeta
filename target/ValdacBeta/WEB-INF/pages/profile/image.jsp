@@ -51,7 +51,7 @@
         </c:if>
 
         <div class="row">
-        <form role="form" class="box-body-form"   action="/profile/getUserProfileImage">
+        <form role="form" class="box-body-form"  method="post" action="/profile/updateUserProfileImage">
             <!-- collection -->
 
             <div class="col-lg-12">
@@ -63,7 +63,7 @@
                                         <input type="button" class="btn btn-primary"  value="イメージ画像"/>
                                     </div>
                                     <div class="col-md-10">
-                                        <img src="http://drive.google.com/uc?export=view&id=${user.profile}" id="userImage" class="img-circle" alt="User Image" width="215px" height="215px"/>
+                                        <img src="/img/profile/${user.profile}" id="userImage" class="img-circle" alt="User Image" width="215px" height="215px"/>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +103,8 @@
 
 
 <script type="text/javascript">
+
+    <%--image cache
     var url="http://drive.google.com/uc?export=view&id=${user.profile}";
 //    alert(url);
     var img=new Image();
@@ -111,21 +113,28 @@
     if(img.complete){
 //        alert("eee");
     }else{
-//        alert("no");
         img.onload=function(){
         }
     }
-
+//upload to google
     $(document.getElementById("imagename")).change(function(){
         var imagename=document.getElementById("imagename").value;
         var pos=imagename.lastIndexOf("\\");
         imagename=imagename.substring(pos+1,imagename.length);
-
-
         $.get("/imageDriveUpload?upfile="+imagename,function(data){
             var url=data;
             window.open(url,"test","width=210,height=210");
             window.close();
+        });
+    });
+    --%>
+    $(document.getElementById("imagename")).change(function(){
+        var imagename=document.getElementById("imagename").value;
+//        alert(imagename);
+        var pos=imagename.lastIndexOf("\\");
+        imagename=imagename.substring(pos+1,imagename.length);
+//        alert(imagename);
+        $.get("/updateUserProfileImage?imagename="+imagename,function(data){
         });
     });
 

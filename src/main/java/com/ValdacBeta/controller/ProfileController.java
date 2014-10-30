@@ -60,13 +60,13 @@ public class ProfileController {
         }
 
     @RequestMapping(value="/updateUserProfileImage",method = RequestMethod.POST,produces="text/html;charset=UTF-8")
-    public String updateUserProfileImage(HttpSession session,
+    public String updateUserProfileImage(String imagename,HttpSession session,
                                     ModelMap modelMap){
         User user=(User)session.getAttribute("user");
 
 
         if (user !=null){
-//            user = userService.updateUserProfileImage(user,imageId);
+            user = userService.updateUserProfileImageToLocal(user,imagename);
 
             modelMap.addAttribute("user",user);
             session.setAttribute("user",user);
