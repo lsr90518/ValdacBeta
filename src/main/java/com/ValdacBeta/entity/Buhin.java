@@ -37,10 +37,48 @@ public class Buhin {
         setSunpou(buhinForm.getSunpou());
         setBikou(buhinForm.getBikou());
         setSuryo(buhinForm.getSuryo());
+        setSizaiName(buhinForm.getSizaiName());
+        setSiyouKasyo(buhinForm.getSiyouKasyo());
         setImageId(buhinForm.getImageId());
         setTrkDate(buhinForm.getTrkDate());
         setUpdDate(buhinForm.getUpdDate());
         setHinban(buhinForm.getHinban());
+    }
+
+    public String toText(){
+        String text =
+                buhinKbn+" "+
+                asbKbn+" "+
+                buhinzuBikou+" "+
+                buhinMei+" "+
+                hyojunSiyou+" "+
+                siyouKasyo+" "+
+                makerRyaku+" "+
+                maker+" "+
+                sizaiName+" "+
+                sunpou+" "+
+                suryo+" "+
+                hinban+" "+
+                bikou+" ";
+
+        return text;
+    }
+
+    public int getTrkDateInt(){
+        String intDate[] = trkDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+    public int getUpdDateInt(){
+        String intDate[] = updDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
     }
 
     public int getBuhinId() {

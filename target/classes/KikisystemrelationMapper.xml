@@ -17,6 +17,14 @@
         select * from kikisystemrelation where kikisysid=#{kikiSysId}
     </select>
 
+    <select id="findkikiSysIdByKikiId" parameterType="int" resultType="int">
+        SELECT DISTINCT kikisysid FROM kikisystemrelation WHERE kikiid=#{kikiid};
+    </select>
+
+    <select id="findItemByBuhinid" parameterType="int" resultType="KikiSystemrelation">
+        SELECT * FROM kikisystemrelation WHERE buhinid=#{buhinid}
+    </select>
+
     <insert id="insertKikiSysId" parameterType="int">
         INSERT INTO kikisystemrelation(kikisysid) VALUES (#{kikiSysId});
     </insert>

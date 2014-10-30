@@ -41,4 +41,31 @@ public class KikisystemrelationService {
     public void addRecord(Kikisystemrelation kikisystemrelation) {
         kikisystemrelationMapper.insertRecord(kikisystemrelation);
     }
+
+    public int getKikiSysIdByKikiId(String id) {
+
+        return kikisystemrelationMapper.findkikiSysIdByKikiId(Integer.valueOf(id));
+    }
+
+    public Kikisystemrelation getItemByBuhinId(String id) {
+
+        return kikisystemrelationMapper.findItemByBuhinid(Integer.valueOf(id));
+
+    }
+
+    public String getPathById(String id) {
+
+        int tmpId = Integer.valueOf(id);
+
+        if(tmpId<20000000){
+            return id;
+        } else if(tmpId<40000000){
+            int kikiSysId = kikisystemrelationMapper.findkikiSysIdByKikiId(tmpId);
+            return "/"+kikiSysId+"/"+tmpId;
+        } else {
+            Kikisystemrelation kikisystemrelation = kikisystemrelationMapper.findItemByBuhinid(Integer.valueOf(id));
+            return "/"+kikisystemrelation.getKikisysid()+"/"+kikisystemrelation.getKikiid()+"/"+kikisystemrelation.getBuhinid();
+        }
+
+    }
 }

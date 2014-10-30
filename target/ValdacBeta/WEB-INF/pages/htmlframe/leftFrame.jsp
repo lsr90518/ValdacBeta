@@ -42,16 +42,6 @@
                         <i class="fa fa-edit"></i> <span>アイテム一覧</span>
                     </a>
                 </li>
-                <li id="left-menu-image">
-                    <a href="#">
-                        <i class="fa fa-upload"></i> <span>画像一括登録</span>
-                    </a>
-                </li>
-                <li id="left-menu-csv">
-                    <a href="#">
-                        <i class="fa fa-files-o"></i> <span>CSV一括登録</span>
-                    </a>
-                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

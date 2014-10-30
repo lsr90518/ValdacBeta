@@ -33,31 +33,6 @@
         <!-- Main content -->
         <section class="content">
 
-            <%--<div class="row">--%>
-                <%--<div class="col-md-12">--%>
-
-                <%--</div>--%>
-            <%--</div>--%>
-
-            <%--<div class="row">--%>
-                <%--<!-- collection -->--%>
-                <%--<div class="col-xs-12">--%>
-                    <%--<form action="/search" method="post">--%>
-                        <%--<input type="text" name="keyword" class="form-control" />--%>
-                        <%--<input type="submit" class="btn btn-danger btn-circle" value="検索" />--%>
-                    <%--</form>--%>
-                <%--</div>--%>
-
-            <%--</div>--%>
-
-            <%--<div class="form-group">--%>
-                <%--<c:forEach items="${results}" var="result">--%>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-md-2">${result.id}</div>--%>
-                        <%--<div class="col-md-10">${result.body}</div>--%>
-                    <%--</div>--%>
-                <%--</c:forEach>--%>
-            <%--</div>--%>
             <div class="row">
                 <div class="col-md-12 col-xs-12">
                     <div class="box box-solid">
@@ -67,20 +42,24 @@
                                     <div class="col-md-6 col-xs-6">
                                         <div class="row">
                                             <div class=" col-md-8 col-xs-12 btn-group">
-                                                <a href="/list" class="btn btn-default btn-flat bg-navy">全体</a>
-                                                <a href="/list/valve" class="btn btn-default btn-flat">バルブ</a>
-                                                <a href="/list/kiki" class="btn btn-default btn-flat">機器</a>
-                                                <a href="/list/buhin" class="btn btn-default btn-flat">部品</a>
+                                                <button class="btn btn-flat item-tab item-tab-active">全体</button>
+                                                <button class="btn btn-default btn-flat item-tab">バルブ</button>
+                                                <button class="btn btn-default btn-flat item-tab">機器</button>
+                                                <button class="btn btn-default btn-flat item-tab">部品</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-xs-6">
-                                        <div class="input-group search-div">
-                                            <input type="text" class="form-control" id="keyword-input" name="keyword" placeholder="keywords">
+                                        <form action="/search" id="searchForm" method="post">
+                                            <div class="input-group search-div">
+
+                                                <input type="text" class="form-control" id="keyword-input" name="keyword" placeholder="keywords">
                                                 <span class="input-group-btn">
-                                                    <button class="btn btn-default btn-flat" id="keyword-btn" type="button">検索</button>
+                                                    <input class="btn btn-default btn-flat" id="keyword-btn" type="button" value="検索"/>
                                                 </span>
-                                        </div>
+
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -89,133 +68,48 @@
 
                     <!-- data tables -->
                     <!--rgba(60, 141, 188, 0.94)-->
-                    <div class="box box-primary">
+                    <div class="box box-primary result-box">
                         <div class="box-header">
                             <h3 class="box-title">バルブ一覧</h3>
                         </div>
                         <div class="box-body no-padding">
-                            <table class="table valve-table result-table">
-                                    <tr>
-                                        <th>弁番号</th>
-                                        <th>弁名称</th>
-                                        <th>型式</th>
-                                        <th>操作</th>
-                                        <th>クラス</th>
-                                        <th>呼び径</th>
-                                        <th>規格</th>
-                                        <th>材質</th>
-                                        <th></th>
-                                    </tr>
-                                <c:forEach items="${valveList}" var="tmpValve">
-                                    <tr>
-                                        <td>${tmpValve.vNo}</td>
-                                        <td>${tmpValve.benMeisyo}</td>
-                                        <td>${tmpValve.keisiki}</td>
-                                        <td>${tmpValve.sousa}</td>
-                                        <td>${tmpValve.classType}</td>
-                                        <td>${tmpValve.yobikei}</td>
-                                        <td>${tmpValve.szKikaku}</td>
-                                        <td>${tmpValve.zaisitu}</td>
-                                        <td>
-                                            <a class="btn btn-primary btn-short operation-button" href="/item/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-short operation-button" href="/item/${tmpValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
+
+                                <div class="list-group valve-list result-list">
+
+                                    <c:forEach items="${valveResults}" var="valveResult">
+                                        <a href="/item/${valveResult.id}" class="list-group-item">${valveResult.body}</a>
+                                    </c:forEach>
+                                </div>
+
                         </div>
                     </div>
 
-                    <div class="box box-success">
+                    <div class="box box-kiki result-box">
                         <div class="box-header">
                             <h3 class="box-title">機器一覧</h3>
                         </div>
                         <div class="box-body no-padding">
-                            <table class="table kiki-table result-table">
-                                <tbody><tr>
-                                    <th>番号</th>
-                                    <th>分類</th>
-                                    <th>機器名</th>
-                                    <th>主管係</th>
-                                    <th>メーカー</th>
-                                    <th>型式番号</th>
-                                    <th>オーダー番号</th>
-                                    <th>シリアル番号</th>
-                                    <th></th>
-                                </tr>
-                                <c:forEach items="${kikiList}" var="tmpKiki">
-                                    <tr>
-                                        <td>${tmpKiki.kikiNo}</td>
-                                        <td>${tmpKiki.kikiBunrui}</td>
-                                        <td>${tmpKiki.kikiMei}</td>
-                                        <td>${tmpKiki.syukan}</td>
-                                        <td>${tmpKiki.maker}(${tmpKiki.makerRyaku})</td>
-                                        <td>${tmpKiki.katasikiNo}</td>
-                                        <td>${tmpKiki.orderNo}</td>
-                                        <td>${tmpKiki.serialNo}</td>
-                                        <td>
-                                            <a class="btn btn-primary btn-short operation-button" href="/kiki/${tmpKiki.kikiId}"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger btn-short operation-button" href="/kiki/delete/${tmpKiki.kikiId}"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                    </tr>
+                            <div class="list-group kiki-list result-list">
+
+                                <c:forEach items="${kikiResults}" var="kikiResult">
+                                    <a href="/search/${kikiResult.id}" class="list-group-item">${kikiResult.body}</a>
                                 </c:forEach>
-                                </tbody></table>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="box box-warning">
+                    <div class="box box-warning result-box">
                         <div class="box-header">
                             <h3 class="box-title">部品一覧</h3>
                         </div>
                         <div class="box-body no-padding">
-                            <table class="table buhin-table result-table">
-                                <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>Task</th>
-                                    <th>Progress</th>
-                                    <th style="width: 40px">Label</th>
-                                </tr>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Update software</td>
-                                    <td>
+                            <div class="list-group buhin-list result-list">
 
-                                    </td>
-                                    <td><span class="badge bg-red">55%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Clean database</td>
-                                    <td>
-
-                                    </td>
-                                    <td><span class="badge bg-yellow">70%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>Cron job running</td>
-                                    <td>
-
-                                    </td>
-                                    <td><span class="badge bg-light-blue">30%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>Fix and squish bugs</td>
-                                    <td>
-
-                                    </td>
-                                    <td><span class="badge bg-green">90%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>Fix and squish bugs</td>
-                                    <td>
-
-                                    </td>
-                                    <td><span class="badge bg-green">90%</span></td>
-                                </tr>
-                                </table>
+                                <c:forEach items="${buhinResults}" var="buhinResult">
+                                    <a href="/search/${buhinResult.id}" class="list-group-item">${buhinResult.body}</a>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
 
@@ -232,12 +126,12 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#keyword-input").focus(function(){
-            $(".search-div").animate({"margin-left":"0"},500,function(){
+            $(".search-div").animate({"margin-left":"0"},300,function(){
                 $("#keyword-btn").toggleClass("bg-red");
             });
         });
         $("#keyword-input").blur(function(){
-            $(".search-div").animate({"margin-left":"50%"},500,function(){
+            $(".search-div").animate({"margin-left":"50%"},300,function(){
                 $("#keyword-btn").toggleClass("bg-red");
             });
         });
@@ -251,18 +145,60 @@
             $(tr).find(".operation-button").css("opacity","0");
         });
 
-        var valveTrs = $(".valve-table tr");
+        var valveTrs = $(".valve-list a");
+        var colorOffset = 1/valveTrs.length;
         for(var i = 0;i<valveTrs.length;i++){
-            $(valveTrs[i]).css({"background-color":"rgba(60, 141, 188, "+0.09*i+")"});
+            $(valveTrs[i]).css({"background-color":"rgba(100, 161, 200, "+colorOffset*(i+1)+")"});
         }
-        var kikiTrs = $(".kiki-table tr");
+        var kikiTrs = $(".kiki-list a");
+        colorOffset = 1/kikiTrs.length;
         for(var i = 0;i<kikiTrs.length;i++){
-            $(kikiTrs[i]).css({"background-color":"rgba(1, 166, 90, "+0.09*i+")"});
+            $(kikiTrs[i]).css({"background-color":"rgba(62, 212, 214, "+colorOffset*(i+1)+")"});
         }
-        var buhinTrs = $(".buhin-table tr");
+        var buhinTrs = $(".buhin-list a");
+        colorOffset = 1/buhinTrs.length;
         for(var i = 0;i<buhinTrs.length;i++){
-            $(buhinTrs[i]).css({"background-color":"rgba(245, 157, 0, "+0.09*i+")"});
+            $(buhinTrs[i]).css({"background-color":"rgba(245, 157, 0, "+colorOffset*(i+1)+")"});
         }
+
+        $(".item-tab").click(function(){
+            $(".item-tab").removeClass("item-tab-active");
+            $(".item-tab").addClass("btn-default");
+            $($(this)[0]).removeClass("btn-default");
+            $($(this)[0]).addClass("item-tab-active");
+            $(".result-box").hide();
+            var text = $($(this)[0]).html();
+            if(text == "バルブ"){
+                $(".box-primary").show(200);
+            } else if(text == "機器"){
+                $(".box-kiki").show(200);
+            } else if(text == "部品"){
+                $(".box-warning").show(200);
+            } else {
+                $(".result-box").show(200);
+            }
+        });
+
+        $("#keyword-btn").click(function(){
+            var keywords = new String($("#keyword-input").val());
+            keywords = keywords.toLowerCase();
+
+            if(keywords.length<1){
+                return false;
+            } else {
+                var ills = new Array();
+                ills = ['+', '&&', '||', '!', '(', ')' ,'{' ,'}', '[', ']', '^', '"', '~', '*', '?', ':'];
+                for(var i = 0;i<ills.length;i++){
+                    if(keywords.indexOf(ills[i]) > -1){
+                        alert("キーワードは正しくありません");
+                        return false;
+                    }
+                }
+
+            }
+            $("#keyword-input").val(keywords);
+            $("#searchForm").submit();
+        });
 
     });
 </script>

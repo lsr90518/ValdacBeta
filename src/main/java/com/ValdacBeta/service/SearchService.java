@@ -73,7 +73,6 @@ public class SearchService {
         w = new IndexWriter(index, config);
         initDoc(w);
         w.close();
-        String[] contents = index.listAll();
 
         // 2. query
         String tmpKeyword = "";
@@ -143,6 +142,8 @@ public class SearchService {
             Document doc = new Document();
             doc.add(new IntField("id", valveList.get(i).getKikiSysId(), Field.Store.YES));
             doc.add(new TextField("body", valveList.get(i).toText(), Field.Store.YES));
+            doc.add(new IntField("trkDate", valveList.get(i).getTrkDateInt(), Field.Store.YES));
+            doc.add(new IntField("updDate", valveList.get(i).getUpdDateInt(), Field.Store.YES));
 
             w.addDocument(doc);
         }

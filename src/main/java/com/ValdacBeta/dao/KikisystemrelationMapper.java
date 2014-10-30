@@ -24,4 +24,8 @@ public interface KikisystemrelationMapper {
     void insertValveKiki(Integer kikiSysId, int kikiId);
 
     void insertRecord(Kikisystemrelation kikisystemrelation);
+
+    int findkikiSysIdByKikiId(Integer kikiid);
+
+    Kikisystemrelation findItemByBuhinid(Integer buhinid);
 }

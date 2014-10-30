@@ -4,11 +4,9 @@ import com.ValdacBeta.dto.BuhinForm;
 import com.ValdacBeta.dto.KikiForm;
 import com.ValdacBeta.dto.ValveForm;
 import com.ValdacBeta.entity.*;
-import com.ValdacBeta.service.BuhinService;
-import com.ValdacBeta.service.KikiService;
-import com.ValdacBeta.service.KikisystemrelationService;
-import com.ValdacBeta.service.ValveService;
+import com.ValdacBeta.service.*;
 import com.google.gson.Gson;
+import org.apache.lucene.store.Directory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,18 +30,13 @@ public class ItemController {
     BuhinService buhinService;
     @Autowired
     KikisystemrelationService kikisystemrelationService;
+    @Autowired
+    LuceneIndexService luceneIndexService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session, ModelMap modelMap){
 
-        List<Valve> valveList = valveService.getTenValves();
-        List<Kiki> kikiList = kikiService.getTenKikis();
-        List<Buhin> buhinList = buhinService.getTenBuhins();
-
-        modelMap.addAttribute("valveList", valveList);
-        modelMap.addAttribute("kikiList", kikiList);
-        modelMap.addAttribute("buhinList", buhinList);
-        return "list";
+        return "redirect:/search";
     }
 
     @RequestMapping(value = "/{kikiSysId}", method = RequestMethod.GET)
@@ -82,6 +75,9 @@ public class ItemController {
         //insert into relation table
         kikisystemrelationService.addKikiSysId(valve.getKikiSysId());
 
+        //insert index
+        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),valve.getKikiSysId(),valve.toText(),valve.getTrkDateInt(),valve.getUpdDateInt());
+
         return "redirect:/item/"+valve.getKikiSysId();
     }
 
@@ -106,6 +102,10 @@ public class ItemController {
     @RequestMapping(value = "/{kikiSysId}/delete", method = RequestMethod.GET)
     public String deleteValveById(@PathVariable String kikiSysId, HttpSession session){
         valveService.deleteKikiSystemByKikiSysId(kikiSysId);
+
+        //update index
+        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(kikiSysId));
+
         return "redirect:/item";
     }
 
@@ -128,6 +128,10 @@ public class ItemController {
         kikisystemrelation.setKikiid(kiki.getKikiId());
         kikisystemrelation.setKikisysid(Integer.valueOf(kikiSysId));
         kikisystemrelationService.addRecord(kikisystemrelation);
+
+
+        //insert index
+        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),kiki.getKikiId(),kiki.toText(),kiki.getTrkDateInt(),kiki.getUpdDateInt());
 
         return "redirect:/item/"+kikiSysId;
     }
@@ -179,6 +183,10 @@ public class ItemController {
                              ModelMap modelMap,
                              HttpSession session){
         kikiService.deleteKikiByKikiByKikiId(kikiId);
+
+        //update index
+        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(kikiId));
+
         return "redirect:/item/"+kikiSysId;
     }
 
@@ -197,6 +205,10 @@ public class ItemController {
         kikisystemrelation.setKikisysid(Integer.valueOf(kikiSysId));
         kikisystemrelation.setBuhinid(buhin.getBuhinId());
         kikisystemrelationService.addRecord(kikisystemrelation);
+
+
+        //insert index
+        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),buhin.getBuhinId(),buhin.toText(),buhin.getTrkDateInt(),buhin.getUpdDateInt());
 
         return "redirect:/item/"+kikiSysId+"/"+kikiId;
     }
@@ -241,8 +253,11 @@ public class ItemController {
     @RequestMapping(value = "/{kikiSysId}/{kikiId}/{buhinId}/delete", method = RequestMethod.GET)
     public String deleteBuhin(@PathVariable String kikiSysId,
                               @PathVariable String kikiId,
-                              @PathVariable String buhinId){
+                              @PathVariable String buhinId,
+                              HttpSession session){
         buhinService.deleteBuhinByBuhinId(buhinId);
+        //update index
+        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(buhinId));
         return "redirect:/item/"+kikiSysId+"/"+kikiId;
     }
 }

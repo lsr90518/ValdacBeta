@@ -31,9 +31,12 @@
           <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:4.0.0" />
           <element id="library" level="project" name="Maven: org.apache.lucene:lucene-analyzers-kuromoji:4.0.0" />
           <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queryparser:4.0.0" />
-          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queries:4.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-queries:4.10.1" />
           <element id="library" level="project" name="Maven: org.apache.lucene:lucene-sandbox:4.0.0" />
           <element id="library" level="project" name="Maven: jakarta-regexp:jakarta-regexp:1.4" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-highlighter:4.10.1" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-memory:4.10.1" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-analyzers:3.6.2" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="ValdacBeta/web/Web" />

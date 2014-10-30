@@ -3557,3 +3557,22 @@ fieldset[disabled] .btn-vk.active {
 .btn-short{
     padding:0 12px 0 12px;
 }
+
+.result-list a:hover{
+    box-shadow: 3px 1px 5px 1px #888;
+}
+
+.item-tab-active{
+    background-color: #001f3f;
+    color:#FFFFFF;
+}
+.item-tab-active:hover{
+    background-color: #000e1c;
+    color:#FFFFFF;
+}
+.item-tab-active:active{
+    color: #FFFFFF;
+}
+.item-tab-active:focus{
+    color: #FFFFFF;
+}

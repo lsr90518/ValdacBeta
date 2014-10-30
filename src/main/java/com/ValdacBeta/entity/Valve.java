@@ -63,8 +63,6 @@ public class Valve {
 
     public String toText(){
         String text =
-                    kCode+" "+
-                    kikiSysSeq+" "+
                     vNo+" "+
                     vNoSub+" "+
                     benMeisyo+" "+
@@ -87,10 +85,24 @@ public class Valve {
                     ryutaiRyaku+" "+
                     ryutai+" "+
                     ics+" "+
-                    futai+" "+
-                    trkDate+" "+
-                    updDate;
+                    futai+" ";
         return text;
+    }
+    public int getTrkDateInt(){
+        String intDate[] = trkDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+    public int getUpdDateInt(){
+        String intDate[] = updDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
     }
 
     public int getKikiSysId() {
