@@ -24,7 +24,7 @@ public class ProfileController {
                                 ModelMap modelMap){
         User user=(User)session.getAttribute("user");
         if(user != null){
-            return "profile";
+            return "profile/profile";
         } else {
             return "login";
         }
@@ -43,7 +43,7 @@ public class ProfileController {
             modelMap.addAttribute("user",user);
             session.setAttribute("user",user);
             modelMap.addAttribute("message","更新完成");
-            return "profile";
+            return "profile/profile";
         } else {
             return "login";
         }

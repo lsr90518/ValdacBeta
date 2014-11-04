@@ -20,11 +20,13 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -283,15 +285,16 @@ public class LuceneIndexService {
         // 4. display results
         for(int i=0;i<hits.length;++i) {
             int docId = hits[i].doc;
-            Document d = null;
+            Document document = null;
             try {
-                d = searcher.doc(docId);
+                document = searcher.doc(docId);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
             SearchResultObject tmpObj = new SearchResultObject();
-            tmpObj.setId(d.get("id"));
-            tmpObj.setBody(d.get("body"));
+            tmpObj.setId(document.get("id"));
+            tmpObj.setBody(document.get("body"));
             resultObjectList.add(tmpObj);
         }
 
@@ -301,5 +304,87 @@ public class LuceneIndexService {
             e.printStackTrace();
         }
         return resultObjectList;
+    }
+
+    public String generateLocalIndex() {
+        File indexFile = null;
+        try {
+            indexFile =  new File("indexDir");
+            if(!indexFile.exists()) {
+                Directory dir = FSDirectory.open(indexFile);
+
+                StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_40);
+                IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40, analyzer);
+
+                IndexWriter w = null;
+
+                w = new IndexWriter(dir, config);
+                initDoc(w);
+                w.close();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Index create failed");
+            e.printStackTrace();
+        }
+
+        return indexFile.getAbsolutePath();
+    }
+
+    public void remakeIndex() {
+        File indexFile = null;
+        try {
+            indexFile =  new File("indexDir");
+            Directory dir = FSDirectory.open(indexFile);
+
+            StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_40);
+            IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40, analyzer);
+
+            IndexWriter w = null;
+
+            w = new IndexWriter(dir, config);
+            initDoc(w);
+            w.close();
+
+        } catch (IOException e) {
+            System.out.println("Index remake failed");
+            e.printStackTrace();
+        }
+
+    }
+
+    public List<SearchResultObject> makeHightLight(String keyword, List<SearchResultObject> tmpResults) {
+        List<SearchResultObject> results = new ArrayList<SearchResultObject>();
+
+        String keywords[] = keyword.split(" ");
+        for (int i = 0; i < tmpResults.size(); i++) {
+            SearchResultObject tmpSRO = tmpResults.get(i);
+            String body = tmpSRO.getBody();
+            boolean contains = false;
+            for (int j = 0; j < keywords.length; j++) {
+                //trim
+                if(keywords[j].length()<1) {
+                    continue;
+                } else {
+                    String parts[] = body.split(keywords[j]);
+                    if(parts.length < 2){
+                        //不包含
+                        continue;
+                    } else {
+                        body = body.replace(keywords[j],"$"+keywords[j]+">?");
+                        contains = true;
+                    }
+                }
+            }
+            if(contains){
+                body = body.replace("$","<font color='red'>");
+                body = body.replace(">?","</font>");
+
+                tmpSRO.setBody(body);
+                results.add(tmpSRO);
+            }
+        }
+
+        return results;
     }
 }

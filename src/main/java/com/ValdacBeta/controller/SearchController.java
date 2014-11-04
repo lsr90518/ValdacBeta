@@ -12,6 +12,7 @@ import com.ValdacBeta.entity.Valve;
 import com.ValdacBeta.service.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,7 +28,7 @@ import javax.servlet.http.HttpSession;
  */
 
 @Controller
-@RequestMapping("/search")
+@RequestMapping("search")
 public class SearchController {
 
     @Autowired
@@ -82,13 +83,16 @@ public class SearchController {
     @RequestMapping(method = RequestMethod.POST)
     public String query(@RequestParam("keyword")String keyword, ModelMap modelMap,HttpSession session) throws IOException, ParseException {
 
-        Directory index = (Directory) session.getAttribute("index");
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = FSDirectory.open(new File(indexPath));
         List<SearchResultObject> results = luceneIndexService.selectRecord(index, keyword);
 
         List<SearchResultObject> valveResults = new ArrayList<SearchResultObject>();
         List<SearchResultObject> kikiResults = new ArrayList<SearchResultObject>();
         List<SearchResultObject> buhinResults = new ArrayList<SearchResultObject>();
 
+        //make high light
+//        List<SearchResultObject> results = luceneIndexService.makeHightLight(keyword, tmpResults);
 
         for(int i = 0;i<results.size();i++){
             //判断ID
@@ -118,5 +122,10 @@ public class SearchController {
         return "redirect:/item"+idStr;
     }
 
+    @RequestMapping(value = "/remakeIndex", method = RequestMethod.GET)
+    public String remakeIndex(){
+        luceneIndexService.remakeIndex();
+        return "index";
+    }
 
 }

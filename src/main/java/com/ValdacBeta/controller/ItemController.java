@@ -7,12 +7,15 @@ import com.ValdacBeta.entity.*;
 import com.ValdacBeta.service.*;
 import com.google.gson.Gson;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -20,7 +23,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/item")
+@RequestMapping("item")
 public class ItemController {
     @Autowired
     ValveService valveService;
@@ -76,7 +79,15 @@ public class ItemController {
         kikisystemrelationService.addKikiSysId(valve.getKikiSysId());
 
         //insert index
-        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),valve.getKikiSysId(),valve.toText(),valve.getTrkDateInt(),valve.getUpdDateInt());
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.insertRecord(index,valve.getKikiSysId(),valve.toText(),valve.getTrkDateInt(),valve.getUpdDateInt());
 
         return "redirect:/item/"+valve.getKikiSysId();
     }
@@ -104,7 +115,15 @@ public class ItemController {
         valveService.deleteKikiSystemByKikiSysId(kikiSysId);
 
         //update index
-        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(kikiSysId));
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.deleteRecord(index,Integer.valueOf(kikiSysId));
 
         return "redirect:/item";
     }
@@ -131,7 +150,15 @@ public class ItemController {
 
 
         //insert index
-        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),kiki.getKikiId(),kiki.toText(),kiki.getTrkDateInt(),kiki.getUpdDateInt());
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.insertRecord(index,kiki.getKikiId(),kiki.toText(),kiki.getTrkDateInt(),kiki.getUpdDateInt());
 
         return "redirect:/item/"+kikiSysId;
     }
@@ -185,7 +212,15 @@ public class ItemController {
         kikiService.deleteKikiByKikiByKikiId(kikiId);
 
         //update index
-        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(kikiId));
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.deleteRecord(index,Integer.valueOf(kikiId));
 
         return "redirect:/item/"+kikiSysId;
     }
@@ -208,7 +243,15 @@ public class ItemController {
 
 
         //insert index
-        luceneIndexService.insertRecord((Directory)session.getAttribute("index"),buhin.getBuhinId(),buhin.toText(),buhin.getTrkDateInt(),buhin.getUpdDateInt());
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.insertRecord(index,buhin.getBuhinId(),buhin.toText(),buhin.getTrkDateInt(),buhin.getUpdDateInt());
 
         return "redirect:/item/"+kikiSysId+"/"+kikiId;
     }
@@ -257,7 +300,15 @@ public class ItemController {
                               HttpSession session){
         buhinService.deleteBuhinByBuhinId(buhinId);
         //update index
-        luceneIndexService.deleteRecord((Directory)session.getAttribute("index"),Integer.valueOf(buhinId));
+        String indexPath = (String) session.getAttribute("indexPath");
+        Directory index = null;
+        try {
+            index = FSDirectory.open(new File(indexPath));
+        } catch (IOException e) {
+            System.out.println("index read error");
+            e.printStackTrace();
+        }
+        luceneIndexService.deleteRecord(index,Integer.valueOf(buhinId));
         return "redirect:/item/"+kikiSysId+"/"+kikiId;
     }
 }

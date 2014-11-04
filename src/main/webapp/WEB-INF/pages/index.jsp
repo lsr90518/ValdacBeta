@@ -91,6 +91,7 @@
                                     </div>
                                 </div><!-- /.box-header -->
                                 <div class="box-body table-responsive no-padding">
+                                    ${message}
                                     <table class="table table-hover valve-table">
                                         <thead><tr>
                                             <th>弁番号</th>
