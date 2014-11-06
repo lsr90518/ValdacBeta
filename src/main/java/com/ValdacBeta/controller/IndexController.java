@@ -38,10 +38,7 @@ public class IndexController {
         User user = (User)session.getAttribute("user");
 
         //get real path
-        System.out.println(System.getProperty("search.root"));
-        File rootFile = new File(System.getProperty("search.root"));
-        String imageRoot = rootFile.getParent();
-        session.setAttribute("imageRoot",System.getProperty("search.root"));
+        session.setAttribute("imageRoot","http://storage.googleapis.com/valdac/");
 
         session.removeAttribute("valve");
         session.removeAttribute("kiki");

@@ -327,7 +327,7 @@ public class LuceneIndexService {
             System.out.println("Index create failed");
             e.printStackTrace();
         }
-
+        System.out.println("index file path:" + indexFile.getAbsolutePath());
         return indexFile.getAbsolutePath();
     }
 

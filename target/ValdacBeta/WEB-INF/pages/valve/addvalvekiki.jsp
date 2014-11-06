@@ -394,23 +394,6 @@
                     </div>
                     <hr/>
 
-                    <div class="form-group">
-                        <input type="hidden" name="imageId" value="" />
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-3">
-                                <select class="form-control">
-                                    <option>画像種別</option>
-                                    <option>画像種別</option>
-                                    <option>画像種別</option>
-                                    <option>画像種別</option>
-                                    <option>画像種別</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="file" />
-
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn btn-success" value="登録" />
@@ -428,6 +411,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
+
+
         $("#left-menu-new").addClass("active");
 
         $(".box-panel").click(function(){
@@ -443,36 +428,14 @@
             $(tr).find(".operation-button").css("opacity","0");
         });
 
-//        $(".operation-button-btn").click(function(){
-//            var operation = $($(this)[0]).find("i");
-//            var operationStr = new String(operation[0].className);
-//            var kikiId = $($(this)[0]).siblings(".kikiId")[0].value;
-//            if(operationStr == "fa fa-pencil"){
-//                //edit
-//                $.getJSON("/kiki/getKikiByKikiId",{kikiId:kikiId},function(data){
-//                    $("#update-kikiId").val(data.kikiId);
-//                    $("#kikiBunrui").html("<option>"+data.kikiBunrui+"</option>"+$("#kikiBunrui").html());
-//                    $("#kikiNo").val(data.kikiNo);
-//                    $("#kikiMei").val(data.kikiMei);
-//                    $("#syukan").val(data.syukan);
-//                    $("#makerRyaku").val(data.makerRyaku);
-//                    $("#maker").val(data.maker);
-//                    $("#katasikiNo").val(data.katasikiNo);
-//                    $("#serialNo").val(data.serialNo);
-//                    $("#orderNo").val(data.bikou);
-//                    $("#kiki-update-modal").modal('show');
-//                });
-//
-//            } else if(operationStr == "fa fa-trash-o") {
-//                //delete
-//                $("#delete-id").val(kikiId);
-//                $("#delete-form").submit();
-//            } else {
-//                //goto buhin
-//            }
-//        });
     });
+
+
+
+
 </script>
+
+
 
 
 <c:import url="../htmlframe/leftFrame.jsp" />

@@ -12,4 +12,30 @@
         where
           userId=#{userid}
     </update>
+
+    <update id="updateUserWithoutProfile" parameterType="User">
+        UPDATE user
+        SET
+          password=#{password},
+          username=#{username},
+          department=#{department}
+        WHERE
+          userId=#{userid}
+    </update>
+
+    <update id="updateUserProfileById" parameterType="string">
+        UPDATE user
+        SET
+          profile=#{profile}
+        where
+          userId=#{userid}
+    </update>
+
+    <update id="updateUserProfileByUser" parameterType="User">
+        UPDATE user
+        SET
+          profile=#{profile}
+        where
+          userId=#{userid}
+    </update>
 </mapper>

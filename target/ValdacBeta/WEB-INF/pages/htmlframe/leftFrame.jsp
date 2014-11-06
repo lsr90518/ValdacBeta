@@ -12,7 +12,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
+                    <img id="leftProfile" src="${imageRoot}${user.profile}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p>お疲れ様, ${user.username}</p>

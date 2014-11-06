@@ -32,74 +32,60 @@
             </div>
         </c:if>
 
-        <div class="row">
-        <form role="form" class="box-body-form" method="post" action="/profile/updateUserProfile">
+
+        <form role="form" class="box-body-form" name="UserForm" id="UserForm" method="post" action="/profile/updateUserProfile">
             <!-- collection -->
 
-            <div class="col-lg-12">
-                <div class="box box-primary">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary"  value="ユーザ名"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="username" name="username" class="form-control" value=${user.username}>
-                                    </div>
-                                </div>
+            <div class="nav-tabs-custom">
+                <!-- Tabs within a box -->
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active"><a href="#revenue-chart">個人情報</a></li>
+                    <li><a href="/profile/getUserProfileImage">写真</a></li>
+                    <li class="pull-left header"><i class="fa fa-edit"></i></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary"  value="ユーザ名"/>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary"  value="パスワード"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="password" name="password" class="form-control" value=${user.password}>
-                                    </div>
-                                </div>
+                            <div class="col-md-10">
+                                <input type="text" id="username" name="username" class="form-control" value=${user.username}>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary"  value="部署"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="department" name="department" class="form-control" value=${user.department}>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <input type="button" class="btn btn-primary"  value="イメージ画像"/>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input type="text" id="profile" name="profile" class="form-control" value=${user.profile}>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.box-body -->
-
-                </div>
-
-                <div class="box box-solid">
-
-                    <div class="box-body clearfix">
-                        <div class="form-group">
-                            <button class="btn btn-success pull-right">
-                                <i class="fa fa-save"></i> 更新
-                            </button>
                         </div>
                     </div>
-                </div>
 
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary"  value="パスワード"/>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="password" id="password" name="password" class="form-control" value=${user.password}>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary"  value="部署"/>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" id="department" name="department" class="form-control" value=${user.department}>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <a class="btn btn-default" href="/profile/getUserProfile" >リセット</a>
+                        <button class="btn btn-success pull-right">
+                            <i class="fa fa-save"></i> 更新
+                        </button>
+                    </div>
+                </div>
             </div>
         </form>
-        </div>
 
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
@@ -113,7 +99,6 @@
             $(this).next().toggle();
         });
     });
-
 
     function getAllValve(){
         $.get("/valve/getAllValveJson",function(data){

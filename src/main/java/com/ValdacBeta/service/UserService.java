@@ -40,12 +40,11 @@ public class UserService {
 
     }
 
-    public User updateUser(String userId,String username,String password,String department,String profile) {
+    public User updateUser(String userId,String username,String password,String department) {
         User newUser=new User();
         newUser.setUserid(userId);
         newUser.setPassword(password);
         newUser.setDepartment(department);
-        newUser.setProfile(profile);
         newUser.setUsername(username);
         newUser.setKengen("6");
 
@@ -57,5 +56,17 @@ public class UserService {
             return null;
         }
 
+    }
+
+    public void updateUserWithoutProfile(User user){
+        userMapper.updateUserWithoutProfile(user);
+    }
+
+    public void updateUserProfileById(String userid, String profile) {
+        userMapper.updateUserProfileById(userid,profile);
+    }
+
+    public void updateUserProfileByUser(User user) {
+        userMapper.updateUserProfileByUser(user);
     }
 }

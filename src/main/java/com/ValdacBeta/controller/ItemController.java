@@ -35,6 +35,8 @@ public class ItemController {
     KikisystemrelationService kikisystemrelationService;
     @Autowired
     LuceneIndexService luceneIndexService;
+    @Autowired
+    ImageService imageService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpSession session, ModelMap modelMap){
@@ -170,9 +172,11 @@ public class ItemController {
                                   HttpSession session){
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
         Kiki kiki = kikiService.getKikiByKikiId(kikiId);
+        List<Image> imageList = imageService.getImagesByKikiId(kikiId);
 
         modelMap.addAttribute("valve",valve);
         modelMap.addAttribute("kiki",kiki);
+        modelMap.addAttribute("imageList",imageList);
 
 
         List<Buhin> buhinList = buhinService.getBuhinByKikiId(Integer.valueOf(kikiId));

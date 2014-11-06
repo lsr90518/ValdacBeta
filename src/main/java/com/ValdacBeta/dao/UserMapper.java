@@ -16,4 +16,10 @@ public interface UserMapper {
 
 
     public void updateUser(User user);
+
+    void updateUserWithoutProfile(User user);
+
+    void updateUserProfileById(String userid, String profile);
+
+    void updateUserProfileByUser(User user);
 }
