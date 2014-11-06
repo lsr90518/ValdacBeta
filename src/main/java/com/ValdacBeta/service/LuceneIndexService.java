@@ -264,7 +264,7 @@ public class LuceneIndexService {
         }
 
         // 3. search
-        int hitsPerPage = 10;
+        int hitsPerPage = 100;
         IndexReader reader = null;
         try {
             reader = DirectoryReader.open(index);
