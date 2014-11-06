@@ -151,8 +151,6 @@ public class LuceneIndexService {
             Document doc = new Document();
             doc.add(new TextField("id", valveList.get(i).getKikiSysId()+"", Field.Store.YES));
             doc.add(new TextField("body", valveList.get(i).toText(), Field.Store.YES));
-            doc.add(new IntField("trkDate", valveList.get(i).getTrkDateInt(), Field.Store.YES));
-            doc.add(new IntField("updDate", valveList.get(i).getUpdDateInt(), Field.Store.YES));
 
             w.addDocument(doc);
         }
@@ -163,8 +161,6 @@ public class LuceneIndexService {
             Document doc = new Document();
             doc.add(new TextField("id", kikiList.get(i).getKikiId()+"", Field.Store.YES));
             doc.add(new TextField("body", kikiList.get(i).toText(), Field.Store.YES));
-            doc.add(new IntField("trkDate", kikiList.get(i).getTrkDateInt(), Field.Store.YES));
-            doc.add(new IntField("updDate", kikiList.get(i).getUpdDateInt(), Field.Store.YES));
 
             w.addDocument(doc);
         }
@@ -174,8 +170,6 @@ public class LuceneIndexService {
             Document doc = new Document();
             doc.add(new TextField("id", buhinList.get(i).getBuhinId()+"", Field.Store.YES));
             doc.add(new TextField("body", buhinList.get(i).toText(), Field.Store.YES));
-            doc.add(new IntField("trkDate", buhinList.get(i).getTrkDateInt(), Field.Store.YES));
-            doc.add(new IntField("updDate", buhinList.get(i).getUpdDateInt(), Field.Store.YES));
 
             w.addDocument(doc);
         }
@@ -189,8 +183,6 @@ public class LuceneIndexService {
             Document doc = new Document();
             doc.add(new TextField("id", id+"", Field.Store.YES));
             doc.add(new TextField("body", body, Field.Store.YES));
-            doc.add(new IntField("trkDate", trkDate, Field.Store.YES));
-            doc.add(new IntField("updDate", updDate, Field.Store.YES));
             w = new IndexWriter(index, config);
             w.addDocument(doc);
             w.close();
@@ -345,6 +337,7 @@ public class LuceneIndexService {
             w = new IndexWriter(dir, config);
             initDoc(w);
             w.close();
+            System.out.println(indexFile.getAbsolutePath());
 
         } catch (IOException e) {
             System.out.println("Index remake failed");

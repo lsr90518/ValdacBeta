@@ -78,9 +78,12 @@
                     <div class="row">
                         <!-- collection -->
                         <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">バルブ一覧</h3>
+
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab_1" data-toggle="tab">最新バルブ</a></li>
+                                    <li class=""><a href="#tab_2" data-toggle="tab">編集履歴</a></li>
+
                                     <div class="box-tools">
                                         <div class="input-group">
                                             <input type="text" name="table_search" id="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">
@@ -89,39 +92,72 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- /.box-header -->
-                                <div class="box-body table-responsive no-padding">
-                                    ${message}
-                                    <table class="table table-hover valve-table">
-                                        <thead><tr>
-                                            <th>弁番号</th>
-                                            <th>弁名称</th>
-                                            <th>型式</th>
-                                            <th>操作</th>
-                                            <th>クラス</th>
-                                            <th>操作</th>
-                                        </tr></thead>
-                                        <tbody>
-                                        <c:forEach items="${valveList}" var="tmpValve">
-                                            <tr>
-                                                <td>${tmpValve.vNo}</td>
-                                                <td>${tmpValve.benMeisyo}</td>
-                                                <td>${tmpValve.keisiki}</td>
-                                                <td>${tmpValve.sousa}</td>
-                                                <td>${tmpValve.classType}</td>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1">
+                                        <table class="table table-hover valve-table">
+                                            <thead><tr>
+                                                <th>弁番号</th>
+                                                <th>弁名称</th>
+                                                <th>型式</th>
+                                                <th>操作</th>
+                                                <th>クラス</th>
+                                                <th>操作</th>
+                                            </tr></thead>
+                                            <tbody>
+                                            <c:forEach items="${newValveList}" var="newValve">
+                                                <tr>
+                                                    <td>${newValve.vNo}</td>
+                                                    <td>${newValve.benMeisyo}</td>
+                                                    <td>${newValve.keisiki}</td>
+                                                    <td>${newValve.sousa}</td>
+                                                    <td>${newValve.classType}</td>
 
-                                                <td>
-                                                    <div class="operation-button">
-                                                        <a class="btn btn-primary btn-sm operation-button-btn" href="/item/${tmpValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-danger btn-sm operation-button-btn" href="/item/${tmpValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        <div class="operation-button">
+                                                            <a class="btn btn-primary btn-sm operation-button-btn" href="/item/${newValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
+                                                            <a class="btn btn-danger btn-sm operation-button-btn" href="/item/${newValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
 
-                                        </c:forEach>
-                                        </tbody></table>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                        <table class="table table-hover valve-table">
+                                            <thead><tr>
+                                                <th>弁番号</th>
+                                                <th>弁名称</th>
+                                                <th>型式</th>
+                                                <th>操作</th>
+                                                <th>クラス</th>
+                                                <th>操作</th>
+                                            </tr></thead>
+                                            <tbody>
+                                            <c:forEach items="${updateValveList}" var="updateValve">
+                                                <tr>
+                                                    <td>${updateValve.vNo}</td>
+                                                    <td>${updateValve.benMeisyo}</td>
+                                                    <td>${updateValve.keisiki}</td>
+                                                    <td>${updateValve.sousa}</td>
+                                                    <td>${updateValve.classType}</td>
+
+                                                    <td>
+                                                        <div class="operation-button">
+                                                            <a class="btn btn-primary btn-sm operation-button-btn" href="/item/${updateValve.kikiSysId}"><i class="fa fa-pencil"></i></a>
+                                                            <a class="btn btn-danger btn-sm operation-button-btn" href="/item/${updateValve.kikiSysId}/delete"><i class="fa fa-trash-o"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.tab-pane -->
+                                </div><!-- /.tab-content -->
+                            </div>
                         </div>
 
                     </div>
@@ -148,7 +184,7 @@
 
         $("#table_search").keyup(function(){
             var keyword = $("#table_search").val();
-            var trs = $(".valve-table tbody tr");
+            var trs = $(".active .valve-table tbody tr");
             for(var i = 0;i<trs.length;i++){
                 $(trs[i]).hide();
                 var tds = $(trs[i]).find("td");

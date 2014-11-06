@@ -89,4 +89,18 @@
 		WHERE ksl.kikisysid=#{kikiSysId}
     </delete>
 
+    <select id="findLastUpdateTenValves" resultType="Valve">
+        SELECT * FROM kikisystem ORDER BY updDate DESC limit 10;
+    </select>
+
+    <select id="findLastTenValves" resultType="Valve">
+        SELECT * FROM kikisystem ORDER BY trkDate DESC limit 10;
+    </select>
+
+    <update id="updateValveDateById" parameterType="Valve">
+        UPDATE kikisystem
+        SET updDate = #{updDate}
+        WHERE kikiSysId=#{kikiSysId}
+    </update>
+
 </mapper>

@@ -70,17 +70,19 @@
                     <div class="box box-primary result-box">
                         <div class="box-header">
                             <h3 class="box-title">バルブ一覧</h3>
-                            <div class="btn-group pull-right"  id="valuePage">
-                                <button type="button" class="btn btn-default" >1</button>
-                                <button type="button" class="btn btn-default" >2</button>
-                                <button type="button" class="btn btn-default" >3</button>
-                                <button type="button" class="btn btn-default" >4</button>
-                                <button type="button" class="btn btn-default" >5</button>
-                                <button type="button" class="btn btn-default" >6</button>
-                                <button type="button" class="btn btn-default" >7</button>
-                                <button type="button" class="btn btn-default" >8</button>
-                                <button type="button" class="btn btn-default" >9</button>
-                                <button type="button" class="btn btn-default" >10</button>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="valuePage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
                             </div>
                         </div>
 
@@ -99,17 +101,19 @@
                     <div class="box box-kiki result-box">
                         <div class="box-header">
                             <h3 class="box-title">機器一覧</h3>
-                            <div class="btn-group pull-right"  id="kikiPage">
-                                <button type="button" class="btn btn-default" >1</button>
-                                <button type="button" class="btn btn-default" >2</button>
-                                <button type="button" class="btn btn-default" >3</button>
-                                <button type="button" class="btn btn-default" >4</button>
-                                <button type="button" class="btn btn-default" >5</button>
-                                <button type="button" class="btn btn-default" >6</button>
-                                <button type="button" class="btn btn-default" >7</button>
-                                <button type="button" class="btn btn-default" >8</button>
-                                <button type="button" class="btn btn-default" >9</button>
-                                <button type="button" class="btn btn-default" >10</button>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="kikiPage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
                             </div>
                         </div>
 
@@ -128,17 +132,19 @@
                     <div class="box box-warning result-box">
                         <div class="box-header">
                             <h3 class="box-title">部品一覧</h3>
-                            <div class="btn-group pull-right"  id="buhinPage">
-                                <button type="button" class="btn btn-default" >1</button>
-                                <button type="button" class="btn btn-default" >2</button>
-                                <button type="button" class="btn btn-default" >3</button>
-                                <button type="button" class="btn btn-default" >4</button>
-                                <button type="button" class="btn btn-default" >5</button>
-                                <button type="button" class="btn btn-default" >6</button>
-                                <button type="button" class="btn btn-default" >7</button>
-                                <button type="button" class="btn btn-default" >8</button>
-                                <button type="button" class="btn btn-default" >9</button>
-                                <button type="button" class="btn btn-default" >10</button>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="buhinPage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
                             </div>
                         </div>
 
@@ -205,11 +211,11 @@
         var buhinButton=$("#buhinPage button");
 
         var datanum=10;
-        paging(valveTrs.length,valueButton,valveTrs);
-        paging(kikiTrs.length,kikiButton,kikiTrs);
-        paging(buhinTrs.length,buhinButton,buhinTrs);
+        paging(valveTrs.length,valueButton,valveTrs,10);
+        paging(kikiTrs.length,kikiButton,kikiTrs,10);
+        paging(buhinTrs.length,buhinButton,buhinTrs,10);
 
-        function paging(num,ButtonType,DataType){
+        function paging(num,ButtonType,DataType,datanum){
             var pagenumTotal=pageCount(num,datanum);
             //button hide
             for(var i = pagenumTotal;i<10;i++){
@@ -251,12 +257,18 @@
             var text = $($(this)[0]).html();
             if(text == "バルブ"){
                 $(".box-primary").show(200);
+                paging(valveTrs.length,valueButton,valveTrs,16);
             } else if(text == "機器"){
                 $(".box-kiki").show(200);
+                paging(kikiTrs.length,kikiButton,kikiTrs,16);
             } else if(text == "部品"){
                 $(".box-warning").show(200);
+                paging(buhinTrs.length,buhinButton,buhinTrs,16);
             } else {
                 $(".result-box").show(200);
+                paging(valveTrs.length,valueButton,valveTrs,10);
+                paging(kikiTrs.length,kikiButton,kikiTrs,10);
+                paging(buhinTrs.length,buhinButton,buhinTrs,10);
             }
         });
 

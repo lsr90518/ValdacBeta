@@ -44,8 +44,12 @@ public class IndexController {
         session.removeAttribute("kiki");
         session.removeAttribute("buhin");
 
-        List<Valve> valveList = valveService.getTenValves();
-        modelMap.addAttribute("valveList",valveList);
+        List<Valve> newValveList = valveService.getLastTenValves();
+        modelMap.addAttribute("newValveList",newValveList);
+
+        List<Valve> updateValveList = valveService.getLastUpdateTenValves();
+        modelMap.addAttribute("updateValveList", updateValveList);
+
 
         String indexPath = (String)session.getAttribute("indexPath");
         if(null == indexPath) {

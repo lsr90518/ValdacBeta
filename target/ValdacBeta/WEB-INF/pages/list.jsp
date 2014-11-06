@@ -10,7 +10,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="htmlframe/headFrame.jsp" />
 <link rel="stylesheet" type="text/css" href="/css/main.css" />
-
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
 <c:import url="htmlframe/headerFrame.jsp"/>
@@ -71,7 +70,22 @@
                     <div class="box box-primary result-box">
                         <div class="box-header">
                             <h3 class="box-title">バルブ一覧</h3>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="valuePage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="box-body no-padding">
 
                                 <div class="list-group valve-list result-list">
@@ -87,8 +101,24 @@
                     <div class="box box-kiki result-box">
                         <div class="box-header">
                             <h3 class="box-title">機器一覧</h3>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="kikiPage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="box-body no-padding">
+
                             <div class="list-group kiki-list result-list">
 
                                 <c:forEach items="${kikiResults}" var="kikiResult">
@@ -102,10 +132,24 @@
                     <div class="box box-warning result-box">
                         <div class="box-header">
                             <h3 class="box-title">部品一覧</h3>
+                            <div class="box-tools">
+                                <div class="btn-group pull-right"  id="buhinPage">
+                                    <button type="button" class="btn btn-default" >1</button>
+                                    <button type="button" class="btn btn-default" >2</button>
+                                    <button type="button" class="btn btn-default" >3</button>
+                                    <button type="button" class="btn btn-default" >4</button>
+                                    <button type="button" class="btn btn-default" >5</button>
+                                    <button type="button" class="btn btn-default" >6</button>
+                                    <button type="button" class="btn btn-default" >7</button>
+                                    <button type="button" class="btn btn-default" >8</button>
+                                    <button type="button" class="btn btn-default" >9</button>
+                                    <button type="button" class="btn btn-default" >10</button>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="box-body no-padding">
                             <div class="list-group buhin-list result-list">
-
                                 <c:forEach items="${buhinResults}" var="buhinResult">
                                     <a href="/search/${buhinResult.id}" class="list-group-item">${buhinResult.body}</a>
                                 </c:forEach>
@@ -144,7 +188,7 @@
             var tr = $(obj.currentTarget)[0];
             $(tr).find(".operation-button").css("opacity","0");
         });
-
+        //set the background-color
         var valveTrs = $(".valve-list a");
         var colorOffset = 1/valveTrs.length;
         for(var i = 0;i<valveTrs.length;i++){
@@ -161,6 +205,49 @@
             $(buhinTrs[i]).css({"background-color":"rgba(245, 157, 0, "+colorOffset*(i+1)+")"});
         }
 
+        //--------Value Paging Start
+        var valueButton=$("#valuePage button");
+        var kikiButton=$("#kikiPage button");
+        var buhinButton=$("#buhinPage button");
+
+        var datanum=10;
+        paging(valveTrs.length,valueButton,valveTrs,10);
+        paging(kikiTrs.length,kikiButton,kikiTrs,10);
+        paging(buhinTrs.length,buhinButton,buhinTrs,10);
+
+        function paging(num,ButtonType,DataType,datanum){
+            var pagenumTotal=pageCount(num,datanum);
+            //button hide
+            for(var i = pagenumTotal;i<10;i++){
+                ButtonType.eq(i).hide();
+            }
+            //show the first 10
+            DataType.hide();
+            for(var i = 0;i<datanum;i++){
+                DataType.eq(i).show();
+            }
+            //  pagnation
+            ButtonType.click(function(){
+                var pageNumClick=ButtonType.index(this);
+                ButtonType.removeClass('active');
+                $(ButtonType[pageNumClick]).addClass("active");
+                DataType.hide();
+                for(var i = pageNumClick*datanum;i<(pageNumClick+1)*datanum;i++){
+                    DataType.eq(i).show();
+                }
+            });
+        }
+
+        function pageCount(num,datanum){
+            var pagenumTotal=parseInt(num/datanum);
+            var mod=num%datanum;
+            if (mod!=0){
+                pagenumTotal=pagenumTotal+1;
+            }
+            return pagenumTotal;
+        }
+        //--------Value Paging End
+
         $(".item-tab").click(function(){
             $(".item-tab").removeClass("item-tab-active");
             $(".item-tab").addClass("btn-default");
@@ -170,12 +257,18 @@
             var text = $($(this)[0]).html();
             if(text == "バルブ"){
                 $(".box-primary").show(200);
+                paging(valveTrs.length,valueButton,valveTrs,16);
             } else if(text == "機器"){
                 $(".box-kiki").show(200);
+                paging(kikiTrs.length,kikiButton,kikiTrs,16);
             } else if(text == "部品"){
                 $(".box-warning").show(200);
+                paging(buhinTrs.length,buhinButton,buhinTrs,16);
             } else {
                 $(".result-box").show(200);
+                paging(valveTrs.length,valueButton,valveTrs,10);
+                paging(kikiTrs.length,kikiButton,kikiTrs,10);
+                paging(buhinTrs.length,buhinButton,buhinTrs,10);
             }
         });
 
@@ -199,7 +292,6 @@
             $("#keyword-input").val(keywords);
             $("#searchForm").submit();
         });
-
     });
 </script>
 

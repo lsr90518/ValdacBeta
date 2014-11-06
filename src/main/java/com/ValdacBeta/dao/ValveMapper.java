@@ -24,4 +24,9 @@ public interface ValveMapper {
 
     void updateValveByValve(Valve valve);
 
+    List<Valve> findLastUpdateTenValves();
+
+    List<Valve> findLastTenValves();
+
+    void updateValveDateById(Valve valve);
 }

@@ -195,6 +195,7 @@ public class ItemController {
         kiki.makeupValveByForm(kikiForm);
         kiki.setKikiId(kikiForm.getKikiId());
         kikiService.updateKikiByKiki(kiki);
+        valveService.updateValveDateById(kikiSysId);
 
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
 
@@ -288,6 +289,8 @@ public class ItemController {
         buhin.makeupValueByForm(buhinForm);
         buhin.setBuhinId(buhinForm.getBuhinId());
         buhinService.updateBuhinByBuhin(buhin);
+        valveService.updateValveDateById(kikiSysId);
+
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
         Kiki kiki = kikiService.getKikiByKikiId(kikiId);
         modelMap.addAttribute("valve",valve);
