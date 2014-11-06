@@ -70,20 +70,20 @@
                     <div class="box box-primary result-box">
                         <div class="box-header">
                             <h3 class="box-title">バルブ一覧</h3>
-                            <div class="pager"></div>
+                            <div class="btn-group pull-right"  id="valuePage">
+                                <button type="button" class="btn btn-default" >1</button>
+                                <button type="button" class="btn btn-default" >2</button>
+                                <button type="button" class="btn btn-default" >3</button>
+                                <button type="button" class="btn btn-default" >4</button>
+                                <button type="button" class="btn btn-default" >5</button>
+                                <button type="button" class="btn btn-default" >6</button>
+                                <button type="button" class="btn btn-default" >7</button>
+                                <button type="button" class="btn btn-default" >8</button>
+                                <button type="button" class="btn btn-default" >9</button>
+                                <button type="button" class="btn btn-default" >10</button>
+                            </div>
                         </div>
-                        <div class="btn-group"  id="valuePage">
-                            <button type="button" class="btn btn-default" >1</button>
-                            <button type="button" class="btn btn-default" >2</button>
-                            <button type="button" class="btn btn-default" >3</button>
-                            <button type="button" class="btn btn-default" >4</button>
-                            <button type="button" class="btn btn-default" >5</button>
-                            <button type="button" class="btn btn-default" >6</button>
-                            <button type="button" class="btn btn-default" >7</button>
-                            <button type="button" class="btn btn-default" >8</button>
-                            <button type="button" class="btn btn-default" >9</button>
-                            <button type="button" class="btn btn-default" >10</button>
-                        </div>
+
                         <div class="box-body no-padding">
 
                                 <div class="list-group valve-list result-list">
@@ -99,19 +99,20 @@
                     <div class="box box-kiki result-box">
                         <div class="box-header">
                             <h3 class="box-title">機器一覧</h3>
+                            <div class="btn-group pull-right"  id="kikiPage">
+                                <button type="button" class="btn btn-default" >1</button>
+                                <button type="button" class="btn btn-default" >2</button>
+                                <button type="button" class="btn btn-default" >3</button>
+                                <button type="button" class="btn btn-default" >4</button>
+                                <button type="button" class="btn btn-default" >5</button>
+                                <button type="button" class="btn btn-default" >6</button>
+                                <button type="button" class="btn btn-default" >7</button>
+                                <button type="button" class="btn btn-default" >8</button>
+                                <button type="button" class="btn btn-default" >9</button>
+                                <button type="button" class="btn btn-default" >10</button>
+                            </div>
                         </div>
-                        <div class="btn-group"  id="kikiPage">
-                            <button type="button" class="btn btn-default" >1</button>
-                            <button type="button" class="btn btn-default" >2</button>
-                            <button type="button" class="btn btn-default" >3</button>
-                            <button type="button" class="btn btn-default" >4</button>
-                            <button type="button" class="btn btn-default" >5</button>
-                            <button type="button" class="btn btn-default" >6</button>
-                            <button type="button" class="btn btn-default" >7</button>
-                            <button type="button" class="btn btn-default" >8</button>
-                            <button type="button" class="btn btn-default" >9</button>
-                            <button type="button" class="btn btn-default" >10</button>
-                        </div>
+
                         <div class="box-body no-padding">
 
                             <div class="list-group kiki-list result-list">
@@ -127,19 +128,20 @@
                     <div class="box box-warning result-box">
                         <div class="box-header">
                             <h3 class="box-title">部品一覧</h3>
+                            <div class="btn-group pull-right"  id="buhinPage">
+                                <button type="button" class="btn btn-default" >1</button>
+                                <button type="button" class="btn btn-default" >2</button>
+                                <button type="button" class="btn btn-default" >3</button>
+                                <button type="button" class="btn btn-default" >4</button>
+                                <button type="button" class="btn btn-default" >5</button>
+                                <button type="button" class="btn btn-default" >6</button>
+                                <button type="button" class="btn btn-default" >7</button>
+                                <button type="button" class="btn btn-default" >8</button>
+                                <button type="button" class="btn btn-default" >9</button>
+                                <button type="button" class="btn btn-default" >10</button>
+                            </div>
                         </div>
-                        <div class="btn-group"  id="buhinPage">
-                            <button type="button" class="btn btn-default" >1</button>
-                            <button type="button" class="btn btn-default" >2</button>
-                            <button type="button" class="btn btn-default" >3</button>
-                            <button type="button" class="btn btn-default" >4</button>
-                            <button type="button" class="btn btn-default" >5</button>
-                            <button type="button" class="btn btn-default" >6</button>
-                            <button type="button" class="btn btn-default" >7</button>
-                            <button type="button" class="btn btn-default" >8</button>
-                            <button type="button" class="btn btn-default" >9</button>
-                            <button type="button" class="btn btn-default" >10</button>
-                        </div>
+
                         <div class="box-body no-padding">
                             <div class="list-group buhin-list result-list">
                                 <c:forEach items="${buhinResults}" var="buhinResult">
@@ -221,7 +223,8 @@
             //  pagnation
             ButtonType.click(function(){
                 var pageNumClick=ButtonType.index(this);
-                ButtonType[pageNumClick].backgroundColor="#eeffff";
+                ButtonType.removeClass('active');
+                $(ButtonType[pageNumClick]).addClass("active");
                 DataType.hide();
                 for(var i = pageNumClick*datanum;i<(pageNumClick+1)*datanum;i++){
                     DataType.eq(i).show();
