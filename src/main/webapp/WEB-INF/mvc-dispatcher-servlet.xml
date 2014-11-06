@@ -11,7 +11,7 @@
     <!-- データソースをセットアップする -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://173.194.105.61:3306/valdac"></property>
+        <property name="url" value="jdbc:mysql://173.194.105.61:3306/valdacHonban"></property>
         <property name="username" value="root"></property>
         <property name="password" value="cloud@tv1"></property>
         <property name="validationQuery" value="SELECT 1" />
