@@ -75,4 +75,18 @@ public class ImageController {
 
         return "";
     }
+
+    @RequestMapping(value = "/submitBikouById", method = RequestMethod.POST, produces = "html/text;charset=UTF-8")
+    @ResponseBody
+    public String submitBikouById(@RequestParam("bikou")String bikou,
+                                  @RequestParam("object")String object){
+        imageService.updateBikouByObject(bikou,object);
+        return "";
+    }
+
+    @RequestMapping(value = "/getBikouByObject", method = RequestMethod.GET, produces = "html/text;charset=UTF-8")
+    @ResponseBody
+    public String getBikouByObject(@RequestParam("object")String object){
+        return imageService.getBikouByObject(object);
+    }
 }

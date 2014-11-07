@@ -53,4 +53,19 @@ public class ImageService {
 
         return imageMapper.findImagesByKikiId(kikiId);
     }
+
+    public List<Image> getImagesByBuhinId(String buhinId) {
+        return imageMapper.findImagesByBuhinId(buhinId);
+    }
+
+    public void updateBikouByObject(String bikou, String object) {
+        Image image = new Image();
+        image.setBikou(bikou);
+        image.setImagename(object);
+        imageMapper.updateBikouByObject(image);
+    }
+
+    public String getBikouByObject(String object) {
+        return imageMapper.findBikouByObject(object);
+    }
 }

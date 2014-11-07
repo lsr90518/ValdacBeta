@@ -211,7 +211,7 @@ function insertObject(event) {
         //small objects (under 64k) so to support larger file sizes
         //we're using the generic HTTP request method gapi.client.request()
         var request = gapi.client.request({
-            'path': '/upload/storage/v1beta2/b/' + BUCKET + '/o',
+            'path': '/upload/storage/v1/b/' + BUCKET + '/o',
             'method': 'POST',
             'params': {'uploadType': 'multipart'},
             'headers': {

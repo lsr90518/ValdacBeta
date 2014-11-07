@@ -392,7 +392,6 @@
                             </div>
                         </div>
                     </div>
-                    <hr/>
 
                 </div>
                 <div class="modal-footer">
@@ -430,7 +429,17 @@
 
     });
 
+    function getMasterByType(obj){
+        var id=obj.id;
+        var typeName="";
+//        alert(id);
+        $.getJSON("/master/getMasterByTypeJson?id="+id,function(data){
 
+            for(var nIndex=0;nIndex<data.length;nIndex++){
+
+            };
+        });
+    }
 
 
 </script>

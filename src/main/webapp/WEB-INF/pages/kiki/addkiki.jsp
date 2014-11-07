@@ -58,7 +58,7 @@
                         <div class="box-header box-panel">
                             <h3 class="box-title">${kiki.kikiMei}の機器情報</h3>
                         </div>
-                        <div class="box-body" style="display: none">
+                        <div class="box-body" >
 
 
                                         <div class="form-group">
@@ -177,71 +177,46 @@
 
 
                 </form>
-
-
-                    <!--
-                        1.选择图片
-                        2.上传图片，返回结果
-                        3.添加图片到图片表(其他属性)，不添加到kiki
-                        4.点击完成后，添加到kiki表
-
-                        5.先跳转，发送ajax请求，请求，图像和类别顺序等数据，
-
-                        ui
-                        kikisyskiki页面 横向滚动.
-                        kiki页面PPT
-
-                        問題點:
-                        kaiteiNO 用法
-                        page 没必要
-
-                    -->
-                    <div class="box box-primary box-solid box-kiki">
+                    <div class="box box-solid">
                         <div class="box-header box-panel">
-                            <h3 class="box-title">${kiki.kikiMei}の図面</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-files-o"></i> ${kiki.kikiMei}の図面</h3>
                         </div>
-                        <div class="box-body" style="display: none">
+                        <div class="box-body">
                             <div class="form-group">
                                 <input type="hidden" name="imageId" id="imageId" value="" />
-                                <div class="progress xs progress-striped active">
-                                    <div id="progressbar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-md-3" style="text-align: center">
-                                        <!--Add a button for the user to click to initiate auth sequence -->
-                                        <button id="authorize-button" style="visibility: hidden">Authorize</button>
                                         <!-- left frame -->
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <!-- new image -->
-                                                <div class="btn btn-app btn-primary btn-file">
+                                                <div class="btn btn-block btn-primary btn-file-block">
                                                     <span class="glyphicon glyphicon-picture"></span>
                                                     <span class="glyphicon-class">図面アップロード</span>
-                                                    <input type="file" id="filePicker" name="attachment" style="height: 70px !important;">
+                                                    <input type="file" id="filePicker" name="attachment" style="height: 40px !important;">
                                                 </div>
+                                                <!--Add a button for the user to click to initiate auth sequence -->
+                                                <button id="authorize-button" style="visibility: hidden">Authorize</button>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-12" id="previewImageDiv">
-                                                <div class="row" id="imageList" style="border-right:solid 5px #eee;overflow-y: scroll;height: 600px;">
+                                                <hr/>
+                                                <div class="row" id="imageList">
+
                                                     <c:forEach items="${imageList}" var="image">
-                                                        <div id="${image.imagename}" class="col-md-12 image-div">
-                                                            <div class="thumbnail">
-                                                                <img src="http://storage.googleapis.com/valdac/${image.imagename}" onclick="changeImage(this)" alt="..." style="cursor:pointer">
-                                                                <div class="caption">
-                                                                    <div class="row">
-                                                                        <div class="col-md-8">
-                                                                            <select class="form-control input-sm imagesyu" onchange="saveChangeToDatabase(this)"><option>${image.imagesyu}</option><option>画像種別1</option><option>画像種別2</option><option>画像種別3</option></select>
-                                                                            <input type="hidden" value="${image.imagename}" >
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <input type="button" class="btn btn-danger btn-xs pull-right" value="X" onclick="removeImage(this)">
-                                                                            <input type="hidden" class="currentObject" value="${image.imagename}" >
-                                                                        </div>
-                                                                    </div>
+                                                        <div id="${image.imagename}" class="col-md-12 image-div"onMouseOver="showDelete(this)" onmouseout="hideDelete(this)">
+                                                            <div class="row thumbnail-object">
+                                                                <div class="col-md-4 thumbnail-img">
+                                                                    <img src="http://storage.googleapis.com/valdac/${image.imagename}" onclick="changeImage(this)" alt="..." style="cursor:pointer;height: 100px">
+                                                                </div>
+                                                                <div class="col-md-8 thumbnail-content">
+                                                                    <select class="form-control input-sm imagesyu" onchange="saveChangeToDatabase(this)"><option>${image.imagesyu}</option><option>画像種別1</option><option>画像種別2</option><option>画像種別3</option></select>
+                                                                    <input type="hidden" value="${image.imagename}" >
+                                                                    <input type="button" class="btn btn-danger btn-xs thumbnail-delete-btn pull-right" value="X" onclick="removeImage(this)">
+                                                                    <input type="hidden" class="currentObject" value="${image.imagename}" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -252,7 +227,15 @@
 
                                     </div>
                                     <div class="col-md-9">
-                                        <div class="row" style="text-align: center">
+                                        <div class="progress xs progress-striped active">
+                                            <div id="progressbar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <a href="#" id="original-link" class="btn btn-sm btn-default" target="_blank"><i class="fa fa-fw fa-desktop"></i> 原図</a>
+                                        </div>
+                                        <div class="row previewDiv">
                                             <!-- image -->
                                             <img id="previewImage" class="previewImage" src="" />
                                         </div>
@@ -451,18 +434,6 @@
                                 </div>
                             </div>
 
-                            <hr/>
-
-                            <div class="form-group">
-                                <input type="hidden" name="imageId" value="" />
-                                <div class="row">
-                                    <div class="col-md-2">備考</div>
-                                    <div class="col-md-10">
-                                        <input type="text" class="form-control" name="buhinzuBikou" />
-                                    </div>
-                                </div>
-                            </div>
-
 
                         </div>
                         <div class="modal-footer">
@@ -539,6 +510,21 @@
     function changeImage(obj){
         document.getElementById("previewImage").src=obj.src;
         document.getElementById("original-link").href=obj.src;
+        var imageHeight = $("#previewImage").css("height");
+        if(imageHeight < 600){
+            $("#imageList").css("height",600);
+        } else {
+            $("#imageList").css("height",$("#previewImage").css("height"));
+        }
+    }
+
+    function showDelete(obj){
+        var content = $(obj).find(".thumbnail-content")[0];
+        var btn = $(content).find(".thumbnail-delete-btn").css("opacity","1");
+    }
+    function hideDelete(obj){
+        var content = $(obj).find(".thumbnail-content")[0];
+        var btn = $(content).find(".thumbnail-delete-btn").css("opacity","0");
     }
 </script>
 
@@ -655,7 +641,7 @@ function insertObject(event) {
         //small objects (under 64k) so to support larger file sizes
         //we're using the generic HTTP request method gapi.client.request()
         var request = gapi.client.request({
-            'path': '/upload/storage/v1beta2/b/' + BUCKET + '/o',
+            'path': '/upload/storage/v1/b/' + BUCKET + '/o',
             'method': 'POST',
             'params': {'uploadType': 'multipart'},
             'headers': {
@@ -716,20 +702,34 @@ function executeRequest(request, apiRequestName) {
         if (apiRequestName != 'insertObject') {
 
             document.getElementById('previewImage').src="http://storage.googleapis.com/valdac/"+resp.object;
+            document.getElementById("original-link").href=obj.src;
+            var imageListObj = '<div id="'+resp.object+'" class="col-md-12 image-div" onMouseOver="showDelete(this)" onmouseout="hideDelete(this)">'+
+            '<div class="row thumbnail-object">'+
+            '<div class="col-md-4 thumbnail-img">'+
+            '<img src="http://storage.googleapis.com/valdac/'+resp.object+'" onclick="changeImage(this)" alt="..." style="cursor:pointer;height: 100px">'+
+            '</div>'+
+            '<div class="col-md-8 thumbnail-content">'+
+            '<select class="form-control input-sm imagesyu" onchange="saveChangeToDatabase(this)"><option></option><option>画像種別1</option><option>画像種別2</option><option>画像種別3</option></select>'+
+            '<input type="hidden" value="'+resp.object+'" >'+
+            '<input type="button" class="btn btn-danger btn-xs thumbnail-delete-btn pull-right" value="X" onclick="removeImage(this)">'+
+            '<input type="hidden" class="currentObject" value="'+resp.object+'" >'+
+            '</div>'+
+            '</div>'+
+            '</div>';
 
-            var imageListObj = '<div id="'+resp.object+'" class="col-md-12 image-div">'+
-                    '<div class="thumbnail">'+
-                        '<img src="http://storage.googleapis.com/valdac/'+resp.object+'" onclick="changeImage(this)" alt="..." style="cursor:pointer">'+
-                        '<div class="caption">'+
-                            '<div class="row">'+
-                                '<div class="col-md-9">'+
-                                    '<select class="form-control input-sm imagesyu" onchange="saveChangeToDatabase(this)"><option>画像種別1</option><option>画像種別2</option><option>画像種別3</option></select>'+
-                                    '<input type="hidden" value="'+resp.object+'" >'+
-                                    '</div><div class="col-md-3"><input type="button" class="btn btn-danger btn-xs" value="X" onclick="removeImage(this)"><input type="hidden" class="currentObject" value="'+resp.object+'" ></div>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>';
+//            imageListObj = '<div id="'+resp.object+'" class="col-md-12 image-div">'+
+//                    '<div class="thumbnail">'+
+//                        '<img src="http://storage.googleapis.com/valdac/'+resp.object+'" onclick="changeImage(this)" alt="..." style="cursor:pointer">'+
+//                        '<div class="caption">'+
+//                            '<div class="row">'+
+//                                '<div class="col-md-9">'+
+//                                    '<select class="form-control input-sm imagesyu" onchange="saveChangeToDatabase(this)"><option>画像種別1</option><option>画像種別2</option><option>画像種別3</option></select>'+
+//                                    '<input type="hidden" value="'+resp.object+'" >'+
+//                                    '</div><div class="col-md-3"><input type="button" class="btn btn-danger btn-xs" value="X" onclick="removeImage(this)"><input type="hidden" class="currentObject" value="'+resp.object+'" ></div>'+
+//                                '</div>'+
+//                            '</div>'+
+//                        '</div>'+
+//                    '</div>';
             document.getElementById("imageList").innerHTML = document.getElementById("imageList").innerHTML+imageListObj;
 
             progressBarController(100);

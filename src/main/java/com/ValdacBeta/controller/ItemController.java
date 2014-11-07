@@ -270,10 +270,12 @@ public class ItemController {
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
         Kiki kiki = kikiService.getKikiByKikiId(kikiId);
         Buhin buhin = buhinService.getBuhinById(buhinId);
+        List<Image> imageList = imageService.getImagesByBuhinId(buhinId);
 
         modelMap.addAttribute("valve",valve);
         modelMap.addAttribute("kiki",kiki);
         modelMap.addAttribute("buhin",buhin);
+        modelMap.addAttribute("imageList",imageList);
 
         return "buhin/addbuhin";
     }

@@ -20,4 +20,10 @@ public interface ImageMapper {
     List<Image> findImagesByKikiId(String kikiId);
 
     void addImageByImage(Image image);
+
+    List<Image> findImagesByBuhinId(String buhinId);
+
+    void updateBikouByObject(Image image);
+
+    String findBikouByObject(String object);
 }

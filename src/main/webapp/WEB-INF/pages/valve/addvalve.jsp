@@ -244,11 +244,8 @@
         $.getJSON("/master/getMasterByTypeJson?id="+id,function(data){
 
             for(var nIndex=0;nIndex<data.length;nIndex++){
-//                alert(data[nIndex].Name);
-                typeName=typeName+data[nIndex].name+'¥n';
-            };
 
-            alert(typeName);
+            };
         });
     }
 </script>

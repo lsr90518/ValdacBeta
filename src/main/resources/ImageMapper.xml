@@ -30,4 +30,22 @@
 		LEFT JOIN imagepart ip ON i.imagename=ip.imagename
 		WHERE ip.partid=#{kikiId}
     </select>
+
+    <select id="findImagesByBuhinId" parameterType="string" resultType="Image">
+        SELECT i.id,i.imagesyu,i.page,i.kaiteino,i.imagename,i.papersize,i.trkDate,i.bikou
+        FROM image i
+		LEFT JOIN imagepart ip ON i.imagename=ip.imagename
+		WHERE ip.partid=#{buhinId}
+    </select>
+
+    <update id="updateBikouByObject" parameterType="Image">
+        UPDATE image
+        SET bikou=#{bikou}
+        WHERE imagename=#{imagename}
+    </update>
+
+    <select id="findBikouByObject" parameterType="string" resultType="string">
+        SELECT bikou FROM image WHERE imagename=#{imagename}
+    </select>
+
 </mapper>
