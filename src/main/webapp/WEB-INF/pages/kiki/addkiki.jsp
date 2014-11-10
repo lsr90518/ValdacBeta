@@ -91,33 +91,33 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <input type="button" class="btn btn-default" value="機器名称" />
+                                                    <input type="button" class="btn btn-default master-kikiMei" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" value="機器名称" />
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="kikiMei" class="form-control" value="${kiki.kikiMei}" />
+                                                    <input type="text" name="kikiMei" class="form-control kikiMei" value="${kiki.kikiMei}" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <input type="button" class="btn btn-default" value="主管係" />
+                                                    <input type="button" class="btn btn-default master-syukan" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" value="主管係" />
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="syukan" class="form-control" value="${kiki.syukan}" />
+                                                    <input type="text" name="syukan" class="form-control syukan" value="${kiki.syukan}" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <input type="button" class="btn btn-default" value="メーカー" />
+                                                    <input type="button" class="btn btn-default master-maker" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" value="メーカー" />
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="text" name="makerRyaku" class="form-control" placeholder="略称" value="${kiki.makerRyaku}" />
+                                                    <input type="text" name="makerRyaku" class="form-control maker" placeholder="略称" value="${kiki.makerRyaku}" />
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <input type="text" name="maker" class="form-control" value="${kiki.maker}" />
+                                                    <input type="text" name="maker" class="form-control maker" value="${kiki.maker}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -352,7 +352,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-default" value="部品名" />
+                                        部品名
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" name="buhinMei" class="form-control" />
@@ -362,7 +362,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-default" value="標準仕様" />
+                                        標準仕様
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" name="hyojunSiyou" class="form-control" />
@@ -401,7 +401,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-default" value="メーカー" />
+                                        メーカー
                                     </div>
                                     <div class="col-md-3">
                                         <input type="text" name="makerRyaku" class="form-control" placeholder="略称" />
@@ -415,7 +415,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-default" value="資材名" />
+                                        資材名
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" name="sizaiName" class="form-control" />
@@ -426,7 +426,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <input type="button" class="btn btn-default" value="品番" />
+                                        品番
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" name="hinban" class="form-control" />
@@ -449,6 +449,64 @@
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
+
+<style type="text/css">
+
+    .master-li:hover{
+        cursor:pointer;
+        background-color: #eee;
+    }
+</style>
+
+<div id="masterModal" class="modal fade masterModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content model-content-master" style="height:600px;overflow:scroll;">
+            <input id="master-type" type="hidden" value="" />
+            <input type="hidden" id="master-class" value="" />
+            <ul id="master-ul" class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function getMasterByType(obj){
+        var type=obj.value;
+        var masterName = new String($(obj).attr("class"));
+        var masterNames = masterName.split("master-");
+        $("#master-class").val(masterNames[1]);
+        var typeName="";
+//        alert(id);
+        $.post("/master/getMasterByTypeJson",{"type":type},function(data){
+            $("#master-type").val(type);
+            var masters = JSON.parse(data);
+
+            $("#master-ul").html("");
+            for(var i = 0;i<masters.length;i++){
+                var tmpHTML = '<li class="list-group-item master-li" onclick="chooseThisMaster(this)">'+masters[i].ryaku+'   '+masters[i].name+'</li>'
+                $("#master-ul").html($("#master-ul").html()+tmpHTML);
+            }
+//            console.log($('.masterModal'));
+        });
+    }
+
+    function chooseThisMaster(obj) {
+        $("#master-type").val();
+        var masterName = $("#master-class").val();
+        var values = new String(obj.innerHTML);
+        var masters = values.split("   ");
+        var targets = $("."+masterName);
+        for(var i = 0;i<targets.length;i++){
+            if(targets.length < 2){
+                targets[0].value = masters[1];
+                break;
+            }
+            targets[i].value = masters[i];
+        }
+    }
+</script>
 
 
 <script type="text/javascript">
@@ -702,7 +760,7 @@ function executeRequest(request, apiRequestName) {
         if (apiRequestName != 'insertObject') {
 
             document.getElementById('previewImage').src="http://storage.googleapis.com/valdac/"+resp.object;
-            document.getElementById("original-link").href=obj.src;
+            document.getElementById("original-link").href="http://storage.googleapis.com/valdac/"+resp.object;
             var imageListObj = '<div id="'+resp.object+'" class="col-md-12 image-div" onMouseOver="showDelete(this)" onmouseout="hideDelete(this)">'+
             '<div class="row thumbnail-object">'+
             '<div class="col-md-4 thumbnail-img">'+

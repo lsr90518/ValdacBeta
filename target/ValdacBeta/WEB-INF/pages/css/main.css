@@ -3623,3 +3623,8 @@ fieldset[disabled] .btn-vk.active {
 .thumbnail-delete-btn{
     opacity: 0;
 }
+
+.modal-content-master {
+    height:600px;
+    overflow:scroll;
+}

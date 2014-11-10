@@ -103,23 +103,23 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="14" value="流体" />
+                                <input type="button" class="btn btn-danger master-ryutai" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="14" value="流体" />
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="RyutaiRyaku" name="RyutaiRyaku" class="form-control" placeholder="略称" value="${valve.ryutaiRyaku}">
+                                <input type="text" id="RyutaiRyaku" name="RyutaiRyaku" class="form-control ryutai" placeholder="略称" value="${valve.ryutaiRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="Ryutai" name="Ryutai" class="form-control" value="${valve.ryutai}">
+                                <input type="text" id="Ryutai" name="Ryutai" class="form-control ryutai" value="${valve.ryutai}">
                             </div>
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="7" value="形式" />
+                                <input type="button" class="btn btn-danger master-keisiki" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="7" value="形式" />
 
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="KeisikiRyaku" name="KeisikiRyaku" class="form-control" value="${valve.keisikiRyaku}">
+                                <input type="text" id="KeisikiRyaku" name="KeisikiRyaku" class="form-control keisiki" value="${valve.keisikiRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="Keisiki" name="Keisiki" class="form-control" placeholder="" value="${valve.keisiki}">
+                                <input type="text" id="Keisiki" name="Keisiki" class="form-control keisiki" placeholder="" value="${valve.keisiki}">
                             </div>
                         </div>
                     </div>
@@ -127,23 +127,23 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="8" value="駆動方式" />
+                                <input type="button" class="btn btn-danger master-sousa" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="8" value="駆動方式" />
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="SousaRyaku" name="SousaRyaku" class="form-control" placeholder="略称" value="${valve.sousaRyaku}">
+                                <input type="text" id="SousaRyaku" name="SousaRyaku" class="form-control sousa" placeholder="略称" value="${valve.sousaRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="Sousa" name="Sousa" class="form-control" value="${valve.sousa}">
+                                <input type="text" id="Sousa" name="Sousa" class="form-control sousa" value="${valve.sousa}">
                             </div>
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="9" value="クラス" />
+                                <input type="button" class="btn btn-danger master-classtype" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="9" value="クラス" />
 
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="ClassRyaku" name="ClassRyaku" class="form-control" placeholder="" value="${valve.classRyaku}">
+                                <input type="text" id="ClassRyaku" name="ClassRyaku" class="form-control classtype" placeholder="" value="${valve.classRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="ClassType" name="ClassType" class="form-control" placeholder="" value="${valve.classType}">
+                                <input type="text" id="ClassType" name="ClassType" class="form-control classtype" placeholder="" value="${valve.classType}">
                             </div>
                         </div>
                     </div>
@@ -151,43 +151,43 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="10" value="呼び径" />
+                                <input type="button" class="btn btn-danger master-yobikei" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="10" value="呼び径" />
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="YobikeiRyaku" name="YobikeiRyaku" class="form-control" placeholder="略称" value="${valve.yobikeiRyaku}">
+                                <input type="text" id="YobikeiRyaku" name="YobikeiRyaku" class="form-control yobikei" placeholder="略称" value="${valve.yobikeiRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="Yobikei" name="Yobikei" class="form-control" value="${valve.yobikei}">
+                                <input type="text" id="Yobikei" name="Yobikei" class="form-control yobikei" value="${valve.yobikei}">
                             </div>
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="11" value="接続入口" />
+                                <input type="button" class="btn btn-danger master-szhou" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="11" value="接続入口" />
 
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="SzHouRyaku" name="SzHouRyaku" class="form-control" placeholder="" value="${valve.szHouRyaku}">
+                                <input type="text" id="SzHouRyaku" name="SzHouRyaku" class="form-control szhou" placeholder="" value="${valve.szHouRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="SzHou" name="SzHou" class="form-control" placeholder=""value="${valve.szHou}">
+                                <input type="text" id="SzHou" name="SzHou" class="form-control szhou" placeholder=""value="${valve.szHou}">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="12" value="接続規格" />
+                                <input type="button" class="btn btn-danger master-szkikaku" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="12" value="接続規格" />
                             </div>
                             <div class="col-md-5">
-                                <input type="text" id="SzKikaku" name="SzKikaku" class="form-control" value="${valve.szKikaku}">
+                                <input type="text" id="SzKikaku" name="SzKikaku" class="form-control szkikaku" value="${valve.szKikaku}">
                             </div>
                             <div class="col-md-1">
-                                <input type="button" class="btn btn-danger" onclick="getMasterByType(this)" id="13" value="本体材質" />
+                                <input type="button" class="btn btn-danger master-Zaisitu" onclick="getMasterByType(this)"  data-toggle="modal" data-target="#masterModal" id="13" value="本体材質" />
 
                             </div>
                             <div class="col-md-2">
-                                <input type="text" id="ZaisituRyaku" name="ZaisituRyaku" class="form-control" placeholder="略称" value="${valve.zaisituRyaku}">
+                                <input type="text" id="ZaisituRyaku" name="ZaisituRyaku" class="form-control Zaisitu" placeholder="略称" value="${valve.zaisituRyaku}">
                             </div>
                             <div class="col-md-3">
-                                <input type="text" id="Zaisitu" name="Zaisitu" class="form-control" placeholder="" value="${valve.zaisitu}">
+                                <input type="text" id="Zaisitu" name="Zaisitu" class="form-control Zaisitu" placeholder="" value="${valve.zaisitu}">
                             </div>
                         </div>
                     </div>
@@ -322,7 +322,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-2">
-                                <input type="button" class="btn btn-default" value="機器名称" />
+                                機器名称
                             </div>
                             <div class="col-md-10">
                                 <input type="text" name="kikiMei" class="form-control" />
@@ -332,7 +332,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-2">
-                                <input type="button" class="btn btn-default" value="主管係" />
+                                主管係
                             </div>
                             <div class="col-md-10">
                                 <input type="text" name="syukan" class="form-control" />
@@ -345,7 +345,7 @@
                                 <input type="button" class="btn btn-default" value="メーカー" />
                             </div>
                             <div class="col-md-3">
-                                <input type="text" name="makerRyaku" class="form-control" placeholder="略称" />
+                                略称
                             </div>
                             <div class="col-md-7">
                                 <input type="text" name="maker" class="form-control" />
@@ -442,6 +442,64 @@
     }
 
 
+</script>
+
+<style type="text/css">
+
+    .master-li:hover{
+        cursor:pointer;
+        background-color: #eee;
+    }
+</style>
+
+<div id="masterModal" class="modal fade masterModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content model-content-master" style="height:600px;overflow:scroll;">
+            <input id="master-type" type="hidden" value="" />
+            <input type="hidden" id="master-class" value="" />
+            <ul id="master-ul" class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function getMasterByType(obj){
+        var type=obj.value;
+        var masterName = new String($(obj).attr("class"));
+        var masterNames = masterName.split("master-");
+        $("#master-class").val(masterNames[1]);
+        var typeName="";
+//        alert(id);
+        $.post("/master/getMasterByTypeJson",{"type":type},function(data){
+            $("#master-type").val(type);
+            var masters = JSON.parse(data);
+
+            $("#master-ul").html("");
+            for(var i = 0;i<masters.length;i++){
+                var tmpHTML = '<li class="list-group-item master-li" onclick="chooseThisMaster(this)">'+masters[i].ryaku+'   '+masters[i].name+'</li>'
+                $("#master-ul").html($("#master-ul").html()+tmpHTML);
+            }
+//            console.log($('.masterModal'));
+        });
+    }
+
+    function chooseThisMaster(obj) {
+        $("#master-type").val();
+        var masterName = $("#master-class").val();
+        var values = new String(obj.innerHTML);
+        var masters = values.split("   ");
+        var targets = $("."+masterName);
+        for(var i = 0;i<targets.length;i++){
+            if(targets.length < 2){
+                targets[0].value = masters[1];
+                break;
+            }
+            targets[i].value = masters[i];
+        }
+    }
 </script>
 
 

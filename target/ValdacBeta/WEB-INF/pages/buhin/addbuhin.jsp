@@ -107,20 +107,20 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input type="button" class="btn btn-default" value="部品名" />
+                                                <input type="button" class="btn btn-default master-buhinMei" value="部品名" />
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="buhinMei" class="form-control" value="${buhin.buhinMei}" />
+                                                <input type="text" name="buhinMei" class="form-control buhinMei" value="${buhin.buhinMei}" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input type="button" class="btn btn-default" value="標準仕様" />
+                                                <input type="button" class="btn btn-default master-hyojunsiyou" value="標準仕様" />
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="hyojunSiyou" class="form-control" value="${buhin.hyojunSiyou}" />
+                                                <input type="text" name="hyojunSiyou" class="form-control hyojunsiyou" value="${buhin.hyojunSiyou}" />
                                             </div>
                                         </div>
                                     </div>
@@ -156,13 +156,13 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input type="button" class="btn btn-default" value="メーカー" />
+                                                <input type="button" class="btn btn-default master-maker" value="メーカー" />
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="text" name="makerRyaku" class="form-control" placeholder="略称" value="${buhin.makerRyaku}" />
+                                                <input type="text" name="makerRyaku" class="form-control maker" placeholder="略称" value="${buhin.makerRyaku}" />
                                             </div>
                                             <div class="col-md-7">
-                                                <input type="text" name="maker" class="form-control" value="${buhin.maker}" />
+                                                <input type="text" name="maker" class="form-control maker" value="${buhin.maker}" />
                                             </div>
                                         </div>
                                     </div>
@@ -170,10 +170,10 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input type="button" class="btn btn-default" value="資材名" />
+                                                <input type="button" class="btn btn-default master-sizainame" value="資材名" />
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="sizaiName" class="form-control" value="${buhin.sizaiName}" />
+                                                <input type="text" name="sizaiName" class="form-control sizainame" value="${buhin.sizaiName}" />
                                             </div>
                                         </div>
                                     </div>
@@ -181,10 +181,10 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input type="button" class="btn btn-default" value="品番" />
+                                                <input type="button" class="btn btn-default master-hinban" value="品番" />
                                             </div>
                                             <div class="col-md-10">
-                                                <input type="text" name="hinban" class="form-control" value="${buhin.hinban}" />
+                                                <input type="text" name="hinban" class="form-control hinban" value="${buhin.hinban}" />
                                             </div>
                                         </div>
                                     </div>
@@ -292,6 +292,64 @@
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
+
+<style type="text/css">
+
+    .master-li:hover{
+        cursor:pointer;
+        background-color: #eee;
+    }
+</style>
+
+<div id="masterModal" class="modal fade masterModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content model-content-master" style="height:600px;overflow:scroll;">
+            <input id="master-type" type="hidden" value="" />
+            <input type="hidden" id="master-class" value="" />
+            <ul id="master-ul" class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    function getMasterByType(obj){
+        var type=obj.value;
+        var masterName = new String($(obj).attr("class"));
+        var masterNames = masterName.split("master-");
+        $("#master-class").val(masterNames[1]);
+        var typeName="";
+//        alert(id);
+        $.post("/master/getMasterByTypeJson",{"type":type},function(data){
+            $("#master-type").val(type);
+            var masters = JSON.parse(data);
+
+            $("#master-ul").html("");
+            for(var i = 0;i<masters.length;i++){
+                var tmpHTML = '<li class="list-group-item master-li" onclick="chooseThisMaster(this)">'+masters[i].ryaku+'   '+masters[i].name+'</li>'
+                $("#master-ul").html($("#master-ul").html()+tmpHTML);
+            }
+//            console.log($('.masterModal'));
+        });
+    }
+
+    function chooseThisMaster(obj) {
+        $("#master-type").val();
+        var masterName = $("#master-class").val();
+        var values = new String(obj.innerHTML);
+        var masters = values.split("   ");
+        var targets = $("."+masterName);
+        for(var i = 0;i<targets.length;i++){
+            if(targets.length < 2){
+                targets[0].value = masters[1];
+                break;
+            }
+            targets[i].value = masters[i];
+        }
+    }
+</script>
 
 
 <script type="text/javascript">

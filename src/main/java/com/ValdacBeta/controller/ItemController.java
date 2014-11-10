@@ -196,6 +196,8 @@ public class ItemController {
         kiki.setKikiId(kikiForm.getKikiId());
         kikiService.updateKikiByKiki(kiki);
         valveService.updateValveDateById(kikiSysId);
+        List<Image> imageList = imageService.getImagesByKikiId(kikiId);
+        modelMap.addAttribute("imageList",imageList);
 
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
 
@@ -292,6 +294,8 @@ public class ItemController {
         buhin.setBuhinId(buhinForm.getBuhinId());
         buhinService.updateBuhinByBuhin(buhin);
         valveService.updateValveDateById(kikiSysId);
+        List<Image> imageList = imageService.getImagesByBuhinId(buhinId);
+        modelMap.addAttribute("imageList",imageList);
 
         Valve valve = valveService.getValveByKikiSysId(kikiSysId);
         Kiki kiki = kikiService.getKikiByKikiId(kikiId);
