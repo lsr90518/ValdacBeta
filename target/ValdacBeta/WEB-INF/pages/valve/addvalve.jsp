@@ -238,14 +238,13 @@
     }
 
     function getMasterByType(obj){
-        var id=obj.id;
+        var type=obj.value;
         var typeName="";
 //        alert(id);
-        $.getJSON("/master/getMasterByTypeJson?id="+id,function(data){
+        alert(type)
+        $.getJSON("/master/getMasterByTypeJson",{"type":type},function(data){
 
-            for(var nIndex=0;nIndex<data.length;nIndex++){
-
-            };
+            alert(data);
         });
     }
 </script>

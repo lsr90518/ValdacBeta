@@ -28,11 +28,13 @@ public class MasterController {
 
     @RequestMapping(value="/getMasterByTypeJson",method = RequestMethod.GET,produces = "text/html;charset=UTF-8")
     @ResponseBody
-    public String getMasterJson(@RequestParam(value = "id") String id,
+    public String getMasterJson(@RequestParam("type") String type,
                                 HttpSession session,
-                                ModelMap modelMap){
-        List<Master> masterList = masterService.getMasterByType(id);
-        Gson gson=new Gson();
+                                ModelMap modelMap) {
+        List<Master> masterList = masterService.getMasterByType(type);
+        System.out.println(type);
+        System.out.println(masterList.size());
+        Gson gson = new Gson();
         return gson.toJson(masterList);
     }
 }
