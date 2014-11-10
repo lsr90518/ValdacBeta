@@ -8,7 +8,6 @@ import com.ValdacBeta.dto.KikiForm;
 public class Kiki {
 
     public int kikiId;
-    public int kikiSysId;
     public String kikiBunrui;
     public String kikiBunruiSeq;
     public String kikiNo;
@@ -25,7 +24,6 @@ public class Kiki {
     public String updDate;
 
     public void makeupValveByForm(KikiForm kikiForm){
-        setKikiSysId(Integer.valueOf(kikiForm.getKikiSysId()));
         setKikiBunrui(kikiForm.getKikiBunrui());
         setKikiBunruiSeq(kikiForm.getKikiBunruiSeq());
         setKikiNo(kikiForm.getKikiNo());
@@ -42,20 +40,44 @@ public class Kiki {
         setUpdDate(kikiForm.getUpdDate());
     }
 
+    public String toText(){
+        String text =
+                    kikiBunrui+" "+
+                    kikiNo+" "+
+                    kikiMei+" "+
+                    syukan+" "+
+                    makerRyaku+" "+
+                    maker+" "+
+                    katasikiNo+" "+
+                    serialNo+" "+
+                    orderNo+" "+
+                    bikou;
+        return text;
+    }
+
+    public int getTrkDateInt(){
+        String intDate[] = trkDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+    public int getUpdDateInt(){
+        String intDate[] = updDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+
     public int getKikiId() {
         return kikiId;
     }
 
     public void setKikiId(int kikiId) {
         this.kikiId = kikiId;
-    }
-
-    public int getKikiSysId() {
-        return kikiSysId;
-    }
-
-    public void setKikiSysId(int kikiSysId) {
-        this.kikiSysId = kikiSysId;
     }
 
     public String getKikiBunrui() {

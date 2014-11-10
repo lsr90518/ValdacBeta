@@ -1379,6 +1379,9 @@ body > .header .logo .icon {
 .box.box-primary {
     border-top-color: #3c8dbc;
 }
+.box.box-kiki {
+    border-top-color: #37cccd;
+}
 .box.box-info {
     border-top-color: #00c0ef;
 }
@@ -1541,6 +1544,11 @@ body > .header .logo .icon {
     color: #fff;
     background: #3c8dbc;
     background-color: #3c8dbc;
+}
+.box.box-solid.box-kiki > .box-header {
+    color:#fff;
+    background: #37cccd;
+    background-color: #37cccd;
 }
 .box.box-solid.box-primary > .box-header a {
     color: #444;
@@ -1896,6 +1904,15 @@ Component: timeline
 .btn.btn-success:active,
 .btn.btn-success.hover {
     background-color: #008d4c;
+}
+.btn.btn-kiki {
+    background-color: #37cccd;
+    border-color: #2DACAD;
+}
+.btn.btn-kiki:hover,
+.btn.btn-kiki:active,
+.btn.btn-kiki.hover {
+    background-color: #2DACAD;
 }
 .btn.btn-info {
     background-color: #00c0ef;
@@ -3523,4 +3540,86 @@ fieldset[disabled] .btn-vk.active {
 .btn-vk .badge {
     color: #587ea3;
     background-color: #ffffff;
+}
+
+.operation-button{
+    opacity: 0;
+}
+
+.search-div{
+    margin-left: 50%;
+}
+
+.box-buhin{
+    border-top-color: rgba(26, 188, 156,1.0);
+}
+
+.btn-short{
+    padding:0 12px 0 12px;
+}
+
+.result-list a:hover{
+    box-shadow: 3px 1px 5px 1px #888;
+}
+
+.item-tab-active{
+    background-color: #001f3f;
+    color:#FFFFFF;
+}
+.item-tab-active:hover{
+    background-color: #000e1c;
+    color:#FFFFFF;
+}
+.item-tab-active:active{
+    color: #FFFFFF;
+}
+.item-tab-active:focus{
+    color: #FFFFFF;
+}
+
+.modal-xlg{
+    width:85%;
+}
+
+.previewDiv{
+    margin-top:50px;
+    text-align: center;
+}
+
+#imageList{
+    border-right:solid 5px #eee;
+    overflow-y: scroll;
+    height: 600px;
+}
+
+.btn.btn-file-block {
+    position: relative;
+    height: 35px;
+    overflow: hidden;
+}
+.btn.btn-file-block > input[type='file'] {
+    display: block !important;
+    width: 100% !important;
+    height: 35px !important;
+    opacity: 0 !important;
+    position: absolute;
+    top: -10px;
+    cursor: pointer;
+}
+
+.thumbnail-object {
+    padding: 10px;
+    border-bottom: dashed 1px #ddd;
+}
+
+.thumbnail-content {
+    height: 100px;
+}
+
+.thumbnail-content .imagesyu{
+    margin-bottom:45px;
+}
+
+.thumbnail-delete-btn{
+    opacity: 0;
 }

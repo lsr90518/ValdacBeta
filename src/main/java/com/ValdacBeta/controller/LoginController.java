@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("login")
 public class LoginController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class LoginController {
         if(user != null){
             session.setAttribute("user",user);
             modelMap.addAttribute("user",user);
-            return "addvalve";
+            return "redirect:/";
         } else {
             return "login";
         }

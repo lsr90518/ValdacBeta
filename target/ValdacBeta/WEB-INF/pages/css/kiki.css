@@ -1379,6 +1379,9 @@ body > .header .logo .icon {
 .box.box-primary {
     border-top-color: #3c8dbc;
 }
+.box.box-kiki {
+    border-top-color: #37cccd;
+}
 .box.box-info {
     border-top-color: #00c0ef;
 }
@@ -1541,6 +1544,11 @@ body > .header .logo .icon {
     color: #fff;
     background: #3c8dbc;
     background-color: #3c8dbc;
+}
+.box.box-solid.box-kiki > .box-header {
+    color:#fff;
+    background: #37cccd;
+    background-color: #37cccd;
 }
 .box.box-solid.box-primary > .box-header a {
     color: #444;
@@ -1943,7 +1951,6 @@ Component: timeline
 }
 .btn.btn-file {
     position: relative;
-    width: 120px;
     height: 35px;
     overflow: hidden;
 }
@@ -3530,4 +3537,39 @@ fieldset[disabled] .btn-vk.active {
 
 .operation-button{
     opacity: 0;
+}
+.modal-xlg{
+    width:85%;
+}
+
+.thumbnail-object {
+    padding: 10px;
+    border-bottom: dashed 1px #ddd;
+}
+
+.thumbnail-content {
+    height: 100px;
+}
+
+.thumbnail-content .imagesyu{
+    margin-bottom:45px;
+}
+
+.thumbnail-delete-btn{
+    opacity: 0;
+}
+
+.btn.btn-file-block {
+    position: relative;
+    height: 35px;
+    overflow: hidden;
+}
+.btn.btn-file-block > input[type='file'] {
+    display: block !important;
+    width: 100% !important;
+    height: 35px !important;
+    opacity: 0 !important;
+    position: absolute;
+    top: -10px;
+    cursor: pointer;
 }

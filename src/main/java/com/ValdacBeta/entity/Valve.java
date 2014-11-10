@@ -61,6 +61,50 @@ public class Valve {
         setFutai(valveForm.getFutai());
     }
 
+    public String toText(){
+        String text =
+                    vNo+" "+
+                    vNoSub+" "+
+                    benMeisyo+" "+
+                    keisikiRyaku+" "+
+                    keisiki+" "+
+                    sousaRyaku+" "+
+                    sousa+" "+
+                    classRyaku+" "+
+                    classType+" "+
+                    yobikeiRyaku+" "+
+                    yobikei+" "+
+                    szHouRyaku+" "+
+                    szHou+" "+
+                    szKikaku+" "+
+                    zaisituRyaku+" "+
+                    zaisitu+" "+
+                    aturyokuMax+" "+
+                    tani+" "+
+                    ondoMax+" "+
+                    ryutaiRyaku+" "+
+                    ryutai+" "+
+                    ics+" "+
+                    futai+" ";
+        return text;
+    }
+    public int getTrkDateInt(){
+        String intDate[] = trkDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+    public int getUpdDateInt(){
+        String intDate[] = updDate.split("/");
+        String result = "";
+        for (int i = 0; i < intDate.length; i++) {
+            result = result + intDate[i];
+        }
+        return Integer.valueOf(result);
+    }
+
     public int getKikiSysId() {
         return kikiSysId;
     }

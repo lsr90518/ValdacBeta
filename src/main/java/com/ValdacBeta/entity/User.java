@@ -14,6 +14,7 @@ public class User implements Serializable {
     public String username;
     public String kengen;
     public String profile;
+    public String department;
 
     public String getUserid() {
         return userid;
@@ -62,6 +63,4 @@ public class User implements Serializable {
     public void setDepartment(String department) {
         this.department = department;
     }
-
-    public String department;
 }
