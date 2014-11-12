@@ -128,17 +128,16 @@
                                                         <div class="col-md-4">
                                                             <select class="form-control" id="kCodeL-select">
                                                                 <option></option>
-                                                                <option>四国</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select class="form-control" id="kCodeM-select">
-                                                                <option>四国</option>
+                                                                <option></option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select class="form-control" id="kCodeS-select">
-                                                                <option>四国</option>
+                                                                <option></option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -149,32 +148,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <%--<ul class="dropdown-menu" id="location-master" role="menu" aria-labelledby="dLabel">--%>
-                                            <%--<li class="dropdown-submenu">--%>
-                                                <%--<a class="master-a">四国テスト</a>--%>
-                                                <%--<ul class="dropdown-menu">--%>
-                                                    <%--<li class="dropdown-submenu">--%>
-                                                        <%--<a class="master-a">阿南発電所</a>--%>
-                                                        <%--<ul class="dropdown-menu">--%>
-                                                            <%--<li><a class="master-a">三号機</a></li>--%>
-                                                        <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                <%--</ul>--%>
-                                            <%--</li>--%>
-                                            <%--<li><a class="master-a">徳島テスト</a></li>--%>
-                                            <%--<li class="dropdown-submenu">--%>
-                                                <%--<a class="master-a">阿南テスト</a>--%>
-                                                <%--<ul class="dropdown-menu">--%>
-                                                    <%--<li class="dropdown-submenu">--%>
-                                                        <%--<a>阿南発電所</a>--%>
-                                                        <%--<ul class="dropdown-menu">--%>
-                                                            <%--<li><a>三号機</a></li>--%>
-                                                        <%--</ul>--%>
-                                                    <%--</li>--%>
-                                                <%--</ul>--%>
-                                            <%--</li>--%>
-                                            <%--<li><a class="master-a">岡山テスト</a></li>--%>
-                                        <%--</ul>--%>
                                     </div>
                                 </div>
                             </div>
@@ -368,7 +341,17 @@
             var toggleInput = obj.currentTarget;
 
             var dropdownPanel = $(toggleInput).next(".dropdown-panel");
-            $(dropdownPanel).show();
+
+            $.get("/location/getKCodeLJson",function(data){
+                $("#kCodeL-select").html("");
+                var tmpHTML = "<option></option>";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeL-select").html(tmpHTML);
+                $(dropdownPanel).show();
+            });
         });
 
         $("#master-location-confirm").click(function(){
@@ -379,15 +362,33 @@
         });
 
         $("#master-location-cancel").click(function(){
-            $("#locationName").val("");
             $(".dropdown-panel").hide();
         });
 
         $("#kCodeL-select").change(function(){
             $("#kCodeL-input").val($("#kCodeL-select").val());
+            $.post("/location/getKcodeMJsonBykCodeL",{"kCodeL":$("#kCodeL-select").val()},function(data){
+                $("#kCodeM-select").html("");
+                var tmpHTML = "";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeM-select").html(tmpHTML);
+            });
         });
+
         $("#kCodeM-select").change(function(){
             $("#kCodeM-input").val($("#kCodeM-select").val());
+            $.post("/location/getKcodeSJsonBykCodeLkCodeM",{"kCodeL":$("#kCodeL-select").val(),"kCodeM":$("#kCodeM-select").val()},function(data){
+                $("#kCodeS-select").html("");
+                var tmpHTML = "<option></option>";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeS-select").html(tmpHTML);
+            });
         });
         $("#kCodeS-select").change(function(){
             $("#kCodeS-input").val($("#kCodeS-select").val());

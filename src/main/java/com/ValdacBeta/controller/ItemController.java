@@ -59,6 +59,11 @@ public class ItemController {
 //        }
     }
 
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String goValve(){
+        return "valve/addvalve";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addvlave(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap,HttpSession session){
         Valve valve = new Valve();

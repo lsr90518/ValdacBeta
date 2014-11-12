@@ -69,6 +69,57 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-2">
+                                <input type="button" class="btn btn-primary"  value="設置位置"/>
+                            </div>
+                            <div class="col-md-10" id="location-master-div">
+                                <input type="text" id="locationName" name="locationName" class="form-control master-toggle" value="${valve.locationName}">
+                                <div class="panel panel-default dropdown-panel" id="location-master">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <input type="text" id="kCodeL-input" class="form-control" placeholder="会社名" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="kCodeM-input" class="form-control" placeholder="発電所" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="kCodeS-input" class="form-control" placeholder="機器名" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <select class="form-control" id="kCodeL-select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" id="kCodeM-select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" id="kCodeS-select">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2"><input type="button" id="master-location-confirm" class="btn btn-block btn-success" value="確定"></div>
+                                            <div class="col-md-2"><input type="button" id="master-location-cancel" class="btn btn-block btn-default" value="取消"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
                                 <input type="button" class="btn btn-primary"  value="ICS番号"/>
                             </div>
                             <div class="col-md-10">
@@ -425,6 +476,63 @@
         $(".kiki-table tr").mouseout(function(obj){
             var tr = $(obj.currentTarget)[0];
             $(tr).find(".operation-button").css("opacity","0");
+        });
+
+        $(".master-toggle").focus(function(obj){
+            var toggleInput = obj.currentTarget;
+
+            var dropdownPanel = $(toggleInput).next(".dropdown-panel");
+
+            $.get("/location/getKCodeLJson",function(data){
+                $("#kCodeL-select").html("");
+                var tmpHTML = "<option></option>";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeL-select").html(tmpHTML);
+                $(dropdownPanel).show();
+            });
+        });
+
+        $("#master-location-confirm").click(function(){
+            var locationValue = $("#kCodeL-input").val()+$("#kCodeM-input").val();
+            locationValue = locationValue+$("#kCodeS-input").val();
+            $("#locationName").val(locationValue);
+            $(".dropdown-panel").hide();
+        });
+
+        $("#master-location-cancel").click(function(){
+            $(".dropdown-panel").hide();
+        });
+
+        $("#kCodeL-select").change(function(){
+            $("#kCodeL-input").val($("#kCodeL-select").val());
+            $.post("/location/getKcodeMJsonBykCodeL",{"kCodeL":$("#kCodeL-select").val()},function(data){
+                $("#kCodeM-select").html("");
+                var tmpHTML = "";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeM-select").html(tmpHTML);
+            });
+        });
+
+        $("#kCodeM-select").change(function(){
+            $("#kCodeM-input").val($("#kCodeM-select").val());
+            $.post("/location/getKcodeSJsonBykCodeLkCodeM",{"kCodeL":$("#kCodeL-select").val(),"kCodeM":$("#kCodeM-select").val()},function(data){
+                $("#kCodeS-select").html("");
+                var tmpHTML = "<option></option>";
+                var masters = JSON.parse(data);
+                for(var i = 0;i<masters.length;i++){
+                    tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
+                }
+                $("#kCodeS-select").html(tmpHTML);
+            });
+        });
+        $("#kCodeS-select").change(function(){
+            $("#kCodeS-input").val($("#kCodeS-select").val());
         });
 
     });
