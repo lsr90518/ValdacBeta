@@ -98,20 +98,20 @@
                                         <table class="table table-hover valve-table">
                                             <thead><tr>
                                                 <th>弁番号</th>
+                                                <th>設置位置</th>
                                                 <th>弁名称</th>
                                                 <th>型式</th>
                                                 <th>操作</th>
-                                                <th>クラス</th>
                                                 <th>操作</th>
                                             </tr></thead>
                                             <tbody>
                                             <c:forEach items="${newValveList}" var="newValve">
                                                 <tr>
                                                     <td>${newValve.vNo}</td>
+                                                    <td>${newValve.locationName}</td>
                                                     <td>${newValve.benMeisyo}</td>
                                                     <td>${newValve.keisiki}</td>
                                                     <td>${newValve.sousa}</td>
-                                                    <td>${newValve.classType}</td>
 
                                                     <td>
                                                         <div class="operation-button">
@@ -129,20 +129,20 @@
                                         <table class="table table-hover valve-table">
                                             <thead><tr>
                                                 <th>弁番号</th>
+                                                <th>設置位置</th>
                                                 <th>弁名称</th>
                                                 <th>型式</th>
                                                 <th>操作</th>
-                                                <th>クラス</th>
                                                 <th>操作</th>
                                             </tr></thead>
                                             <tbody>
                                             <c:forEach items="${updateValveList}" var="updateValve">
                                                 <tr>
                                                     <td>${updateValve.vNo}</td>
+                                                    <td>${updateValve.locationName}</td>
                                                     <td>${updateValve.benMeisyo}</td>
                                                     <td>${updateValve.keisiki}</td>
                                                     <td>${updateValve.sousa}</td>
-                                                    <td>${updateValve.classType}</td>
 
                                                     <td>
                                                         <div class="operation-button">

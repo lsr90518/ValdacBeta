@@ -6,6 +6,7 @@ package com.ValdacBeta.dto;
  */
 public class ValveForm {
     public int kikiSysId;
+    public String locationName;
     public String kCode;
     public String kikiSysSeq;
     public String vNo;
@@ -40,6 +41,14 @@ public class ValveForm {
 
     public void setKikiSysId(int kikiSysId) {
         this.kikiSysId = kikiSysId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 
     public String getkCode() {

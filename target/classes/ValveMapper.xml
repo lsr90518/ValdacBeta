@@ -19,8 +19,9 @@
     </select>
 
     <insert id="insertValve" parameterType="Valve">
-        insert into kikisystem(kCode, kikiSysSeq , vNo, vNoSub, benMeisyo, keisikiRyaku, keisiki, sousaRyaku, sousa, classRyaku, classType, yobikeiRyaku, yobikei, szHouRyaku, szHou, szKikaku, zaisituRyaku, zaisitu, aturyokuMax, tani, ondoMax, ryutaiRyaku, ryutai, ics, futai, trkDate, updDate)
+        insert into kikisystem(locationName, kCode ,kikiSysSeq , vNo, vNoSub, benMeisyo, keisikiRyaku, keisiki, sousaRyaku, sousa, classRyaku, classType, yobikeiRyaku, yobikei, szHouRyaku, szHou, szKikaku, zaisituRyaku, zaisitu, aturyokuMax, tani, ondoMax, ryutaiRyaku, ryutai, ics, futai, trkDate, updDate)
         values(
+        #{locationName},
         #{kCode},
         #{kikiSysSeq},
         #{vNo},
@@ -53,7 +54,9 @@
 
     <update id="updateValveByValve" parameterType="Valve">
         update kikisystem
-        set vNo = #{vNo},
+        set locationName = #{locationName},
+            kCode = #{kCode},
+            vNo = #{vNo},
             vNoSub = #{vNoSub},
             benMeisyo = #{benMeisyo},
             keisikiRyaku = #{keisikiRyaku},

@@ -7,6 +7,7 @@ import com.ValdacBeta.dto.ValveForm;
  */
 public class Valve {
     public int kikiSysId;
+    public String locationName;
     public String kCode;
     public String kikiSysSeq;
     public String vNo;
@@ -37,6 +38,7 @@ public class Valve {
 
     public void makeupValveByForm(ValveForm valveForm) {
         setvNo(valveForm.getvNo());
+        setLocationName(valveForm.getLocationName());
         setvNoSub(valveForm.getvNoSub());
         setBenMeisyo(valveForm.getBenMeisyo());
         setKeisikiRyaku(valveForm.getKeisikiRyaku());
@@ -65,6 +67,7 @@ public class Valve {
         String text =
                     vNo+" "+
                     vNoSub+" "+
+                    locationName+" "+
                     benMeisyo+" "+
                     keisikiRyaku+" "+
                     keisiki+" "+
@@ -111,6 +114,14 @@ public class Valve {
 
     public void setKikiSysId(int kikiSysId) {
         this.kikiSysId = kikiSysId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 
     public String getkCode() {

@@ -59,16 +59,6 @@ public class ItemController {
 //        }
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(HttpSession session){
-
-//        if((User)session.getAttribute("user") != null){
-            return "valve/addvalve";
-//        } else {
-//            return "login";
-//        }
-    }
-
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addvlave(@ModelAttribute("ValveForm")ValveForm valveForm, ModelMap modelMap,HttpSession session){
         Valve valve = new Valve();
