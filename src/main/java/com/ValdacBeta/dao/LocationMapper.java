@@ -1,6 +1,7 @@
 package com.ValdacBeta.dao;
 
-import com.ValdacBeta.entity.Valve;
+import com.ValdacBeta.entity.Location;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -9,23 +10,16 @@ import java.util.List;
  */
 public interface LocationMapper {
 
-    public List<Valve> findAllValve();
+    @Select("select * from location order by kCodeL,kCodeM,kCodeS")
+    public List<Location> findAllLocation();
 
-    public void insertValve(Valve valve);
+    /**kCodeLを抽出する*/
+    public List<String> findKCodeL();
 
-    public int getLastInsertId();
+    /**kCodeMを抽出する*/
+    public List<String> findKCodeMByL(Location location);
 
-    public List<Valve> findTenValves();
+    /**kCodeSを抽出する*/
+    public List<String> findKCodeSByLM(Location location);
 
-    public Valve findValveByKikiSysId(int kikiSysId);
-
-    public void deleteKikiSystemByKikiSysId(Integer kikiSysId);
-
-    void updateValveByValve(Valve valve);
-
-    List<Valve> findLastUpdateTenValves();
-
-    List<Valve> findLastTenValves();
-
-    void updateValveDateById(Valve valve);
 }

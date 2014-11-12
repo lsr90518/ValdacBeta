@@ -42,7 +42,7 @@
                                 <a href="/profile/getUserProfile" class="btn btn-default btn-flat">プロフィール</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">退出</a>
+                                <a href="/logout" class="btn btn-default btn-flat">退出</a>
                             </div>
                         </li>
                     </ul>
