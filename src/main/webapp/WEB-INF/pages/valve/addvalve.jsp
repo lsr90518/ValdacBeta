@@ -369,7 +369,7 @@
             $("#kCodeL-input").val($("#kCodeL-select").val());
             $.post("/location/getKcodeMJsonBykCodeL",{"kCodeL":$("#kCodeL-select").val()},function(data){
                 $("#kCodeM-select").html("");
-                var tmpHTML = "";
+                var tmpHTML = "<option></option>";
                 var masters = JSON.parse(data);
                 for(var i = 0;i<masters.length;i++){
                     tmpHTML = tmpHTML+ "<option>" + masters[i] + "</option>";
